@@ -19,7 +19,7 @@ export default function RootLayout({
       ${mohave.variable} ${quicksand.variable}
       `}
     >
-      <body className="m-4">
+      <body>
         <Nav />
         {children}
       </body>
