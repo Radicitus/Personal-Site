@@ -1,24 +1,13 @@
-import { Inter, Lobster_Two, Roboto, Roboto_Mono } from "next/font/google";
+import { Mohave, Quicksand } from "next/font/google";
 
-export const inter = Inter({
+export const mohave = Mohave({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-mohave",
 });
 
-export const roboto_mono = Roboto_Mono({
+export const quicksand = Quicksand({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-roboto-mono",
-});
-
-export const roboto = Roboto({
-  weight: ["400", "500", "700"],
-  subsets: ["latin"],
-  variable: "--font-roboto",
-});
-export const lobster = Lobster_Two({
-  weight: ["700"],
-  subsets: ["latin"],
-  variable: "--font-lobster",
+  variable: "--font-quicksand",
 });
