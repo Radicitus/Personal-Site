@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Nav() {
   return (
     <div className="navbar bg-base-100">
@@ -26,38 +28,42 @@ export default function Nav() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a href="/">Home</a>
+              <Link href={"/"}>Home</Link>
             </li>
             <li>
-              <a href="/experience">Experience</a>
+              <Link href={"/experience"}>Experience</Link>
             </li>
             <li>
-              <a href="/projects">Projects</a>
+              <Link href={"/projects"}>Projects</Link>
             </li>
             <li>
-              <a href="/about">About</a>
+              <Link href={"/about"}>About</Link>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-3xl font-mohave">CS</a>
+        <Link
+          href={"/"}
+          className="btn btn-ghost normal-case text-4xl font-mohave"
+        >
+          CS
+        </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+
+      <div className="navbar-end">
+        <ul className="menu menu-horizontal px-1 hidden lg:flex">
           <li>
-            <a href="/">Home</a>
+            <Link href={"/"}>Home</Link>
           </li>
           <li>
-            <a href="/experience">Experience</a>
+            <Link href={"/experience"}>Experience</Link>
           </li>
           <li>
-            <a href="/projects">Projects</a>
+            <Link href={"/projects"}>Projects</Link>
           </li>
           <li>
-            <a href="/about">About</a>
+            <Link href={"/about"}>About</Link>
           </li>
         </ul>
-      </div>
-      <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">
           <div className="indicator">
             <svg
