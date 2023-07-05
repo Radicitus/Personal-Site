@@ -20,7 +20,8 @@ export default function RootLayout({
       `}
     >
       <body className="m-4">
-        <Nav>{children}</Nav>
+        <Nav />
+        {children}
       </body>
     </html>
   );
