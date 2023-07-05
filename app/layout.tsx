@@ -17,6 +17,7 @@ export default function RootLayout({
       lang="en"
       className={`
       ${mohave.variable} ${quicksand.variable}
+      ${quicksand.className}
       `}
     >
       <body>

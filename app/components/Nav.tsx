@@ -45,18 +45,19 @@ export default function Nav() {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] px-2 py-3 drop-shadow-2xl bg-base-100 rounded-box w-52
+            flex divide-y"
           >
-            <li>
+            <li className="pb-2">
               <Link href={"/"}>Home</Link>
             </li>
-            <li>
+            <li className="py-2">
               <Link href={"/experience"}>Experience</Link>
             </li>
-            <li>
+            <li className="py-2">
               <Link href={"/projects"}>Projects</Link>
             </li>
-            <li>
+            <li className="pt-2">
               <Link href={"/about"}>About</Link>
             </li>
           </ul>
