@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Nav() {
   return (
-    <div className="navbar bg-base-100 px-8 pt-6">
+    <nav className="navbar bg-base-100 px-8 pt-6 sticky top-0">
       <div className="navbar-start">
         <Link href={"/"} className="text-4xl font-mohave font-bold">
           CS
@@ -63,6 +63,6 @@ export default function Nav() {
           </ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
