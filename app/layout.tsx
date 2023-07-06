@@ -1,7 +1,7 @@
 import "./globals.css";
 import { mohave, quicksand } from "@/app/fonts";
-import NavDrawer from "@/app/components/Nav/NavDrawer";
-import Footer from "@/app/components/Footer";
+import NavDrawer from "@/app/components/Marginals/Nav/NavDrawer";
+import Footer from "@/app/components/Marginals/Footer";
 
 export const metadata = {
   title: "Cam's Personal Site",

@@ -18,7 +18,7 @@ export default function Footer() {
       <div>
         <div className="grid grid-flow-col gap-4">
           {/* GitHub */}
-          <a href={"https://github.com/Radicitus/next-ecommerce"}>
+          <a href={"https://github.com/Radicitus"} target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -31,7 +31,7 @@ export default function Footer() {
           </a>
 
           {/* LinkedIn */}
-          <a href={"https://www.linkedin.com/in/crsherry/"}>
+          <a href={"https://www.linkedin.com/in/crsherry/"} target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -44,7 +44,7 @@ export default function Footer() {
           </a>
 
           {/* Email */}
-          <a href={"mailto:hello@cameronsherry.com"}>
+          <a href={"mailto:hello@cameronsherry.com"} target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
