@@ -5,13 +5,17 @@ export default function Footer() {
   return (
     <footer className="footer footer-center p-5 bg-primary text-primary-content mt-auto">
       <div>
-        <Image
-          src={profileImage}
-          alt={"Cameron Sherry"}
-          width={50}
-          height={50}
-          className="rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
-        />
+        <div className="avatar">
+          <div className="w-12 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+            <Image
+              src={profileImage}
+              alt={"Cameron Sherry"}
+              width={128}
+              height={128}
+            />
+          </div>
+        </div>
+
         <p className="font-bold">Made with ❤️ by Cam</p>
         <p>Copyright © 2023 - All right reserved</p>
       </div>
