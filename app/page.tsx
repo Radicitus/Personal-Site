@@ -10,7 +10,7 @@ export default function Home() {
     "position as a frontend developer.";
 
   return (
-    <main>
+    <main className="md:px-8 lg:px-16">
       <div>
         <Hero
           heroImage={profileImage}
