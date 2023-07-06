@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { setTheme } from "@/redux/slices/themeSlice";
+import { installedThemes, swapTheme } from "@/redux/slices/themeSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 
@@ -10,19 +10,17 @@ export default function DarkLight() {
   const theme = useAppSelector((state) => state.themeReducer.theme);
 
   useEffect(() => {
-    document
-      .querySelector("html")!
-      .setAttribute("data-theme", theme ? "night" : "bumblebee");
+    document.querySelector("html")!.setAttribute("data-theme", theme);
   }, [theme]);
 
   return (
     <label className="swap swap-rotate">
       {/* this hidden checkbox controls the state */}
       <input
-        defaultChecked={theme === false}
+        defaultChecked={theme === installedThemes[0]}
         type="checkbox"
         onClick={() => {
-          dispatch(setTheme(!theme));
+          dispatch(swapTheme());
         }}
       />
 

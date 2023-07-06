@@ -1,22 +1,26 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+
+export const installedThemes = ["bumblebee", "night"];
 
 type InitialStateType = {
-  theme: boolean;
+  theme: string;
 };
 
 const initialState = {
-  theme: false,
+  theme: installedThemes[0],
 } as InitialStateType;
 
 export const theme = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    setTheme: (state, action: PayloadAction<boolean>) => {
-      return { theme: action.payload };
+    swapTheme: (state) => {
+      state.theme === installedThemes[0]
+        ? (state.theme = installedThemes[1])
+        : (state.theme = installedThemes[0]);
     },
   },
 });
 
-export const { setTheme } = theme.actions;
+export const { swapTheme } = theme.actions;
 export default theme.reducer;
