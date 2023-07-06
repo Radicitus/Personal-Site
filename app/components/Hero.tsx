@@ -8,14 +8,10 @@ export default function Hero({
 }: heroParamsType) {
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col lg:flex-row-reverse text-center">
         <div className="avatar">
-          <div className="w-80 rounded-full">
-            <Image
-              src={heroImage}
-              className="max-w-sm rounded-lg shadow-2xl"
-              alt="A picture of Cameron Sherry"
-            />
+          <div className="w-80 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <Image src={heroImage} alt="A picture of Cameron Sherry" />
           </div>
         </div>
         <div>
