@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { navItemsArrayType } from "@/types/navItemsArrayType";
+import { linkArrayType } from "@/types/linkArrayType";
 
-export default function Nav({ navItems }: navItemsArrayType) {
+export default function Nav({ navItems }: linkArrayType) {
   return (
     <div className="w-full navbar px-8 pt-6 sticky top-0">
       <div className="flex-1 px-2 mx-2">

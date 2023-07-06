@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { navItemsArrayType } from "@/types/navItemsArrayType";
+import { linkArrayType } from "@/types/linkArrayType";
 
-export default function NavSidebar({ navItems }: navItemsArrayType) {
+export default function NavSidebar({ navItems }: linkArrayType) {
   return (
     <div className="drawer-side">
       <label htmlFor="nav-drawer" className="drawer-overlay"></label>

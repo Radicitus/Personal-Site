@@ -1,6 +1,5 @@
 import "./globals.css";
 import { mohave, quicksand } from "@/app/fonts";
-import Hero from "@/app/components/Hero";
 import NavDrawer from "@/app/components/Nav/NavDrawer";
 
 export const metadata = {
@@ -22,10 +21,7 @@ export default function RootLayout({
       `}
     >
       <body>
-        <NavDrawer>
-          <Hero />
-          {children}
-        </NavDrawer>
+        <NavDrawer>{children}</NavDrawer>
       </body>
     </html>
   );

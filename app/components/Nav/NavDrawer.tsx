@@ -1,9 +1,9 @@
 import NavSidebar from "@/app/components/Nav/NavSidebar";
-import { navItemType } from "@/types/navItemType";
+import { linkType } from "@/types/linkType";
 import Nav from "@/app/components/Nav/Nav";
 
 export default function NavDrawer({ children }: { children: React.ReactNode }) {
-  const navItems: navItemType[] = [
+  const navItems: linkType[] = [
     { title: "Home", path: "/" },
     { title: "Experience", path: "/experience" },
     { title: "Projects", path: "/projects" },
