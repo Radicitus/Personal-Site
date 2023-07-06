@@ -15,7 +15,6 @@ export default function NavDrawer({ children }: { children: React.ReactNode }) {
       <input id="nav-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         <Nav navItems={navItems} />
-
         {/* Page content here */}
         {children}
       </div>
