@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { linkArrayType } from "@/types/linkArrayType";
-import ThemeSwitch from "@/app/components/Marginals/Nav/ThemeSwitch";
 
 export default function Nav({ navItems }: linkArrayType) {
   return (
@@ -13,7 +12,6 @@ export default function Nav({ navItems }: linkArrayType) {
         </Link>
       </div>
       <div className="flex-none hidden lg:block">
-        <ThemeSwitch />
         <ul className="menu menu-horizontal">
           {/* Navbar menu content here */}
           {navItems.map((item) => (
@@ -24,7 +22,6 @@ export default function Nav({ navItems }: linkArrayType) {
         </ul>
       </div>
       <div className="flex-none lg:hidden">
-        <ThemeSwitch />
         <label htmlFor="nav-drawer" className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
