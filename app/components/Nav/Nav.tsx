@@ -5,7 +5,7 @@ import { linkArrayType } from "@/types/linkArrayType";
 
 export default function Nav({ navItems }: linkArrayType) {
   return (
-    <div className="w-full navbar px-8 pt-6 sticky top-0">
+    <div className="w-full navbar px-8 pt-6 bg-base-100 sticky top-0">
       <div className="flex-1 px-2 mx-2">
         <Link href={"/"} className="text-4xl font-mohave font-bold">
           <span className="align-sub">CS</span>
