@@ -1,6 +1,6 @@
 import "./globals.css";
-import Nav from "@/app/components/Nav";
 import { mohave, quicksand } from "@/app/fonts";
+import NavDrawer from "@/app/components/Nav/NavDrawer";
 
 export const metadata = {
   title: "Cam's Personal Site",
@@ -21,8 +21,7 @@ export default function RootLayout({
       `}
     >
       <body>
-        <Nav />
-        {children}
+        <NavDrawer>{children}</NavDrawer>
       </body>
     </html>
   );
