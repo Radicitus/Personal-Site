@@ -13,8 +13,8 @@ export default function Nav({ navItems }: linkArrayType) {
         </Link>
       </div>
       <div className="flex-none hidden lg:block">
-        <ThemeSwitch />
         <ul className="menu menu-horizontal">
+          <ThemeSwitch />
           {/* Navbar menu content here */}
           {navItems.map((item) => (
             <li key={item.title}>

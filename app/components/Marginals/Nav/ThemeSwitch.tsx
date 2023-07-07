@@ -12,7 +12,7 @@ export default function DarkLight() {
   }, [theme]);
 
   return (
-    <label className="swap swap-rotate">
+    <label className="swap swap-rotate pr-4 border-r-2 border-r-neutral-200">
       {/* this hidden checkbox controls the state */}
       <input
         defaultChecked={theme === installedThemes[1]}
