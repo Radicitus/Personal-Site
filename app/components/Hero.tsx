@@ -11,7 +11,7 @@ export default function Hero({
       <div className="hero-content flex-col lg:flex-row-reverse text-center">
         <div className="avatar">
           <div className="w-72 lg:w-80 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-            <Image src={heroImage} alt="A picture of Cameron Sherry" />
+            <Image priority src={heroImage} alt="A picture of Cameron Sherry" />
           </div>
         </div>
         <div>
