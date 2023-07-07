@@ -2,7 +2,7 @@ import Link from "next/link";
 import { linkArrayType } from "@/types/linkArrayType";
 import ThemeSwitch from "@/app/components/Marginals/Nav/ThemeSwitch";
 
-export default function Nav({ navItems }: linkArrayType) {
+export default function Nav({ links }: linkArrayType) {
   return (
     <div className="w-full navbar px-8 pt-6 bg-base-100 sticky top-0 z-[1]">
       <div className="flex-1 px-2 mx-2">
@@ -14,9 +14,11 @@ export default function Nav({ navItems }: linkArrayType) {
         <ul className="menu menu-horizontal">
           <ThemeSwitch />
           {/* Navbar menu content here */}
-          {navItems.map((item) => (
-            <li key={item.title}>
-              <Link href={item.path}>{item.title}</Link>
+          {links.map((link) => (
+            <li key={link.title}>
+              <Link href={link.path} target={link.target}>
+                {link.title}
+              </Link>
             </li>
           ))}
         </ul>
