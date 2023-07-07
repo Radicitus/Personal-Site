@@ -7,7 +7,7 @@ export default function Hero({
   heroDescription,
 }: heroParamsType) {
   return (
-    <div className="hero min-h-screen">
+    <div className="hero h-screen lg:h-128">
       <div className="hero-content flex-col lg:flex-row-reverse text-center">
         <div className="avatar">
           <div className="w-72 lg:w-80 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
