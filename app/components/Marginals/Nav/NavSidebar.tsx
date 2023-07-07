@@ -11,7 +11,7 @@ export default function NavSidebar({ navItems }: linkArrayType) {
   };
 
   return (
-    <div className="drawer-side">
+    <div className="drawer-side z-[2]">
       <label htmlFor="nav-drawer" className="drawer-overlay"></label>
       <ul className="menu p-4 pt-8 w-64 h-full bg-base-100 flex divide-y">
         {/* Sidebar content here */}
