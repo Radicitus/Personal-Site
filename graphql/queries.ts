@@ -5,6 +5,12 @@ const GET_ALL_PROJECTS = gql`
     projects {
       data {
         id
+        attributes {
+          slug
+          description
+          title
+          content
+        }
       }
     }
   }

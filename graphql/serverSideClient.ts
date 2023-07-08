@@ -1,4 +1,4 @@
-import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+import { HttpLink } from "@apollo/client";
 import {
   NextSSRInMemoryCache,
   NextSSRApolloClient,
@@ -10,7 +10,7 @@ export const { getClient } = registerApolloClient(() => {
     cache: new NextSSRInMemoryCache(),
     link: new HttpLink({
       // https://studio.apollographql.com/public/spacex-l4uc6p/
-      uri: "https://strapi.cameronsherry.com/graphql",
+      uri: process.env.CMS_URL,
       // you can disable result caching here if you want to
       // (this does not work if you are rendering your page with `export const dynamic = "force-static"`)
       // fetchOptions: { cache: "no-store" },

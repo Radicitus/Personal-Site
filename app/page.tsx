@@ -2,18 +2,7 @@ import Hero from "@/app/components/Hero";
 import profileImage from "/public/Profile.png";
 import { linkType } from "@/types/linkType";
 import { getClient } from "@/graphql/serverSideClient";
-import { gql } from "@apollo/client";
-
-export const revalidate = 5;
-const query = gql`
-  query {
-    projects {
-      data {
-        id
-      }
-    }
-  }
-`;
+import { GET_ALL_PROJECTS } from "@/graphql/queries";
 
 export default async function Home() {
   const myName = "Cameron Sherry";
@@ -28,7 +17,9 @@ export default async function Home() {
   ];
 
   const client = getClient();
-  const { data } = await client.query({ query });
+  const data = await client
+    .query({ query: GET_ALL_PROJECTS })
+    .then((res) => res.data.projects.data);
 
   return (
     <main className="md:px-8 lg:px-16">
@@ -40,7 +31,14 @@ export default async function Home() {
           links={links}
         />
         <div>Home</div>
-        <div>{JSON.stringify(data.projects.data)}</div>
+        {JSON.stringify(data)}
+        {data.map((project) => (
+          <div>
+            <div>{project.id}</div>
+            <div>{project.attributes.title}</div>
+            <div>{project.attributes.description}</div>
+          </div>
+        ))}
       </div>
     </main>
   );
