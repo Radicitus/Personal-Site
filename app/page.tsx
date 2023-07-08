@@ -31,7 +31,7 @@ export default async function Home() {
           links={links}
         />
         <div>Home</div>
-        {JSON.stringify(data)}
+        {/*{JSON.stringify(data)}*/}
         {data.map((project) => (
           <div>
             <div>{project.id}</div>
