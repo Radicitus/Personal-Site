@@ -1,8 +1,8 @@
 import Hero from "@/app/components/Hero";
 import profileImage from "/public/Profile.png";
 import { linkType } from "@/types/linkType";
-import { getClient } from "@/graphql/serverSideClient";
-import { GET_ALL_PROJECTS } from "@/graphql/queries";
+import { getClient } from "@/graphql/clients/serverSideClient";
+import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
 
 export default async function Home() {
   const myName = "Cameron Sherry";
