@@ -3,6 +3,7 @@ import profileImage from "/public/Profile.png";
 import { linkType } from "@/types/linkType";
 import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
+import Image from "next/image";
 
 export default async function Home() {
   const myName = "Cameron Sherry";
@@ -37,6 +38,19 @@ export default async function Home() {
             <div>{project.id}</div>
             <div>{project.attributes.title}</div>
             <div>{project.attributes.description}</div>
+            <div>
+              {project.attributes.media.data.map((attr) => (
+                <div>
+                  <div>{attr.attributes.url}</div>
+                  <Image
+                    src={attr.attributes.url}
+                    width={256}
+                    height={256}
+                    alt=""
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
