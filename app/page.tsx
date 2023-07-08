@@ -1,8 +1,21 @@
 import Hero from "@/app/components/Hero";
 import profileImage from "/public/Profile.png";
 import { linkType } from "@/types/linkType";
+import { getClient } from "@/graphql/serverSideClient";
+import { gql } from "@apollo/client";
 
-export default function Home() {
+export const revalidate = 5;
+const query = gql`
+  query {
+    projects {
+      data {
+        id
+      }
+    }
+  }
+`;
+
+export default async function Home() {
   const myName = "Cameron Sherry";
   const myHeadline =
     "Hi there! I'm a fullstack developer and designer, with a focus on" +
@@ -14,6 +27,9 @@ export default function Home() {
     { title: "Contact Me", path: "/contact", target: "_self" },
   ];
 
+  const client = getClient();
+  const { data } = await client.query({ query });
+
   return (
     <main className="md:px-8 lg:px-16">
       <div>
@@ -24,6 +40,7 @@ export default function Home() {
           links={links}
         />
         <div>Home</div>
+        <div>{JSON.stringify(data.projects.data)}</div>
       </div>
     </main>
   );
