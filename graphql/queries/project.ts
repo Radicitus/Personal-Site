@@ -14,6 +14,9 @@ export const GET_ALL_PROJECTS = gql`
               attributes {
                 name
                 url
+                alternativeText
+                width
+                height
               }
             }
           }
