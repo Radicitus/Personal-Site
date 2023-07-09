@@ -1,9 +1,10 @@
-import { Project } from "@/types/strapi/project";
+import { ProjectType } from "@/types/strapi/projectType";
+import { ImageType } from "@/types/strapi/imageType";
 
-export function destructureProjectImages(project: Project) {
-  const { media } = project.data.attributes;
-  const images = media.map((image) => {
-    const { name, url, alternativeText, width, height } = image.data.attributes;
+export function destructureProjectImages(project: ProjectType): ImageType[] {
+  const { media } = project.attributes;
+  return media.data.map((image) => {
+    const { name, url, alternativeText, width, height } = image.attributes;
     return {
       name,
       url,
@@ -12,5 +13,4 @@ export function destructureProjectImages(project: Project) {
       height,
     };
   });
-  return images;
 }

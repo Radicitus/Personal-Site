@@ -4,6 +4,8 @@ import { linkType } from "@/types/linkType";
 import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
 import Image from "next/image";
+import { destructureProjectImages } from "@/utils/strapiDestructuring";
+import { ProjectType } from "@/types/strapi/projectType";
 
 export default async function Home() {
   const myName = "Cameron Sherry";
@@ -18,7 +20,7 @@ export default async function Home() {
   ];
 
   const client = getClient();
-  const data = await client
+  const projects: ProjectType[] = await client
     .query({ query: GET_ALL_PROJECTS })
     .then((res) => res.data.projects.data);
 
@@ -32,21 +34,20 @@ export default async function Home() {
           links={links}
         />
         <div>Home</div>
-        {/*{JSON.stringify(data)}*/}
-        {data.map((project) => (
+
+        {projects.map((project) => (
           <div>
-            <div>{project.id}</div>
             <div>{project.attributes.title}</div>
             <div>{project.attributes.description}</div>
             <div>
-              {project.attributes.media.data.map((attr) => (
+              {destructureProjectImages(project).map((image) => (
                 <div>
-                  <div>{attr.attributes.url}</div>
+                  <div>{image.name}</div>
                   <Image
-                    src={attr.attributes.url}
+                    src={image.url}
                     width={256}
                     height={256}
-                    alt=""
+                    alt={image.alternativeText || ""}
                   />
                 </div>
               ))}
