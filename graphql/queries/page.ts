@@ -45,7 +45,7 @@ export const GET_PAGE = gql`
 
 export const GET_NAV_PAGES = gql`
   query {
-    pages {
+    pages(sort: "nav_order:asc") {
       data {
         attributes {
           slug

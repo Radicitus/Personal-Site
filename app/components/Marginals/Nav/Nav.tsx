@@ -16,7 +16,7 @@ export default function Nav({ links }: { links: LinkType[] }) {
           {/* Navbar menu content here */}
           {links.map((link) => (
             <li key={link.title}>
-              <Link href={link.path} target={link.target}>
+              <Link href={link.path} target={"_" + link.target}>
                 {link.title}
               </Link>
             </li>

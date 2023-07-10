@@ -11,7 +11,7 @@ import { FooterType } from "@/types/strapi/footerType";
 export default async function Footer() {
   // Get the footer from Strapi
   const client = getClient();
-  let footer: FooterType = await client.query({ query: GET_FOOTER });
+  const footer: FooterType = await client.query({ query: GET_FOOTER });
 
   // Avatar
   const footerAvatar =

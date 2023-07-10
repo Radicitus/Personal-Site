@@ -19,7 +19,7 @@ export default function NavSidebar({ links }: { links: LinkType[] }) {
           <li key={link.title} className="py-2 first:pb-2 last:pt-2">
             <Link
               href={link.path}
-              target={link.target}
+              target={"_" + link.target}
               onClick={handleNavClick}
             >
               {link.title}
