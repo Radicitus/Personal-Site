@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { linkArrayType } from "@/types/linkArrayType";
+import { LinkType } from "@/types/linkType";
 
-export default function NavSidebar({ links }: linkArrayType) {
+export default function NavSidebar({ links }: { links: LinkType[] }) {
   const handleNavClick = () => {
     setTimeout(() => {
       document.getElementById("nav-drawer")!.click();

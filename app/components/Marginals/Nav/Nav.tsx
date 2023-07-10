@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { linkArrayType } from "@/types/linkArrayType";
 import ThemeSwitch from "@/app/components/Marginals/Nav/ThemeSwitch";
+import { LinkType } from "@/types/linkType";
 
-export default function Nav({ links }: linkArrayType) {
+export default function Nav({ links }: { links: LinkType[] }) {
   return (
     <div className="w-full navbar px-8 pt-6 bg-base-100 sticky top-0 z-[1]">
       <div className="flex-1 px-2 mx-2">

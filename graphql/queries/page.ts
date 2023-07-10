@@ -6,7 +6,7 @@ export const GET_PAGE = gql`
       data {
         attributes {
           slug
-          path
+          title
           lead_hero {
             data {
               attributes {
@@ -34,6 +34,29 @@ export const GET_PAGE = gql`
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_NAV_PAGES = gql`
+  query {
+    pages {
+      data {
+        attributes {
+          slug
+          title
+          nav_order
+          link {
+            data {
+              attributes {
+                path
+                title
+                target
               }
             }
           }

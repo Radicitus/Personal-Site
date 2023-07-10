@@ -1,8 +1,17 @@
 import NavSidebar from "@/app/components/Marginals/Nav/NavSidebar";
 import { LinkType } from "@/types/linkType";
 import Nav from "@/app/components/Marginals/Nav/Nav";
+import { getClient } from "@/graphql/clients/serverSideClient";
 
-export default function NavDrawer({ children }: { children: React.ReactNode }) {
+export default async function NavDrawer({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  // Get page nav data from Strapi
+  const client = getClient();
+  // let footer: FooterType = await client.query({ query: GET_FOOTER });
+
   const navItems: LinkType[] = [
     { title: "Home", path: "/", target: "_self" },
     { title: "Experience", path: "/experience", target: "_self" },

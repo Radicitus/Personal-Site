@@ -1,15 +1,18 @@
 import { HeroType } from "@/types/strapi/heroType";
-import { ButtonType } from "@/types/strapi/buttonType";
+import { LinkType } from "@/types/linkType";
 
 export type PageType = {
   attributes: {
     slug: string;
-    path: string;
+    title: string;
+    nav_order: number;
+    link: {
+      data: {
+        attributes: LinkType;
+      };
+    };
     lead_hero: {
       data: HeroType;
-    };
-    buttons: {
-      data: ButtonType[];
     };
   };
 };
