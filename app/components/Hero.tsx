@@ -6,28 +6,34 @@ export default function Hero({
   heroImage,
   heroTitle,
   heroDescription,
-  links,
+  buttons,
 }: heroParamsType) {
   return (
     <div className="hero h-screen lg:h-128">
       <div className="hero-content flex-col lg:flex-row-reverse text-center">
         <div className="avatar">
           <div className="w-72 lg:w-80 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-            <Image priority src={heroImage} alt="A picture of Cameron Sherry" />
+            <Image
+              priority
+              src={heroImage.attributes.url}
+              alt={heroImage.attributes.alternativeText}
+              width={heroImage.attributes.width}
+              height={heroImage.attributes.height}
+            />
           </div>
         </div>
         <div>
           <h1 className="text-5xl font-bold">{heroTitle}</h1>
           <p className="py-6">{heroDescription}</p>
           <div className="flex space-x-4 justify-center">
-            {links &&
-              links.map((link) => (
+            {buttons &&
+              buttons.map((button) => (
                 <Link
-                  href={link.path}
-                  target={link.target}
+                  href={button.attributes.path}
+                  target={"_" + button.attributes.target}
                   className="btn btn-primary"
                 >
-                  {link.title}
+                  {button.attributes.title}
                 </Link>
               ))}
           </div>

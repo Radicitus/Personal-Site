@@ -1,29 +1,34 @@
+import { getClient } from "@/graphql/clients/serverSideClient";
+import { GET_PAGE } from "@/graphql/queries/page";
+// COMPONENTS
 import Hero from "@/app/components/Hero";
-import profileImage from "/public/Profile.png";
-import { linkType } from "@/types/linkType";
+// TYPES
+import { PageType } from "@/types/strapi/pageType";
+import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
 
-export default function Home() {
-  const myName = "Cameron Sherry";
-  const myHeadline =
-    "Hi there! I'm a fullstack developer and designer, with a focus on" +
-    "frontend development. My current stack is React, Next.js," +
-    "TailwindCSS, and TypeScript. I'm currently looking for a full-time " +
-    "position as a frontend developer.";
-  const links: linkType[] = [
-    { title: "Contact Me", path: "/contact", target: "_self" },
-    { title: "Contact Me", path: "/contact", target: "_self" },
-  ];
+export default async function Home() {
+  // Get the home page from Strapi
+  const client = getClient();
+  const res: PageSearchResultType = await client.query({
+    query: GET_PAGE,
+    variables: { slug: "home" },
+  });
+  const homePage: PageType = res.data.pages.data[0];
+
+  // Destructure section data
+  const myIntroHero = homePage.attributes.lead_hero.data.attributes;
 
   return (
     <main className="md:px-8 lg:px-16">
       <div>
         <Hero
-          heroImage={profileImage}
-          heroTitle={myName}
-          heroDescription={myHeadline}
-          links={links}
+          heroImage={myIntroHero.cover.data}
+          heroTitle={myIntroHero.title}
+          heroDescription={myIntroHero.description}
+          buttons={myIntroHero.buttons.data}
         />
         <div>Home</div>
+        <div>{homePage.attributes.slug}</div>
       </div>
     </main>
   );
