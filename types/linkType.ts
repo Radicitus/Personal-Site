@@ -1,4 +1,4 @@
-export type linkType = {
+export type LinkType = {
   title: string;
   path: string;
   target: "_blank" | "_self";

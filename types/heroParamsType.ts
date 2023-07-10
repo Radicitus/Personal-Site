@@ -1,9 +1,9 @@
 import { StaticImageData } from "next/image";
-import { linkType } from "@/types/linkType";
+import { ButtonType } from "@/types/strapi/buttonType";
 
 export type heroParamsType = {
   heroImage: StaticImageData;
   heroTitle: string;
   heroDescription: string;
-  links: linkType[];
+  buttons: ButtonType[];
 };

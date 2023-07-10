@@ -1,4 +1,4 @@
-import { ProjectMediaType } from "@/types/strapi/projectMediaType";
+import { ImageType } from "@/types/strapi/imageType";
 
 export type ProjectType = {
   attributes: {
@@ -7,7 +7,7 @@ export type ProjectType = {
     description: string | null;
     content: string | "";
     media: {
-      data: ProjectMediaType[] | [];
+      data: ImageType[] | [];
     };
   };
 };

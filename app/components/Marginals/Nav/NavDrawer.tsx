@@ -1,9 +1,9 @@
 import NavSidebar from "@/app/components/Marginals/Nav/NavSidebar";
-import { linkType } from "@/types/linkType";
+import { LinkType } from "@/types/linkType";
 import Nav from "@/app/components/Marginals/Nav/Nav";
 
 export default function NavDrawer({ children }: { children: React.ReactNode }) {
-  const navItems: linkType[] = [
+  const navItems: LinkType[] = [
     { title: "Home", path: "/", target: "_self" },
     { title: "Experience", path: "/experience", target: "_self" },
     { title: "Projects", path: "/projects", target: "_self" },

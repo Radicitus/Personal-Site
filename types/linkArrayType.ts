@@ -1,5 +1,5 @@
-import { linkType } from "@/types/linkType";
+import { LinkType } from "@/types/linkType";
 
 export type linkArrayType = {
-  links: linkType[];
+  links: LinkType[];
 };

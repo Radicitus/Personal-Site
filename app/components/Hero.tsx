@@ -6,7 +6,7 @@ export default function Hero({
   heroImage,
   heroTitle,
   heroDescription,
-  links,
+  buttons,
 }: heroParamsType) {
   return (
     <div className="hero h-screen lg:h-128">
@@ -20,14 +20,14 @@ export default function Hero({
           <h1 className="text-5xl font-bold">{heroTitle}</h1>
           <p className="py-6">{heroDescription}</p>
           <div className="flex space-x-4 justify-center">
-            {links &&
-              links.map((link) => (
+            {buttons &&
+              buttons.map((button) => (
                 <Link
-                  href={link.path}
-                  target={link.target}
+                  href={button.attributes.path}
+                  target={button.attributes.target}
                   className="btn btn-primary"
                 >
-                  {link.title}
+                  {button.attributes.title}
                 </Link>
               ))}
           </div>
