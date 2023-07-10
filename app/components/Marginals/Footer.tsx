@@ -1,23 +1,31 @@
 import Image from "next/image";
-import profileImage from "/public/Profile.png";
+import { getClient } from "@/graphql/clients/serverSideClient";
+import { FooterType } from "@/types/strapi/footerType";
+import { GET_FOOTER } from "@/graphql/queries/single";
 
-export default function Footer() {
+export default async function Footer() {
+  // Get the footer from Strapi
+  const client = getClient();
+  let footer: FooterType = await client.query({ query: GET_FOOTER });
+  const footerAvatar =
+    footer.data.footer.data.attributes.avatar.data.attributes;
+
   return (
     <footer className="footer footer-center p-5 bg-primary text-primary-content mt-auto">
       <div>
         <div className="avatar">
           <div className="w-12 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
             <Image
-              src={profileImage}
-              alt={"Cameron Sherry"}
+              src={footerAvatar.url}
+              alt={footerAvatar.alternativeText}
               width={128}
               height={128}
             />
           </div>
         </div>
 
-        <p className="font-bold">Made with ❤️ by Cam</p>
-        <p>Copyright © 2023 - All right reserved</p>
+        <p className="font-bold">{footer.data.footer.data.attributes.tag}</p>
+        <p>{footer.data.footer.data.attributes.subtag}</p>
       </div>
       <div>
         <div className="grid grid-flow-col gap-4">
