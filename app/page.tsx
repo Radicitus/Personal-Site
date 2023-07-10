@@ -2,7 +2,10 @@ import Hero from "@/app/components/Hero";
 import profileImage from "/public/Profile.png";
 import { linkType } from "@/types/linkType";
 import { getClient } from "@/graphql/clients/serverSideClient";
-import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
+import {
+  GET_ALL_PROJECTS,
+  GET_PROJECT_BY_SLUG,
+} from "@/graphql/queries/project";
 import Image from "next/image";
 import { destructureProjectImages } from "@/utils/strapiDestructuring";
 import { ProjectType } from "@/types/strapi/projectType";
@@ -21,7 +24,10 @@ export default async function Home() {
 
   const client = getClient();
   const projects: ProjectType[] = await client
-    .query({ query: GET_ALL_PROJECTS })
+    .query({
+      query: GET_PROJECT_BY_SLUG,
+      variables: { slug: "this-is-an-empty-test" },
+    })
     .then((res) => res.data.projects.data);
 
   return (
