@@ -7,6 +7,23 @@ export const GET_FOOTER = gql`
         attributes {
           tag
           subtag
+          icons {
+            data {
+              attributes {
+                title
+                type
+                link {
+                  data {
+                    attributes {
+                      title
+                      path
+                      target
+                    }
+                  }
+                }
+              }
+            }
+          }
           avatar {
             data {
               attributes {

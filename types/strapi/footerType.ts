@@ -1,4 +1,5 @@
 import { ImageType } from "@/types/strapi/imageType";
+import { IconType } from "@/types/strapi/IconType";
 
 export type FooterType = {
   data: {
@@ -7,6 +8,9 @@ export type FooterType = {
         attributes: {
           tag: string;
           subtag: string;
+          icons: {
+            data: IconType[];
+          };
           avatar: {
             data: ImageType;
           };
