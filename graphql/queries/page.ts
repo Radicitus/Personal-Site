@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const GET_HOME_PAGE = gql`
-  query {
-    homePage {
+export const GET_PAGE = gql`
+  query Page($slug: String!) {
+    pages(filters: { slug: { eq: $slug } }) {
       data {
         attributes {
           slug

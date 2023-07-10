@@ -1,15 +1,22 @@
-import Hero from "@/app/components/Hero";
 import { getClient } from "@/graphql/clients/serverSideClient";
+import { GET_PAGE } from "@/graphql/queries/page";
+// COMPONENTS
+import Hero from "@/app/components/Hero";
+// TYPES
 import { PageType } from "@/types/strapi/pageType";
-import { GET_HOME_PAGE } from "@/graphql/queries/page";
+import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
 
 export default async function Home() {
+  // Get the home page from Strapi
   const client = getClient();
-  const homePage: PageType = await client
-    .query({ query: GET_HOME_PAGE })
-    .then((res) => res.data.homePage);
+  const res: PageSearchResultType = await client.query({
+    query: GET_PAGE,
+    variables: { slug: "home" },
+  });
+  const homePage: PageType = res.data.pages.data[0];
 
-  const myIntroHero = homePage.data.attributes.lead_hero.data.attributes;
+  // Destructure section data
+  const myIntroHero = homePage.attributes.lead_hero.data.attributes;
 
   return (
     <main className="md:px-8 lg:px-16">
@@ -21,7 +28,7 @@ export default async function Home() {
           buttons={myIntroHero.buttons.data}
         />
         <div>Home</div>
-        <div>{homePage.data.attributes.slug}</div>
+        <div>{homePage.attributes.slug}</div>
       </div>
     </main>
   );
