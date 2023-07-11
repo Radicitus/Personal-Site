@@ -6,6 +6,8 @@ import Hero from "@/app/components/Hero";
 import { PageType } from "@/types/strapi/pageType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
 
+export const revalidate = 60;
+
 export default async function Home() {
   // Get the home page from Strapi
   const client = getClient();

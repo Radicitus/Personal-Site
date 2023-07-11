@@ -8,6 +8,8 @@ import EmailIcon from "@/app/components/Icons/EmailIcon";
 // TYPES
 import { FooterType } from "@/types/strapi/footerType";
 
+export const revalidate = 60;
+
 export default async function Footer() {
   // Get the footer from Strapi
   const client = getClient();

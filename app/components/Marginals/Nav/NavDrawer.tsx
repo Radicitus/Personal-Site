@@ -7,6 +7,8 @@ import NavSidebar from "@/app/components/Marginals/Nav/NavSidebar";
 import { LinkType } from "@/types/linkType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
 
+export const revalidate = 60;
+
 export default async function NavDrawer({
   children,
 }: {
