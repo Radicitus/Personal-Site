@@ -5,6 +5,7 @@ import Hero from "@/app/components/Hero";
 // TYPES
 import { PageType } from "@/types/strapi/pageType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
+import ExperienceHero from "@/app/components/ExperienceHero";
 
 export const revalidate = 60;
 
@@ -22,16 +23,13 @@ export default async function Home() {
 
   return (
     <main className="md:px-8 lg:px-16">
-      <div>
-        <Hero
-          heroImage={myIntroHero.cover.data}
-          heroTitle={myIntroHero.title}
-          heroDescription={myIntroHero.description}
-          buttons={myIntroHero.buttons.data}
-        />
-        <div>Home</div>
-        <div>{homePage.attributes.slug}</div>
-      </div>
+      <Hero
+        heroImage={myIntroHero.cover.data}
+        heroTitle={myIntroHero.title}
+        heroDescription={myIntroHero.description}
+        buttons={myIntroHero.buttons.data}
+      />
+      <ExperienceHero />
     </main>
   );
 }
