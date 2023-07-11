@@ -7,7 +7,7 @@ export type ProjectType = {
     description: string | null;
     content: string | "";
     media: {
-      data: ImageType[] | [];
+      data: ImageType[]; // Add more types here
     };
   };
 };

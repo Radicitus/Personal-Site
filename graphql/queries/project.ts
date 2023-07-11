@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_ALL_PROJECTS = gql`
   query Projects($start: Int = 0, $limit: Int = -1) {
-    projects(pagination: { start: $start, limit: $limit }) {
+    projects(sort: "rank:asc", pagination: { start: $start, limit: $limit }) {
       data {
         attributes {
           slug
