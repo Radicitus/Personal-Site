@@ -9,10 +9,10 @@ export default function Hero({
   buttons,
 }: heroParamsType) {
   return (
-    <div className="hero h-[calc(100vh-80px)] lg:h-128">
-      <div className="hero-content flex-col lg:flex-row-reverse text-center">
+    <div className="hero h-[calc(100vh-80px)] md:px-8 lg:h-128 lg:px-16">
+      <div className="hero-content flex-col text-center lg:flex-row-reverse">
         <div className="avatar">
-          <div className="w-72 lg:w-80 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+          <div className="w-72 rounded-full ring ring-primary ring-offset-2 ring-offset-base-100 lg:w-80">
             <Image
               priority
               src={heroImage.attributes.url}
@@ -25,13 +25,13 @@ export default function Hero({
         <div>
           <h1 className="text-5xl font-bold">{heroTitle}</h1>
           <p className="py-6">{heroDescription}</p>
-          <div className="flex space-x-4 justify-center">
+          <div className="flex justify-center space-x-4">
             {buttons &&
               buttons.map((button) => (
                 <Link
                   href={button.attributes.path}
                   target={"_" + button.attributes.target}
-                  className="btn btn-primary"
+                  className="btn-primary btn"
                 >
                   {button.attributes.title}
                 </Link>
