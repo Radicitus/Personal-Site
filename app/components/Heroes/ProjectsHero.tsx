@@ -12,6 +12,8 @@ import {
   BiLogoTypescript,
 } from "react-icons/bi";
 
+export const revalidate = 60;
+
 export default async function ProjectsHero() {
   // Get all projects from Strapi
   const client = getClient();
