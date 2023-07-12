@@ -9,7 +9,7 @@ export default function Hero({
   buttons,
 }: heroParamsType) {
   return (
-    <div className="hero h-[100svh] md:px-8 lg:h-128 lg:px-16">
+    <div className="hero h-screen md:px-8 lg:h-128 lg:px-16">
       <div className="hero-content flex-col text-center lg:flex-row-reverse">
         <div className="avatar">
           <div className="w-72 rounded-full ring ring-primary ring-offset-2 ring-offset-base-100 lg:w-80">
@@ -32,6 +32,7 @@ export default function Hero({
                   href={button.attributes.path}
                   target={"_" + button.attributes.target}
                   className="btn-primary btn"
+                  key={button.attributes.path}
                 >
                   {button.attributes.title}
                 </Link>

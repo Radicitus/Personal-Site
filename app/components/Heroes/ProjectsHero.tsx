@@ -49,7 +49,7 @@ export default async function ProjectsHero() {
       <div className="pb-6 lg:hidden">
         {projects &&
           projects.slice(0, 3).map((project) => (
-            <div className="px-6 py-5 md:px-40">
+            <div key={project.attributes.slug} className="px-6 py-5 md:px-40">
               <div className="card card-compact h-96 bg-base-100 text-left shadow-xl">
                 <figure>
                   <Image
@@ -80,7 +80,7 @@ export default async function ProjectsHero() {
       <div className="hidden lg:block">
         {projects &&
           projects.map((project) => (
-            <div className="carousel-item">
+            <div key={project.attributes.slug} className="carousel-item">
               <Image
                 src={project.attributes.media.data[0].attributes.url}
                 alt={
