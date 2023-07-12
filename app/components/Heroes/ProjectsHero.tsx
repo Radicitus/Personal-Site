@@ -48,12 +48,12 @@ export default async function ProjectsHero() {
         {/*<BiLogoGit />*/}
       </div>
 
-      {/* Mobile: 3 Most Recent Projects */}
+      {/* Mobile List: 3 Most Recent Projects */}
       <div className="pb-10 lg:hidden">
         <ProjectsList projects={projects} limit={3} />
       </div>
 
-      {/* Grid View of All Projects */}
+      {/* Grid View: 3 Most Recent Projects */}
       <div className="hidden pb-20 lg:block">
         <ProjectsGrid projects={projects} limit={3} />
       </div>
