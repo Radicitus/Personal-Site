@@ -46,10 +46,10 @@ export default async function ProjectsHero() {
       </div>
 
       {/* Mobile: 3 Most Recent Projects */}
-      <div className="pb-6 lg:hidden">
+      <div className="pb-10 lg:hidden">
         {projects &&
           projects.slice(0, 3).map((project) => (
-            <div key={project.attributes.slug} className="px-6 py-5 md:px-40">
+            <div key={project.attributes.slug} className="px-6 py-7 md:px-40">
               <div className="card card-compact h-96 bg-base-100 text-left shadow-xl">
                 <figure>
                   <Image
@@ -77,7 +77,7 @@ export default async function ProjectsHero() {
       </div>
 
       {/* Grid View of All Projects */}
-      <div className="hidden pb-16 lg:block">
+      <div className="hidden pb-20 lg:block">
         <div className="flex flex-row flex-wrap place-content-center gap-12">
           {projects &&
             projects.map((project) => (
