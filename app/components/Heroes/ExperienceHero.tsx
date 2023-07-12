@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { GiPrism } from "react-icons/gi";
+import { SiTacobell } from "react-icons/si";
+import { FaUniversity } from "react-icons/fa";
 
 export default function ExperienceHero() {
   return (
@@ -10,6 +13,12 @@ export default function ExperienceHero() {
           From rewriting core infrastructure code for online learning to
           building serverless intermediary caching functions for production
           microservices, I've got experience!
+        </div>
+
+        <div className="flex flex-row flex-wrap justify-center gap-4 px-12 pb-4 text-4xl">
+          <FaUniversity />
+          <GiPrism />
+          <SiTacobell />
         </div>
 
         <Link href={"/experience"}>

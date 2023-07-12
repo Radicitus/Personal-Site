@@ -3,6 +3,14 @@ import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
 import { ProjectSearchResultType } from "@/types/strapi/projectSearchResultType";
 import Image from "next/image";
+import {
+  BiLogoAngular,
+  BiLogoGraphql,
+  BiLogoPostgresql,
+  BiLogoReact,
+  BiLogoTailwindCss,
+  BiLogoTypescript,
+} from "react-icons/bi";
 
 export default async function ProjectsHero() {
   // Get all projects from Strapi
@@ -20,7 +28,22 @@ export default async function ProjectsHero() {
         Take a peek at some of the awesome projects I've worked on!
       </div>
 
-      {/* 3 Most Recent Projects */}
+      <div className="flex flex-row flex-wrap justify-center gap-2 px-12 pb-4 text-4xl">
+        <BiLogoReact />
+        <BiLogoAngular />
+        <BiLogoTailwindCss />
+        <BiLogoTypescript />
+        <BiLogoGraphql />
+        <BiLogoPostgresql />
+        {/*<SiPrisma />*/}
+        {/*<BiLogoNodejs />*/}
+        {/*<BiLogoAws />*/}
+        {/*<RxVercelLogo className="text-3xl" />*/}
+        {/*<FaCloudflare />*/}
+        {/*<BiLogoGit />*/}
+      </div>
+
+      {/* Mobile: 3 Most Recent Projects */}
       <div className="pb-6 lg:hidden">
         {projects &&
           projects.slice(0, 3).map((project) => (
@@ -51,6 +74,7 @@ export default async function ProjectsHero() {
           ))}
       </div>
 
+      {/* Grid View of All Projects */}
       <div className="hidden lg:block">
         {projects &&
           projects.map((project) => (
