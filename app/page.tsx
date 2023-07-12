@@ -2,11 +2,12 @@ import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_PAGE } from "@/graphql/queries/page";
 // COMPONENTS
 import Hero from "@/app/components/Heroes/Hero";
+import ExperienceHero from "@/app/components/Heroes/ExperienceHero";
+import ProjectsHero from "@/app/components/Heroes/ProjectsHero";
+import ContactMeHero from "@/app/components/Heroes/ContactMeHero";
 // TYPES
 import { PageType } from "@/types/strapi/pageType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
-import ExperienceHero from "@/app/components/Heroes/ExperienceHero";
-import ProjectsHero from "@/app/components/Heroes/ProjectsHero";
 
 export const revalidate = 60;
 
@@ -32,6 +33,7 @@ export default async function Home() {
       />
       <ExperienceHero />
       <ProjectsHero />
+      <ContactMeHero />
     </main>
   );
 }
