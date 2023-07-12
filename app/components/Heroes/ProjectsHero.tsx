@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
-import { ProjectSearchResultType } from "@/types/strapi/projectSearchResultType";
-import Image from "next/image";
+// COMPONENTS
 import {
   BiLogoAngular,
   BiLogoGraphql,
@@ -11,6 +10,10 @@ import {
   BiLogoTailwindCss,
   BiLogoTypescript,
 } from "react-icons/bi";
+import ProjectsGrid from "@/app/components/ProjectsGrid";
+import ProjectsList from "@/app/components/ProjectsList";
+// TYPES
+import { ProjectSearchResultType } from "@/types/strapi/projectSearchResultType";
 
 export const revalidate = 60;
 
@@ -47,68 +50,12 @@ export default async function ProjectsHero() {
 
       {/* Mobile: 3 Most Recent Projects */}
       <div className="pb-10 lg:hidden">
-        {projects &&
-          projects.slice(0, 3).map((project) => (
-            <div key={project.attributes.slug} className="px-6 py-7 md:px-40">
-              <div className="card-compact card h-96 bg-base-100 text-left shadow-xl">
-                <figure>
-                  <Image
-                    src={project.attributes.media.data[0].attributes.url}
-                    alt={
-                      project.attributes.media.data[0].attributes
-                        .alternativeText
-                    }
-                    width={512}
-                    height={512}
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">{project.attributes.title}</h2>
-                  <p>{project.attributes.description}</p>
-                  <div className="card-actions justify-end">
-                    <Link href={"/projects/" + project.attributes.slug}>
-                      <button className="btn-primary btn">SEE MORE</button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        <ProjectsList projects={projects} limit={3} />
       </div>
 
       {/* Grid View of All Projects */}
       <div className="hidden pb-20 lg:block">
-        <div className="flex flex-row flex-wrap place-content-center gap-12">
-          {projects &&
-            projects.map((project) => (
-              <Link
-                key={project.attributes.slug}
-                href={"/projects/" + project.attributes.slug}
-              >
-                <div className="relative h-60 w-104 overflow-hidden rounded-3xl shadow-xl ring ring-primary ring-opacity-20">
-                  <Image
-                    src={project.attributes.media.data[0].attributes.url}
-                    alt={
-                      project.attributes.media.data[0].attributes
-                        .alternativeText
-                    }
-                    width={project.attributes.media.data[0].attributes.width}
-                    height={project.attributes.media.data[0].attributes.height}
-                    className="z-0 h-60 w-104 object-cover object-top"
-                  />
-
-                  <div
-                    className="group absolute inset-0 z-10 flex items-center justify-center bg-primary-focus
-                   bg-opacity-50 opacity-0 duration-700 ease-in-out hover:opacity-100"
-                  >
-                    <div className="translate-y-8 text-4xl font-semibold text-white duration-700 ease-in-out group-hover:transform-none">
-                      <div>{project.attributes.title}</div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-        </div>
+        <ProjectsGrid projects={projects} limit={3} />
       </div>
 
       <Link href={"/projects"}>
