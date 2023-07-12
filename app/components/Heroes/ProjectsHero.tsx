@@ -50,7 +50,7 @@ export default async function ProjectsHero() {
         {projects &&
           projects.slice(0, 3).map((project) => (
             <div key={project.attributes.slug} className="px-6 py-7 md:px-40">
-              <div className="card card-compact h-96 bg-base-100 text-left shadow-xl">
+              <div className="card-compact card h-96 bg-base-100 text-left shadow-xl">
                 <figure>
                   <Image
                     src={project.attributes.media.data[0].attributes.url}
@@ -81,7 +81,10 @@ export default async function ProjectsHero() {
         <div className="flex flex-row flex-wrap place-content-center gap-12">
           {projects &&
             projects.map((project) => (
-              <Link href={"/projects/" + project.attributes.slug}>
+              <Link
+                key={project.attributes.slug}
+                href={"/projects/" + project.attributes.slug}
+              >
                 <div className="relative h-60 w-104 overflow-hidden rounded-3xl shadow-xl ring ring-primary ring-opacity-20">
                   <Image
                     src={project.attributes.media.data[0].attributes.url}
@@ -92,7 +95,6 @@ export default async function ProjectsHero() {
                     width={project.attributes.media.data[0].attributes.width}
                     height={project.attributes.media.data[0].attributes.height}
                     className="z-0 h-60 w-104 object-cover object-top"
-                    key={project.attributes.slug}
                   />
 
                   <div
