@@ -30,7 +30,7 @@ export default async function ProjectsHero() {
         Take a peek at some of the awesome projects I've worked on!
       </div>
 
-      <div className="flex flex-row flex-wrap justify-center gap-2 px-12 pb-4 text-4xl">
+      <div className="flex flex-row flex-wrap justify-center gap-2 px-12 pb-4 text-4xl lg:pb-12">
         <BiLogoReact />
         <BiLogoAngular />
         <BiLogoTailwindCss />
@@ -46,10 +46,10 @@ export default async function ProjectsHero() {
       </div>
 
       {/* Mobile: 3 Most Recent Projects */}
-      <div className="pb-6 lg:hidden">
+      <div className="pb-10 lg:hidden">
         {projects &&
           projects.slice(0, 3).map((project) => (
-            <div className="px-6 py-5 md:px-40">
+            <div key={project.attributes.slug} className="px-6 py-7 md:px-40">
               <div className="card card-compact h-96 bg-base-100 text-left shadow-xl">
                 <figure>
                   <Image
@@ -77,21 +77,36 @@ export default async function ProjectsHero() {
       </div>
 
       {/* Grid View of All Projects */}
-      <div className="hidden lg:block">
-        {projects &&
-          projects.map((project) => (
-            <div className="carousel-item">
-              <Image
-                src={project.attributes.media.data[0].attributes.url}
-                alt={
-                  project.attributes.media.data[0].attributes.alternativeText
-                }
-                width={512}
-                height={512}
-                className="rounded-box object-cover"
-              />
-            </div>
-          ))}
+      <div className="hidden pb-20 lg:block">
+        <div className="flex flex-row flex-wrap place-content-center gap-12">
+          {projects &&
+            projects.map((project) => (
+              <Link href={"/projects/" + project.attributes.slug}>
+                <div className="relative h-60 w-104 overflow-hidden rounded-3xl shadow-xl ring ring-primary ring-opacity-20">
+                  <Image
+                    src={project.attributes.media.data[0].attributes.url}
+                    alt={
+                      project.attributes.media.data[0].attributes
+                        .alternativeText
+                    }
+                    width={project.attributes.media.data[0].attributes.width}
+                    height={project.attributes.media.data[0].attributes.height}
+                    className="z-0 h-60 w-104 object-cover object-top"
+                    key={project.attributes.slug}
+                  />
+
+                  <div
+                    className="group absolute inset-0 z-10 flex items-center justify-center bg-primary-focus
+                   bg-opacity-50 opacity-0 duration-700 ease-in-out hover:opacity-100"
+                  >
+                    <div className="translate-y-8 text-4xl font-semibold text-white duration-700 ease-in-out group-hover:transform-none">
+                      <div>{project.attributes.title}</div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+        </div>
       </div>
 
       <Link href={"/projects"}>
