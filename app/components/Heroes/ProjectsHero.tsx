@@ -47,7 +47,7 @@ export default async function ProjectsHero() {
       <div className="pb-6 lg:hidden">
         {projects &&
           projects.slice(0, 3).map((project) => (
-            <div className="px-6 py-4">
+            <div className="px-6 py-5">
               <div className="card card-compact h-96 bg-base-100 text-left shadow-xl">
                 <figure>
                   <Image

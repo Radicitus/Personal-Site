@@ -23,7 +23,7 @@ export default async function Home() {
   const myIntroHero = homePage.attributes.lead_hero.data.attributes;
 
   return (
-    <main className="md:px-8 lg:px-16">
+    <main>
       <Hero
         heroImage={myIntroHero.cover.data}
         heroTitle={myIntroHero.title}
