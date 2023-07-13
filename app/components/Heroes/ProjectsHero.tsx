@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getClient } from "@/graphql/clients/serverSideClient";
-import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
+import { GET_ALL_PROJECTS } from "@/graphql/queries/venture";
 // COMPONENTS
 import {
   BiLogoAngular,

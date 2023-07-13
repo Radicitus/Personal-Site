@@ -1,6 +1,6 @@
 import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_PAGE } from "@/graphql/queries/page";
-import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
+import { GET_ALL_PROJECTS } from "@/graphql/queries/venture";
 // COMPONENTS
 import ItemListView from "@/app/components/ItemListView";
 import ItemGridView from "@/app/components/ItemGridView";

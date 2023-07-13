@@ -72,14 +72,14 @@ export default async function Home() {
       </Hero>
 
       {/* Project Hero */}
-      <Hero>
-        <BiLogoReact />
-        <BiLogoAngular />
-        <BiLogoTailwindCss />
-        <BiLogoTypescript />
-        <BiLogoGraphql />
-        <BiLogoPostgresql />
-      </Hero>
+      {/*<Hero>*/}
+      {/*  <BiLogoReact />*/}
+      {/*  <BiLogoAngular />*/}
+      {/*  <BiLogoTailwindCss />*/}
+      {/*  <BiLogoTypescript />*/}
+      {/*  <BiLogoGraphql />*/}
+      {/*  <BiLogoPostgresql />*/}
+      {/*</Hero>*/}
 
       <ProjectsHero />
     </main>
