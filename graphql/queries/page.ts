@@ -13,6 +13,7 @@ export const GET_PAGE = gql`
                 slug
                 title
                 description
+                background_color
                 button {
                   data {
                     attributes {

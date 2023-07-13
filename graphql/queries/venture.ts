@@ -86,6 +86,23 @@ export const GET_ALL_EXPERIENCES = gql`
               }
             }
           }
+          icon {
+            data {
+              attributes {
+                slug
+                title
+                type
+                link {
+                  data {
+                    attributes {
+                      path
+                      target
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

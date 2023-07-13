@@ -63,7 +63,7 @@ export default async function Home() {
         title={experienceHero.title}
         description={experienceHero.description}
         button={experienceHero.button.data}
-        background={"bg-primary"}
+        background={experienceHero.background_color.replace("_", "-")}
         limit={3}
       >
         <FaUniversity />

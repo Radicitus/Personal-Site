@@ -7,6 +7,7 @@ export type HeroType = {
     slug: string;
     title: string;
     description: string;
+    background_color: string;
     cover: {
       data: ImageType;
     };
