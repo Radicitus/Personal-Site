@@ -2,7 +2,7 @@ import Link from "next/link";
 // COMPONENTS
 import ItemListView from "@/app/components/ItemListView";
 import ItemGridView from "@/app/components/ItemGridView";
-import { ProjectType } from "@/types/strapi/projectType";
+import { VentureType } from "@/types/strapi/ventureType";
 import { ButtonType } from "@/types/strapi/buttonType";
 
 export default function Hero({
@@ -16,7 +16,7 @@ export default function Hero({
 }: {
   title: string;
   description: string;
-  items?: ProjectType[];
+  items?: VentureType[];
   limit?: number;
   button: ButtonType;
   background?: string;

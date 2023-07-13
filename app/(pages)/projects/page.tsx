@@ -7,7 +7,7 @@ import ItemGridView from "@/app/components/ItemGridView";
 import ProjectsAnimation from "@/app/components/Lottie/ProjectsAnimation";
 import LeadHero from "@/app/components/Heroes/LeadHero";
 // TYPES
-import { ProjectSearchResultType } from "@/types/strapi/projectSearchResultType";
+import { VentureSearchResultType } from "@/types/strapi/ventureSearchResultType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
 
 export const revalidate = 60;
@@ -15,7 +15,7 @@ export const revalidate = 60;
 export default async function Projects() {
   // Get all projects from Strapi
   const client = getClient();
-  const res: ProjectSearchResultType = await client.query({
+  const res: VentureSearchResultType = await client.query({
     query: GET_ALL_PROJECTS,
   });
   const projects = res.data.projects.data;

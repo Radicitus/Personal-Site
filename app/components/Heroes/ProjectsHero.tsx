@@ -13,14 +13,14 @@ import {
 import ItemGridView from "@/app/components/ItemGridView";
 import ItemListView from "@/app/components/ItemListView";
 // TYPES
-import { ProjectSearchResultType } from "@/types/strapi/projectSearchResultType";
+import { VentureSearchResultType } from "@/types/strapi/ventureSearchResultType";
 
 export const revalidate = 60;
 
 export default async function ProjectsHero() {
   // Get all projects from Strapi
   const client = getClient();
-  const res: ProjectSearchResultType = await client.query({
+  const res: VentureSearchResultType = await client.query({
     query: GET_ALL_PROJECTS,
   });
   const projects = res.data.projects.data;

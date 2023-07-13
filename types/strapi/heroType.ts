@@ -1,6 +1,6 @@
 import { ImageType } from "@/types/strapi/imageType";
 import { ButtonType } from "@/types/strapi/buttonType";
-import { ProjectType } from "@/types/strapi/projectType";
+import { VentureType } from "@/types/strapi/ventureType";
 
 export type HeroType = {
   attributes: {
@@ -14,7 +14,7 @@ export type HeroType = {
       data: ButtonType;
     };
     projects: {
-      data: ProjectType[];
+      data: VentureType[];
     };
   };
 };

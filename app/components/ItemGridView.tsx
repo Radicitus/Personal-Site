@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectType } from "@/types/strapi/projectType";
+import { VentureType } from "@/types/strapi/ventureType";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function ItemGridView({
@@ -8,7 +8,7 @@ export default function ItemGridView({
   limit = items.length,
   detailed = false,
 }: {
-  items: ProjectType[];
+  items: VentureType[];
   limit?: number;
   detailed?: boolean;
 }) {
