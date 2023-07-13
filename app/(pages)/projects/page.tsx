@@ -1,12 +1,14 @@
 import { getClient } from "@/graphql/clients/serverSideClient";
-import { ProjectSearchResultType } from "@/types/strapi/projectSearchResultType";
+import { GET_PAGE } from "@/graphql/queries/page";
 import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
+// COMPONENTS
 import ItemListView from "@/app/components/ItemListView";
 import ItemGridView from "@/app/components/ItemGridView";
 import ProjectsAnimation from "@/app/components/Lottie/ProjectsAnimation";
+import Hero from "@/app/components/Heroes/Hero";
+// TYPES
+import { ProjectSearchResultType } from "@/types/strapi/projectSearchResultType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
-import { GET_PAGE } from "@/graphql/queries/page";
-import Link from "next/link";
 
 export const revalidate = 60;
 
@@ -27,30 +29,15 @@ export default async function Projects() {
 
   return (
     <div>
-      <div className="hero h-screen max-h-[900px] md:px-8 lg:px-16">
-        <div className="hero-content flex-col gap-14 text-center lg:flex-row-reverse">
-          <div className="w-fit lg:w-full">
-            <ProjectsAnimation />
-          </div>
-          <div>
-            <h1 className="text-5xl font-bold">Projects</h1>
-            <p className="py-6">{projectPageHero.description}</p>
-            <div className="flex justify-center space-x-4 pt-4">
-              {projectPageHero.buttons.data &&
-                projectPageHero.buttons.data.map((button) => (
-                  <Link
-                    href={button.attributes.path}
-                    target={"_" + button.attributes.target}
-                    className="btn-primary btn"
-                    key={button.attributes.path}
-                  >
-                    {button.attributes.title}
-                  </Link>
-                ))}
-            </div>
-          </div>
+      <Hero
+        title={projectPageHero.title}
+        description={projectPageHero.description}
+        buttons={projectPageHero.buttons.data}
+      >
+        <div className="w-fit lg:w-full">
+          <ProjectsAnimation />
         </div>
-      </div>
+      </Hero>
 
       <div>
         {/* Mobile List: 3 Most Recent Projects */}
