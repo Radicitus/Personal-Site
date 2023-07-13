@@ -4,17 +4,17 @@ import { ProjectType } from "@/types/strapi/projectType";
 
 export default function ItemListView({
   items,
-  limit,
+  limit = items.length,
 }: {
   items: ProjectType[];
-  limit: number;
+  limit?: number;
 }) {
   return (
     <>
       {items &&
         items.slice(0, limit).map((item) => (
           <div key={item.attributes.slug} className="px-6 py-7 md:px-40">
-            <div className="card card-compact h-96 bg-base-100 text-left drop-shadow-lg">
+            <div className="card-compact card h-96 bg-base-100 text-left drop-shadow-lg">
               <figure>
                 <Image
                   src={item.attributes.media.data[0].attributes.url}

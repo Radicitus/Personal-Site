@@ -4,6 +4,8 @@ import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
 import ItemListView from "@/app/components/ItemListView";
 import ItemGridView from "@/app/components/ItemGridView";
 
+export const revalidate = 60;
+
 export default async function Projects() {
   // Get all projects from Strapi
   const client = getClient();
@@ -16,7 +18,7 @@ export default async function Projects() {
     <div>
       {/* Mobile List: 3 Most Recent Projects */}
       <div className="pb-10 lg:hidden">
-        <ItemListView items={projects} limit={projects.length} />
+        <ItemListView items={projects} />
       </div>
 
       {/* Grid View: 3 Most Recent Projects */}
