@@ -4,7 +4,7 @@ import Image from "next/image";
 // COMPONENTS
 import ExperienceHero from "@/app/components/Heroes/ExperienceHero";
 import ProjectsHero from "@/app/components/Heroes/ProjectsHero";
-import Hero from "@/app/components/Heroes/Hero";
+import LeadHero from "@/app/components/Heroes/LeadHero";
 // TYPES
 import { PageType } from "@/types/strapi/pageType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
@@ -25,7 +25,7 @@ export default async function Home() {
 
   return (
     <main>
-      <Hero
+      <LeadHero
         title={myIntroHero.title}
         description={myIntroHero.description}
         buttons={myIntroHero.buttons.data}
@@ -41,7 +41,7 @@ export default async function Home() {
             />
           </div>
         </div>
-      </Hero>
+      </LeadHero>
       <ExperienceHero />
       <ProjectsHero />
     </main>

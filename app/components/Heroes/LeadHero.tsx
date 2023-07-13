@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ButtonType } from "@/types/strapi/buttonType";
 
-export default function Hero({
+export default function LeadHero({
   title,
   description,
   buttons,
