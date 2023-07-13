@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ProjectType } from "@/types/strapi/projectType";
 
-export default function ProjectsList({
+export default function ItemListView({
   projects,
   limit,
 }: {

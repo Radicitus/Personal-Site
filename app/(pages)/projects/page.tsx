@@ -1,8 +1,8 @@
 import { getClient } from "@/graphql/clients/serverSideClient";
 import { ProjectSearchResultType } from "@/types/strapi/projectSearchResultType";
 import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
-import ProjectsList from "@/app/components/ProjectsList";
-import ProjectsGrid from "@/app/components/ProjectsGrid";
+import ItemListView from "@/app/components/ItemListView";
+import ItemGridView from "@/app/components/ItemGridView";
 
 export default async function Projects() {
   // Get all projects from Strapi
@@ -16,12 +16,12 @@ export default async function Projects() {
     <div>
       {/* Mobile List: 3 Most Recent Projects */}
       <div className="pb-10 lg:hidden">
-        <ProjectsList projects={projects} limit={projects.length} />
+        <ItemListView projects={projects} limit={projects.length} />
       </div>
 
       {/* Grid View: 3 Most Recent Projects */}
       <div className="hidden pb-20 lg:block">
-        <ProjectsGrid projects={projects} limit={projects.length} />
+        <ItemGridView items={projects} detailed={true} />
       </div>
     </div>
   );
