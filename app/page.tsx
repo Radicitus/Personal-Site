@@ -2,12 +2,15 @@ import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_PAGE } from "@/graphql/queries/page";
 import Image from "next/image";
 // COMPONENTS
-import ExperienceHero from "@/app/components/Heroes/ExperienceHero";
 import ProjectsHero from "@/app/components/Heroes/ProjectsHero";
 import LeadHero from "@/app/components/Heroes/LeadHero";
 // TYPES
 import { PageType } from "@/types/strapi/pageType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
+import Hero from "@/app/components/Heroes/Hero";
+import { FaUniversity } from "react-icons/fa";
+import { GiPrism } from "react-icons/gi";
+import { SiTacobell } from "react-icons/si";
 
 export const revalidate = 60;
 
@@ -22,6 +25,10 @@ export default async function Home() {
 
   // Destructure section data
   const myIntroHero = homePage.attributes.lead_hero.data.attributes;
+  const heroes = homePage.attributes.heroes.data;
+  const experienceHero = heroes.find(
+    (hero) => hero.attributes.slug === "experience"
+  )!.attributes;
 
   return (
     <main>
@@ -42,7 +49,20 @@ export default async function Home() {
           </div>
         </div>
       </LeadHero>
-      <ExperienceHero />
+
+      {/* Experience Hero */}
+      <Hero
+        title={experienceHero.title}
+        description={experienceHero.description}
+        button={experienceHero.button.data}
+        background={"bg-primary"}
+        limit={3}
+      >
+        <FaUniversity />
+        <GiPrism />
+        <SiTacobell />
+      </Hero>
+
       <ProjectsHero />
     </main>
   );

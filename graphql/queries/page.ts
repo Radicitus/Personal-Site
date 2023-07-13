@@ -7,6 +7,31 @@ export const GET_PAGE = gql`
         attributes {
           slug
           title
+          heroes {
+            data {
+              attributes {
+                slug
+                title
+                description
+                button {
+                  data {
+                    attributes {
+                      title
+                      link {
+                        data {
+                          attributes {
+                            title
+                            target
+                            path
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
           lead_hero {
             data {
               attributes {
