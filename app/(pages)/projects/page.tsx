@@ -16,7 +16,7 @@ export default async function Projects() {
     <div>
       {/* Mobile List: 3 Most Recent Projects */}
       <div className="pb-10 lg:hidden">
-        <ItemListView projects={projects} limit={projects.length} />
+        <ItemListView items={projects} limit={projects.length} />
       </div>
 
       {/* Grid View: 3 Most Recent Projects */}

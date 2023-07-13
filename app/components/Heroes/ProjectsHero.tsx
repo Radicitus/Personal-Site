@@ -50,7 +50,7 @@ export default async function ProjectsHero() {
 
       {/* Mobile List: 3 Most Recent Projects */}
       <div className="pb-10 lg:hidden">
-        <ItemListView projects={projects} limit={3} />
+        <ItemListView items={projects} limit={3} />
       </div>
 
       {/* Grid View: 3 Most Recent Projects */}
