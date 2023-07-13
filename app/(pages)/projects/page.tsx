@@ -18,7 +18,7 @@ export default async function Projects() {
   const res: VentureSearchResultType = await client.query({
     query: GET_ALL_PROJECTS,
   });
-  const projects = res.data.projects.data;
+  const projects = res.data.ventures.data;
   // Get the Projects page from Strapi
   const pageRes: PageSearchResultType = await client.query({
     query: GET_PAGE,

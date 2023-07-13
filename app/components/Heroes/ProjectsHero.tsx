@@ -23,7 +23,7 @@ export default async function ProjectsHero() {
   const res: VentureSearchResultType = await client.query({
     query: GET_ALL_PROJECTS,
   });
-  const projects = res.data.projects.data;
+  const projects = res.data.ventures.data;
 
   return (
     <div className="bg-base-100 py-24 text-center">

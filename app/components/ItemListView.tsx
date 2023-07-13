@@ -17,15 +17,15 @@ export default function ItemListView({
             <div className="card card-compact h-96 bg-base-100 text-left drop-shadow-lg">
               <figure>
                 <Image
-                  src={item.attributes.media.data[0].attributes.url}
-                  alt={item.attributes.media.data[0].attributes.alternativeText}
+                  src={item.attributes.cover.data.attributes.url}
+                  alt={item.attributes.cover.data.attributes.alternativeText}
                   width={512}
                   height={512}
                 />
               </figure>
               <div className="card-body">
                 <h2 className="card-title">{item.attributes.title}</h2>
-                <p>{item.attributes.description}</p>
+                <p className="line-clamp-2">{item.attributes.description}</p>
                 <div className="card-actions justify-end">
                   <Link href={"/projects/" + item.attributes.slug}>
                     <button className="btn-primary btn">SEE MORE</button>
