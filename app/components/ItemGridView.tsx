@@ -52,7 +52,7 @@ export default function ItemGridView({
                   </div>
 
                   <div className="flex items-center gap-2 pt-4 text-secondary transition-all duration-300 hover:gap-3">
-                    <span className="font-bold ">READ MORE</span>
+                    <span className="font-bold">READ MORE</span>
                     <FaArrowRight />
                   </div>
                 </div>

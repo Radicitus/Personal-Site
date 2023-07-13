@@ -2,6 +2,7 @@ import "./globals.css";
 import { mohave, quicksand } from "@/app/fonts";
 import NavDrawer from "@/app/components/Marginals/Nav/NavDrawer";
 import Footer from "@/app/components/Marginals/Footer";
+import ContactMeHero from "@/app/components/Heroes/ContactMeHero";
 
 export const metadata = {
   title: "Cam's Personal Site",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body>
         <NavDrawer>
           {children}
+          <ContactMeHero />
           <Footer />
         </NavDrawer>
       </body>

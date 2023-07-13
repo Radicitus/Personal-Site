@@ -4,7 +4,6 @@ import { GET_PAGE } from "@/graphql/queries/page";
 import Hero from "@/app/components/Heroes/Hero";
 import ExperienceHero from "@/app/components/Heroes/ExperienceHero";
 import ProjectsHero from "@/app/components/Heroes/ProjectsHero";
-import ContactMeHero from "@/app/components/Heroes/ContactMeHero";
 // TYPES
 import { PageType } from "@/types/strapi/pageType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
@@ -33,7 +32,6 @@ export default async function Home() {
       />
       <ExperienceHero />
       <ProjectsHero />
-      <ContactMeHero />
     </main>
   );
 }
