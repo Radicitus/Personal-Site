@@ -1,30 +1,24 @@
-import Image from "next/image";
-import { heroParamsType } from "@/types/heroParamsType";
 import Link from "next/link";
+import { ButtonType } from "@/types/strapi/buttonType";
 
 export default function Hero({
-  heroImage,
-  heroTitle,
-  heroDescription,
+  title,
+  description,
   buttons,
-}: heroParamsType) {
+  children,
+}: {
+  title: string;
+  description: string;
+  buttons: ButtonType[];
+  children: React.ReactNode;
+}) {
   return (
     <div className="hero h-screen max-h-[900px] md:px-8 lg:px-16">
-      <div className="hero-content flex-col text-center lg:flex-row-reverse lg:gap-12">
-        <div className="avatar">
-          <div className="w-72 rounded-full ring ring-primary ring-offset-2 ring-offset-base-100 lg:w-80">
-            <Image
-              priority
-              src={heroImage.attributes.url}
-              alt={heroImage.attributes.alternativeText}
-              width={heroImage.attributes.width}
-              height={heroImage.attributes.height}
-            />
-          </div>
-        </div>
+      <div className="hero-content flex-col gap-14 text-center lg:flex-row-reverse">
+        <div>{children}</div>
         <div>
-          <h1 className="text-5xl font-bold">{heroTitle}</h1>
-          <p className="py-6">{heroDescription}</p>
+          <h1 className="text-5xl font-bold">{title}</h1>
+          <p className="py-6">{description}</p>
           <div className="flex justify-center space-x-4">
             {buttons &&
               buttons.map((button) => (
