@@ -1,5 +1,12 @@
 import { LinkType } from "@/types/linkType";
 
 export type ButtonType = {
-  attributes: LinkType;
+  attributes: {
+    title: string;
+    link: {
+      data: {
+        attributes: LinkType;
+      };
+    };
+  };
 };

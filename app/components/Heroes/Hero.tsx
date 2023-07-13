@@ -23,10 +23,10 @@ export default function Hero({
             {buttons &&
               buttons.map((button) => (
                 <Link
-                  href={button.attributes.path}
-                  target={"_" + button.attributes.target}
+                  href={button.attributes.link.data.attributes.path}
+                  target={"_" + button.attributes.link.data.attributes.target}
                   className="btn-primary btn"
-                  key={button.attributes.path}
+                  key={button.attributes.link.data.attributes.path}
                 >
                   {button.attributes.title}
                 </Link>

@@ -10,7 +10,6 @@ export const GET_PAGE = gql`
           lead_hero {
             data {
               attributes {
-                slug
                 title
                 description
                 cover {
@@ -28,9 +27,14 @@ export const GET_PAGE = gql`
                   data {
                     attributes {
                       title
-                      path
-                      target
-                      slug
+                      link {
+                        data {
+                          attributes {
+                            path
+                            target
+                          }
+                        }
+                      }
                     }
                   }
                 }
