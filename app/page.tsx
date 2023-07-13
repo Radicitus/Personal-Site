@@ -11,6 +11,14 @@ import Hero from "@/app/components/Heroes/Hero";
 import { FaUniversity } from "react-icons/fa";
 import { GiPrism } from "react-icons/gi";
 import { SiTacobell } from "react-icons/si";
+import {
+  BiLogoAngular,
+  BiLogoGraphql,
+  BiLogoPostgresql,
+  BiLogoReact,
+  BiLogoTailwindCss,
+  BiLogoTypescript,
+} from "react-icons/bi";
 
 export const revalidate = 60;
 
@@ -61,6 +69,16 @@ export default async function Home() {
         <FaUniversity />
         <GiPrism />
         <SiTacobell />
+      </Hero>
+
+      {/* Project Hero */}
+      <Hero>
+        <BiLogoReact />
+        <BiLogoAngular />
+        <BiLogoTailwindCss />
+        <BiLogoTypescript />
+        <BiLogoGraphql />
+        <BiLogoPostgresql />
       </Hero>
 
       <ProjectsHero />
