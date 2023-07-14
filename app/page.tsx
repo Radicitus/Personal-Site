@@ -33,6 +33,7 @@ export default async function Home() {
   // Destructure section data
   const myIntroHero = homePage.attributes.lead_hero.data.attributes;
   const heroes = homePage.attributes.heroes.data;
+  // Heroes
   const experienceHero = heroes.find(
     (hero) => hero.attributes.slug === "experience"
   )!.attributes;
@@ -66,7 +67,6 @@ export default async function Home() {
         description={experienceHero.description}
         button={experienceHero.button.data}
         background={experienceHero.background_color.replace("_", "-")}
-        limit={3}
       >
         <FaUniversity />
         <GiPrism />
@@ -79,6 +79,8 @@ export default async function Home() {
         description={projectsHero.description}
         button={projectsHero.button.data}
         items={projectsHero.ventures.data}
+        limit={3}
+        background={projectsHero.background_color.replace("_", "-")}
       >
         <BiLogoReact />
         <BiLogoAngular />
