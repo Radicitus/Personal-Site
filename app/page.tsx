@@ -2,7 +2,6 @@ import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_PAGE } from "@/graphql/queries/page";
 import Image from "next/image";
 // COMPONENTS
-import ProjectsHero from "@/app/components/Heroes/ProjectsHero";
 import LeadHero from "@/app/components/Heroes/LeadHero";
 // TYPES
 import { PageType } from "@/types/strapi/pageType";
@@ -36,6 +35,9 @@ export default async function Home() {
   const heroes = homePage.attributes.heroes.data;
   const experienceHero = heroes.find(
     (hero) => hero.attributes.slug === "experience"
+  )!.attributes;
+  const projectsHero = heroes.find(
+    (hero) => hero.attributes.slug === "projects"
   )!.attributes;
 
   return (
@@ -71,17 +73,20 @@ export default async function Home() {
         <SiTacobell />
       </Hero>
 
-      {/* Project Hero */}
-      {/*<Hero>*/}
-      {/*  <BiLogoReact />*/}
-      {/*  <BiLogoAngular />*/}
-      {/*  <BiLogoTailwindCss />*/}
-      {/*  <BiLogoTypescript />*/}
-      {/*  <BiLogoGraphql />*/}
-      {/*  <BiLogoPostgresql />*/}
-      {/*</Hero>*/}
-
-      <ProjectsHero />
+      {/*Project Hero */}
+      <Hero
+        title={projectsHero.title}
+        description={projectsHero.description}
+        button={projectsHero.button.data}
+        items={projectsHero.ventures.data}
+      >
+        <BiLogoReact />
+        <BiLogoAngular />
+        <BiLogoTailwindCss />
+        <BiLogoTypescript />
+        <BiLogoGraphql />
+        <BiLogoPostgresql />
+      </Hero>
     </main>
   );
 }

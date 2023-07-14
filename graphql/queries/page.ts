@@ -14,6 +14,60 @@ export const GET_PAGE = gql`
                 title
                 description
                 background_color
+                ventures {
+                  data {
+                    attributes {
+                      slug
+                      type
+                      title
+                      description
+                      company
+                      content
+                      rank
+                      start
+                      end
+                      cover {
+                        data {
+                          attributes {
+                            name
+                            url
+                            alternativeText
+                            width
+                            height
+                          }
+                        }
+                      }
+                      media {
+                        data {
+                          attributes {
+                            name
+                            url
+                            alternativeText
+                            width
+                            height
+                          }
+                        }
+                      }
+                      icon {
+                        data {
+                          attributes {
+                            slug
+                            title
+                            type
+                            link {
+                              data {
+                                attributes {
+                                  path
+                                  target
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
                 button {
                   data {
                     attributes {

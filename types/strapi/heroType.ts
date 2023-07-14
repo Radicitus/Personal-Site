@@ -14,7 +14,7 @@ export type HeroType = {
     button: {
       data: ButtonType;
     };
-    projects: {
+    ventures: {
       data: VentureType[];
     };
   };

@@ -31,7 +31,7 @@ export default function Hero({
       </div>
 
       {children && (
-        <div className="flex flex-row flex-wrap justify-center gap-4 px-12 pb-4 text-4xl">
+        <div className="flex flex-row flex-wrap justify-center gap-3 px-12 pb-4 text-4xl md:gap-4">
           {children}
         </div>
       )}
@@ -39,12 +39,12 @@ export default function Hero({
       {items && (
         <>
           {/* Mobile List: 3 Most Recent Projects */}
-          <div className="pb-10 lg:hidden">
+          <div className="pb-10 lg:hidden lg:pt-12">
             <ItemListView items={items} limit={limit} />
           </div>
 
           {/* Grid View: 3 Most Recent Projects */}
-          <div className="hidden pb-20 lg:block">
+          <div className="hidden pb-20 lg:block lg:pt-12">
             <ItemGridView items={items} limit={limit} />
           </div>
         </>
