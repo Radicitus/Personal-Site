@@ -1,5 +1,6 @@
-import { HeroType } from "@/types/strapi/heroType";
+import { LeadHeroType } from "@/types/strapi/leadHeroType";
 import { LinkType } from "@/types/linkType";
+import { HeroType } from "@/types/strapi/heroType";
 
 export type PageType = {
   attributes: {
@@ -12,7 +13,10 @@ export type PageType = {
       };
     };
     lead_hero: {
-      data: HeroType;
+      data: LeadHeroType;
+    };
+    heroes: {
+      data: HeroType[];
     };
   };
 };

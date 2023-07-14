@@ -1,13 +1,13 @@
 import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_PAGE } from "@/graphql/queries/page";
-import { GET_ALL_PROJECTS } from "@/graphql/queries/project";
+import { GET_ALL_PROJECTS } from "@/graphql/queries/venture";
 // COMPONENTS
 import ItemListView from "@/app/components/ItemListView";
 import ItemGridView from "@/app/components/ItemGridView";
 import ProjectsAnimation from "@/app/components/Lottie/ProjectsAnimation";
-import Hero from "@/app/components/Heroes/Hero";
+import LeadHero from "@/app/components/Heroes/LeadHero";
 // TYPES
-import { ProjectSearchResultType } from "@/types/strapi/projectSearchResultType";
+import { VentureSearchResultType } from "@/types/strapi/ventureSearchResultType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
 
 export const revalidate = 60;
@@ -15,10 +15,10 @@ export const revalidate = 60;
 export default async function Projects() {
   // Get all projects from Strapi
   const client = getClient();
-  const res: ProjectSearchResultType = await client.query({
+  const res: VentureSearchResultType = await client.query({
     query: GET_ALL_PROJECTS,
   });
-  const projects = res.data.projects.data;
+  const projects = res.data.ventures.data;
   // Get the Projects page from Strapi
   const pageRes: PageSearchResultType = await client.query({
     query: GET_PAGE,
@@ -29,7 +29,7 @@ export default async function Projects() {
 
   return (
     <div>
-      <Hero
+      <LeadHero
         title={projectPageHero.title}
         description={projectPageHero.description}
         buttons={projectPageHero.buttons.data}
@@ -37,7 +37,7 @@ export default async function Projects() {
         <div className="w-fit lg:w-full">
           <ProjectsAnimation />
         </div>
-      </Hero>
+      </LeadHero>
 
       <div>
         {/* Mobile List: 3 Most Recent Projects */}

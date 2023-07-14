@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectType } from "@/types/strapi/projectType";
+import { VentureType } from "@/types/strapi/ventureType";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function ItemGridView({
@@ -8,7 +8,7 @@ export default function ItemGridView({
   limit = items.length,
   detailed = false,
 }: {
-  items: ProjectType[];
+  items: VentureType[];
   limit?: number;
   detailed?: boolean;
 }) {
@@ -23,10 +23,10 @@ export default function ItemGridView({
             <div className="w-104">
               <div className="relative h-60 overflow-hidden rounded-2xl drop-shadow-md">
                 <Image
-                  src={item.attributes.media.data[0].attributes.url}
-                  alt={item.attributes.media.data[0].attributes.alternativeText}
-                  width={item.attributes.media.data[0].attributes.width}
-                  height={item.attributes.media.data[0].attributes.height}
+                  src={item.attributes.cover.data.attributes.url}
+                  alt={item.attributes.cover.data.attributes.alternativeText}
+                  width={item.attributes.cover.data.attributes.width}
+                  height={item.attributes.cover.data.attributes.height}
                   className="z-0 h-60 w-104 object-cover object-top"
                 />
 
