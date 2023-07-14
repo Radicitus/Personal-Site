@@ -36,7 +36,7 @@ export default async function Experience() {
         description={experiencePageHero.description}
         buttons={experiencePageHero.buttons.data}
       >
-        <div className="w-fit lg:w-full">
+        <div className="w-8/12 lg:w-full">
           <ExperienceAnimation />
         </div>
       </LeadHero>

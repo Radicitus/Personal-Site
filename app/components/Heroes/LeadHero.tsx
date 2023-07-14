@@ -15,7 +15,7 @@ export default function LeadHero({
   return (
     <div className="hero h-screen max-h-[900px] md:px-8 lg:px-16">
       <div className="hero-content flex-col gap-14 text-center lg:flex-row-reverse">
-        <div>{children}</div>
+        {children}
         <div>
           <h1 className="text-5xl font-bold">{title}</h1>
           <p className="py-6">{description}</p>
