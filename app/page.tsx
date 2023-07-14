@@ -66,7 +66,7 @@ export default async function Home() {
         title={experienceHero.title}
         description={experienceHero.description}
         button={experienceHero.button.data}
-        background={experienceHero.background_color.replace("_", "-")}
+        background={experienceHero.background_color.replaceAll("_", "-")}
       >
         <FaUniversity />
         <GiPrism />
@@ -80,7 +80,7 @@ export default async function Home() {
         button={projectsHero.button.data}
         items={projectsHero.ventures.data}
         limit={3}
-        background={projectsHero.background_color.replace("_", "-")}
+        background={projectsHero.background_color.replaceAll("_", "-")}
       >
         <BiLogoReact />
         <BiLogoAngular />
