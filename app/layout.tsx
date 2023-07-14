@@ -47,7 +47,7 @@ export default async function RootLayout({
             title={contactHero.title}
             description={contactHero.description}
             button={contactHero.button.data}
-            background={contactHero.background_color.replaceAll("_", "-")}
+            background={"bg-secondary"}
           />
           <Footer />
         </NavDrawer>
