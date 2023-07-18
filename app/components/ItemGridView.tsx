@@ -21,7 +21,7 @@ export default function ItemGridView({
             href={"/projects/" + item.attributes.slug}
           >
             <div className="w-104">
-              <div className="relative h-60 overflow-hidden rounded-2xl drop-shadow-md">
+              <div className="relative h-60 overflow-hidden rounded-2xl ring-2 ring-primary drop-shadow-md">
                 <Image
                   src={item.attributes.cover.data.attributes.url}
                   alt={item.attributes.cover.data.attributes.alternativeText}
