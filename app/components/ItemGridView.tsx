@@ -18,7 +18,7 @@ export default function ItemGridView({
         items.slice(0, limit).map((item) => (
           <Link
             key={item.attributes.slug}
-            href={"/projects/" + item.attributes.slug}
+            href={item.attributes.type + "/" + item.attributes.slug}
           >
             <div className="w-104">
               <div className="relative h-60 overflow-hidden rounded-2xl ring-2 ring-primary drop-shadow-md">
