@@ -8,11 +8,13 @@ export default function DarkLight() {
   const { theme, swapTheme } = useAppStore();
 
   useEffect(() => {
-    document.querySelector("html")!.setAttribute("data-theme", theme);
+    setTimeout(() => {
+      document.querySelector("html")!.setAttribute("data-theme", theme);
+    }, 1000);
   }, [theme]);
 
   return (
-    <label className="swap swap-rotate pr-4">
+    <label className="swap-rotate swap pr-4">
       {/* this hidden checkbox controls the state */}
       <input
         defaultChecked={theme === installedThemes[1]}
@@ -24,7 +26,7 @@ export default function DarkLight() {
 
       {/* sun icon */}
       <svg
-        className="swap-on fill-current w-6 h-6"
+        className="swap-on h-6 w-6 fill-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -33,7 +35,7 @@ export default function DarkLight() {
 
       {/* moon icon */}
       <svg
-        className="swap-off fill-current w-6 h-6"
+        className="swap-off h-6 w-6 fill-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
