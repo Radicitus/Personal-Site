@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { linkArrayType } from "@/types/linkArrayType";
+import { LinkType } from "@/types/linkType";
 
-export default function NavSidebar({ navItems }: linkArrayType) {
+export default function NavSidebar({ links }: { links: LinkType[] }) {
   const handleNavClick = () => {
     setTimeout(() => {
       document.getElementById("nav-drawer")!.click();
@@ -15,10 +15,14 @@ export default function NavSidebar({ navItems }: linkArrayType) {
       <label htmlFor="nav-drawer" className="drawer-overlay"></label>
       <ul className="menu p-4 pt-8 w-64 h-full bg-base-100 flex divide-y">
         {/* Sidebar content here */}
-        {navItems.map((item) => (
-          <li key={item.title} className="py-2 first:pb-2 last:pt-2">
-            <Link href={item.path} onClick={handleNavClick}>
-              {item.title}
+        {links.map((link) => (
+          <li key={link.title} className="py-2 first:pb-2 last:pt-2">
+            <Link
+              href={link.path}
+              target={"_" + link.target}
+              onClick={handleNavClick}
+            >
+              {link.title}
             </Link>
           </li>
         ))}
