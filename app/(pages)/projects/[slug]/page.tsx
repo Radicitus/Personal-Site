@@ -1,5 +1,5 @@
-import { slugParamsType } from "@/types/slugParamsType";
+import { pageParamsType } from "@/types/pageParamsType";
 
-export default function Project({ params }: slugParamsType) {
+export default function Project({ params }: pageParamsType) {
   return <h1>Project: {params.slug} </h1>;
 }
