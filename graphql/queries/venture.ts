@@ -145,6 +145,23 @@ export const GET_VENTURE_BY_SLUG = gql`
               }
             }
           }
+          icon {
+            data {
+              attributes {
+                slug
+                title
+                type
+                link {
+                  data {
+                    attributes {
+                      path
+                      target
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
