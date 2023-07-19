@@ -8,13 +8,11 @@ export default function DarkLight() {
   const { theme, swapTheme } = useAppStore();
 
   useEffect(() => {
-    setTimeout(() => {
-      document.querySelector("html")!.setAttribute("data-theme", theme);
-    }, 1000);
+    document.querySelector("html")!.setAttribute("data-theme", theme);
   }, [theme]);
 
   return (
-    <label className="swap-rotate swap pr-4">
+    <label className="swap swap-rotate pr-4">
       {/* this hidden checkbox controls the state */}
       <input
         defaultChecked={theme === installedThemes[1]}
