@@ -5,6 +5,8 @@ import { PageType } from "@/types/strapi/pageType";
 import Image from "next/image";
 import LeadHero from "@/app/components/Heroes/LeadHero";
 
+export const revalidate = 60;
+
 export default async function About() {
   // Get the about page from Strapi
   const client = getClient();
