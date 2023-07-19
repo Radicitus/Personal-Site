@@ -3,7 +3,7 @@ import { gql } from "@apollo/client";
 export const GET_ALL_PROJECTS = gql`
   query Projects($start: Int = 0, $limit: Int = -1) {
     ventures(
-      filters: { type: { eq: "project" } }
+      filters: { type: { eq: "projects" } }
       sort: "rank:asc"
       pagination: { start: $start, limit: $limit }
     ) {
