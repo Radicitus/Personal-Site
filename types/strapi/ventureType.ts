@@ -3,6 +3,7 @@ import { ImageType } from "@/types/strapi/imageType";
 export type VentureType = {
   attributes: {
     slug: string;
+    type: string;
     title: string;
     description: string;
     company: string;
