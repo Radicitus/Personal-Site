@@ -1,4 +1,4 @@
-export type pageParamsType = {
+export type paramsType = {
   params: {
     slug: string;
   };
