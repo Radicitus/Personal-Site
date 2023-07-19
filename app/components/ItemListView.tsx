@@ -25,7 +25,11 @@ export default function ItemListView({
               </figure>
               <div className="card-body">
                 <h2 className="card-title">{item.attributes.title}</h2>
-                <p className="line-clamp-2">{item.attributes.description}</p>
+                <p>
+                  <div className="line-clamp-2">
+                    {item.attributes.description}
+                  </div>
+                </p>
                 <div className="card-actions justify-end">
                   <Link
                     href={item.attributes.type + "/" + item.attributes.slug}
