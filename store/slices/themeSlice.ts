@@ -1,6 +1,6 @@
 import { StateCreator } from "zustand";
 
-export const installedThemes = ["business", "bumblebee"];
+export const installedThemes = ["bumblebee", "business"];
 
 export interface ThemeSlice {
   theme: string;
