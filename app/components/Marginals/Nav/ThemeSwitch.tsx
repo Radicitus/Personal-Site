@@ -15,7 +15,7 @@ export default function DarkLight() {
     <label className="swap swap-rotate pr-4">
       {/* this hidden checkbox controls the state */}
       <input
-        defaultChecked={theme === installedThemes[1]}
+        defaultChecked={theme === installedThemes[0]}
         type="checkbox"
         onClick={() => {
           swapTheme();
