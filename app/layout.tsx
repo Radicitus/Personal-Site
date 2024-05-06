@@ -2,6 +2,7 @@ import "./globals.css";
 import { mohave, quicksand } from "@/app/fonts";
 import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_PAGE } from "@/graphql/queries/page";
+import { Analytics } from "@vercel/analytics/react"
 // COMPONENTS
 import NavDrawer from "@/app/components/Marginals/Nav/NavDrawer";
 import Footer from "@/app/components/Marginals/Footer";
@@ -51,6 +52,7 @@ export default async function RootLayout({
           />
           <Footer />
         </NavDrawer>
+        <Analytics />
       </body>
     </html>
   );
