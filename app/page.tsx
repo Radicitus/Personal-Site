@@ -18,6 +18,7 @@ import {
   BiLogoTailwindCss,
   BiLogoTypescript,
 } from "react-icons/bi";
+import BadgeScene from "@/app/components/Scenes/BadgeScene";
 
 export const revalidate = 60;
 
@@ -43,23 +44,9 @@ export default async function Home() {
 
   return (
     <main>
-      <LeadHero
-        title={myIntroHero.title}
-        description={myIntroHero.description}
-        buttons={myIntroHero.buttons.data}
-      >
-        <div className="avatar">
-          <div className="w-72 rounded-full ring ring-primary ring-offset-2 ring-offset-base-100 lg:w-80">
-            <Image
-              priority
-              src={myIntroHero.cover.data.attributes.url}
-              alt={myIntroHero.cover.data.attributes.alternativeText}
-              width={myIntroHero.cover.data.attributes.width}
-              height={myIntroHero.cover.data.attributes.height}
-            />
-          </div>
-        </div>
-      </LeadHero>
+      <div className="h-screen">
+        <BadgeScene />
+      </div>
 
       {/* Experience Hero */}
       <Hero
