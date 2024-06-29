@@ -2,10 +2,10 @@ import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_PAGE } from "@/graphql/queries/page";
 import { GET_ALL_EXPERIENCES } from "@/graphql/queries/venture";
 // COMPONENTS
-import ItemListView from "@/app/components/ItemListView";
-import ItemGridView from "@/app/components/ItemGridView";
-import ExperienceAnimation from "@/app/components/Lottie/ExperienceAnimation";
-import LeadHero from "@/app/components/Heroes/LeadHero";
+import ItemListView from "@/components/ItemListView";
+import ItemGridView from "@/components/ItemGridView";
+import ExperienceAnimation from "@/components/Lottie/ExperienceAnimation";
+import LeadHero from "@/components/Heroes/LeadHero";
 // TYPES
 import { VentureSearchResultType } from "@/types/strapi/ventureSearchResultType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";

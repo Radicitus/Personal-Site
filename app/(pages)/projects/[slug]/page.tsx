@@ -3,7 +3,7 @@ import { getClient } from "@/graphql/clients/serverSideClient";
 import { VentureSearchResultType } from "@/types/strapi/ventureSearchResultType";
 import { GET_VENTURE_BY_SLUG } from "@/graphql/queries/venture";
 import { VentureType } from "@/types/strapi/ventureType";
-import VentureView from "@/app/components/VentureView";
+import VentureView from "@/components/VentureView";
 
 export const revalidate = 60;
 

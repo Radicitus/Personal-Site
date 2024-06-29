@@ -3,8 +3,8 @@ import { mohave, quicksand, fontSans } from "@/app/fonts";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 // COMPONENTS
-import Footer from "@/app/components/Marginals/Footer";
-import NavContainer from "@/app/components/Marginals/Nav/NavContainer";
+import Footer from "@/components/Marginals/Footer";
+import NavContainer from "@/components/Marginals/Nav/NavContainer";
 
 export const metadata = {
   title: "Cam's Personal Site",

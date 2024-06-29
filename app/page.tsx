@@ -1,12 +1,13 @@
-import Badge from "@/app/components/Scenes/Badge";
+import Badge from "@/components/Scenes/Badge";
 import { isMobileDevice } from "@/utils/isMobileDevice";
+import BadgePlaceholder from "@/components/Scenes/BadgePlaceholder";
 
 export const revalidate = 1200;
 
 export default function Home() {
   return (
-    <main className="h-screen bg-foreground">
-      {isMobileDevice() ? <p className="text-white">Mobile</p> : <Badge />}
+    <main className="flex h-screen w-full justify-center">
+      {isMobileDevice() ? <BadgePlaceholder /> : <Badge />}
     </main>
   );
 }

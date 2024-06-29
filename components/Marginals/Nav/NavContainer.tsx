@@ -6,8 +6,8 @@ import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
 // HELPERS
 import { isMobileDevice } from "@/utils/isMobileDevice";
 // COMPONENTS
-import NavBar from "@/app/components/Marginals/Nav/NavBar";
-import NavDrawer from "@/app/components/Marginals/Nav/NavDrawer";
+import NavBar from "@/components/Marginals/Nav/NavBar";
+import NavDrawer from "@/components/Marginals/Nav/NavDrawer";
 
 export const revalidate = 60;
 

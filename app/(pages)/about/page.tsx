@@ -3,7 +3,7 @@ import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
 import { GET_PAGE } from "@/graphql/queries/page";
 import { PageType } from "@/types/strapi/pageType";
 import Image from "next/image";
-import LeadHero from "@/app/components/Heroes/LeadHero";
+import LeadHero from "@/components/Heroes/LeadHero";
 
 export const revalidate = 60;
 
@@ -27,7 +27,7 @@ export default async function About() {
       buttons={leadHero.buttons.data}
     >
       <div className="avatar">
-        <div className="w-72 rounded-full ring ring-primary ring-offset-2 ring-offset-base-100 lg:w-80">
+        <div className="ring-offset-base-100 w-72 rounded-full ring ring-primary ring-offset-2 lg:w-80">
           <Image
             priority
             src={leadHero.cover.data.attributes.url}

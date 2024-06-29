@@ -1,7 +1,7 @@
 import Link from "next/link";
 // COMPONENTS
-import ItemListView from "@/app/components/ItemListView";
-import ItemGridView from "@/app/components/ItemGridView";
+import ItemListView from "@/components/ItemListView";
+import ItemGridView from "@/components/ItemGridView";
 import { VentureType } from "@/types/strapi/ventureType";
 import { ButtonType } from "@/types/strapi/buttonType";
 

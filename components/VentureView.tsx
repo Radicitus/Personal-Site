@@ -1,4 +1,4 @@
-import OverlayHero from "@/app/components/Heroes/OverlayHero";
+import OverlayHero from "@/components/Heroes/OverlayHero";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import { VentureType } from "@/types/strapi/ventureType";
