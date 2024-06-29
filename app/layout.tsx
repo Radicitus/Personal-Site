@@ -3,8 +3,8 @@ import { mohave, quicksand, fontSans } from "@/app/fonts";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 // COMPONENTS
-import NavDrawer from "@/app/components/Marginals/Nav/NavDrawer";
 import Footer from "@/app/components/Marginals/Footer";
+import NavContainer from "@/app/components/Marginals/Nav/NavContainer";
 
 export const metadata = {
   title: "Cam's Personal Site",
@@ -27,10 +27,9 @@ export default async function RootLayout({
       `}
     >
       <body>
-        <NavDrawer>
-          {children}
-          <Footer />
-        </NavDrawer>
+        <NavContainer />
+        {children}
+        <Footer />
         <Analytics />
         <SpeedInsights />
       </body>
