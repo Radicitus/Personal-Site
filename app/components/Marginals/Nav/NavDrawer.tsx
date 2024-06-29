@@ -8,7 +8,7 @@ import {
   DrawerFooter,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { ChevronUp, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { LinkType } from "@/types/linkType";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -68,7 +68,7 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
             size="icon"
             className="h-12 w-12 shrink-0 rounded-full bg-black text-white"
           >
-            <ChevronUp className="h-8 w-8" />
+            <Menu className="h-8 w-8" />
           </Button>
         </div>
       </DrawerTrigger>
@@ -95,7 +95,7 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
           ))}
           <DrawerFooter>
             <DrawerClose asChild>
-              <div className="flex w-full justify-center">
+              <div className="flex w-full justify-center pb-3">
                 <Button
                   variant="outline"
                   size="icon"
