@@ -19,6 +19,14 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
   const [lastScrollY, setLastScrollY] = useState(0);
   const wait = () => new Promise((resolve) => setTimeout(resolve, 400));
 
+  const validatedSetDrawerOpen = (open: boolean) => {
+    if (isVisible && open) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  };
+
   const controlDrawerIcon = () => {
     if (typeof window !== "undefined") {
       if (window.scrollY > lastScrollY) {
@@ -46,7 +54,7 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
   }, [lastScrollY]);
 
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
+    <Drawer open={open} onOpenChange={validatedSetDrawerOpen}>
       <DrawerTrigger asChild>
         <div
           className={`fixed bottom-12 z-[1] flex w-full justify-center ${
