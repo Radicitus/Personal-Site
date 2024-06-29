@@ -35,7 +35,7 @@ export default async function Footer() {
     <footer className="footer footer-center mt-auto bg-black p-5 text-white">
       <div>
         <div className="avatar">
-          <div className="w-12 rounded-full ring ring-blue-700 ring-offset-2 ring-offset-black">
+          <div className="w-12 rounded-full ring ring-amber-400 ring-offset-2 ring-offset-black">
             <Image
               src={footerAvatar.url}
               alt={footerAvatar.alternativeText}
