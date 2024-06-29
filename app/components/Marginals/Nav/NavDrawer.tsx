@@ -29,7 +29,7 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
 
   const controlDrawerIcon = () => {
     if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
+      if (window.scrollY != 0 && window.scrollY > lastScrollY) {
         // if scrolling down, hide the navbar
         setIsVisible(false);
       } else {
