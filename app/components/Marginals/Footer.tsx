@@ -1,12 +1,10 @@
 import Image from "next/image";
 import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_FOOTER } from "@/graphql/queries/single";
-// COMPONENTS
-import GitHubIcon from "@/app/components/Icons/GitHubIcon";
-import LinkedInIcon from "@/app/components/Icons/LinkedInIcon";
-import EmailIcon from "@/app/components/Icons/EmailIcon";
 // TYPES
 import { FooterType } from "@/types/strapi/footerType";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
 
 export const revalidate = 60;
 
@@ -32,42 +30,47 @@ export default async function Footer() {
   )!.attributes;
 
   return (
-    <footer className="footer footer-center mt-auto bg-black p-5 text-white">
-      <div>
-        <div className="avatar">
-          <div className="w-12 rounded-full ring ring-amber-400 ring-offset-2 ring-offset-black">
-            <Image
-              src={footerAvatar.url}
-              alt={footerAvatar.alternativeText}
-              width={128}
-              height={128}
-            />
-          </div>
+    <footer className="mt-auto bg-black p-5 text-white">
+      <div className="mb-4 flex flex-col items-center">
+        <div className="w-12 overflow-hidden rounded-full ring-2 ring-violet-800 ring-offset-2 ring-offset-black">
+          <Image
+            src={footerAvatar.url}
+            alt={footerAvatar.alternativeText}
+            width={128}
+            height={128}
+          />
         </div>
 
-        <p className="font-bold">{footer.data.footer.data.attributes.tag}</p>
-        <p>{footer.data.footer.data.attributes.subtag}</p>
+        <p className="mt-4 font-light">
+          {footer.data.footer.data.attributes.tag}
+        </p>
+        <p className="font-thin">{footer.data.footer.data.attributes.subtag}</p>
       </div>
 
-      <div>
-        <div className="grid grid-flow-col gap-4">
-          <GitHubIcon
-            link={gitHubIcon.link.data.attributes}
-            width={"24"}
-            height={"24"}
-          />
-
-          <LinkedInIcon
-            link={linkedInIcon.link.data.attributes}
-            width={"24"}
-            height={"24"}
-          />
-
-          <EmailIcon
-            link={emailIcon.link.data.attributes}
-            width={"24"}
-            height={"24"}
-          />
+      <div className="flex flex-row place-content-center gap-4 text-gray-300">
+        <div className="transition duration-300 ease-in-out hover:text-gray-400">
+          <Link
+            href={gitHubIcon.link.data.attributes.path}
+            target={"_" + gitHubIcon.link.data.attributes.target}
+          >
+            <Github />
+          </Link>
+        </div>
+        <div className="transition duration-300 ease-in-out hover:text-gray-400">
+          <Link
+            href={linkedInIcon.link.data.attributes.path}
+            target={"_" + linkedInIcon.link.data.attributes.target}
+          >
+            <Linkedin />
+          </Link>
+        </div>
+        <div className="transition duration-300 ease-in-out hover:text-gray-400">
+          <Link
+            href={emailIcon.link.data.attributes.path}
+            target={"_" + emailIcon.link.data.attributes.target}
+          >
+            <Mail />
+          </Link>
         </div>
       </div>
     </footer>
