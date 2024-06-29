@@ -11,11 +11,39 @@ import {
 import { ChevronUp, X } from "lucide-react";
 import { LinkType } from "@/types/linkType";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function NavDrawer({ links }: { links: LinkType[] }) {
   const [open, setOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const wait = () => new Promise((resolve) => setTimeout(resolve, 400));
+
+  const controlDrawerIcon = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        // if scrolling down, hide the navbar
+        setIsVisible(false);
+      } else {
+        // if scrolling up, show the navbar
+        setIsVisible(true);
+      }
+
+      // remember the current page location for the next move
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlDrawerIcon);
+
+      // cleanup function
+      return () => {
+        window.removeEventListener("scroll", controlDrawerIcon);
+      };
+    }
+  }, [lastScrollY]);
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
@@ -23,6 +51,8 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
         <div
           className={`fixed bottom-12 z-[1] flex w-full justify-center ${
             open ? "hidden" : "block"
+          } transition-opacity duration-500 ease-in-out ${
+            isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
           <Button
