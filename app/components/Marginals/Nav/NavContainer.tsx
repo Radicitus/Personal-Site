@@ -30,5 +30,9 @@ export default async function NavContainer() {
     return link;
   });
 
-  return isMobileDevice() ? <NavDrawer /> : <NavBar links={pageLinks} />;
+  return isMobileDevice() ? (
+    <NavDrawer links={pageLinks} />
+  ) : (
+    <NavBar links={pageLinks} />
+  );
 }
