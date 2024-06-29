@@ -1,18 +1,16 @@
 import Link from "next/link";
-import ThemeSwitch from "@/app/components/Marginals/Nav/ThemeSwitch";
 import { LinkType } from "@/types/linkType";
 
 export default function Nav({ links }: { links: LinkType[] }) {
   return (
-    <div className="w-full navbar px-8 pt-6 bg-base-100 sticky top-0 z-[1]">
-      <div className="flex-1 px-2 mx-2">
-        <Link href={"/"} className="text-4xl font-mohave font-bold">
+    <div className="navbar sticky top-0 z-[1] w-full bg-base-100 px-8 pt-6">
+      <div className="mx-2 flex-1 px-2">
+        <Link href={"/"} className="font-mohave text-4xl font-bold">
           <span className="align-sub">CS</span>
         </Link>
       </div>
-      <div className="flex-none hidden lg:block">
+      <div className="hidden flex-none lg:block">
         <ul className="menu menu-horizontal">
-          <ThemeSwitch />
           {/* Navbar menu content here */}
           {links.map((link) => (
             <li key={link.title}>
@@ -24,13 +22,12 @@ export default function Nav({ links }: { links: LinkType[] }) {
         </ul>
       </div>
       <div className="flex-none lg:hidden">
-        <ThemeSwitch />
-        <label htmlFor="nav-drawer" className="btn btn-square btn-ghost">
+        <label htmlFor="nav-drawer" className="btn-ghost btn-square btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            className="inline-block w-6 h-6 stroke-current"
+            className="inline-block h-6 w-6 stroke-current"
           >
             <path
               strokeLinecap="round"

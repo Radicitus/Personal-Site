@@ -1,8 +1,11 @@
 import { create } from "zustand";
-import { ThemeSlice, createThemeSlice } from "@/store/slices/themeSlice";
+import {
+  ThemeSliceTemplate,
+  createThemeSlice,
+} from "@/store/slices/themeSliceTemplate";
 import { persist } from "zustand/middleware";
 
-type StoreState = ThemeSlice;
+type StoreState = ThemeSliceTemplate;
 
 export const useAppStore = create<StoreState>()(
   persist(
