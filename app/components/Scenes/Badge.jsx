@@ -29,7 +29,7 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 export default function Badge() {
   // const { debug } = useControls({ debug: false });
   return (
-    <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
+    <Canvas camera={{ position: [0, 0, 13], fov: 25 }} className="bg-black">
       <ambientLight intensity={Math.PI} />
       <Physics
         // debug={debug}
