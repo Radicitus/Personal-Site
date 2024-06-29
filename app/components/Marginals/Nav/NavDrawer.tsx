@@ -1,47 +1,46 @@
-import { getClient } from "@/graphql/clients/serverSideClient";
-import { GET_NAV_PAGES } from "@/graphql/queries/page";
-// COMPONENTS
-import Nav from "@/app/components/Marginals/Nav/Nav";
-import NavSidebar from "@/app/components/Marginals/Nav/NavSidebar";
-// TYPES
-import { LinkType } from "@/types/linkType";
-import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
+import * as React from "react";
 
-export const revalidate = 60;
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { PanelBottomOpen } from "lucide-react";
 
-export default async function NavDrawer({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  // Get page nav data from Strapi
-  const client = getClient();
-  const res: PageSearchResultType = await client.query({
-    query: GET_NAV_PAGES,
-  });
-
-  let pages = res.data.pages.data;
-  // Inject page title into link objects
-  let pageLinks: LinkType[] = pages.map((page) => {
-    let pageLink = page.attributes.link.data.attributes;
-    let link: LinkType = {
-      title: page.attributes.title,
-      path: pageLink.path,
-      target: pageLink.target,
-    };
-    return link;
-  });
-
+export default function NavDrawer() {
   return (
-    <div className="drawer drawer-end">
-      <input id="nav-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col">
-        <Nav links={pageLinks} />
-
-        {/* Page content here */}
-        {children}
-      </div>
-      <NavSidebar links={pageLinks} />
-    </div>
+    <Drawer>
+      <DrawerTrigger asChild>
+        <div className="fixed bottom-12 z-[1] flex w-full justify-center">
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-12 w-12 shrink-0 rounded-full bg-black text-white"
+          >
+            <PanelBottomOpen className="h-8 w-8" />
+          </Button>
+        </div>
+      </DrawerTrigger>
+      <DrawerContent>
+        <div className="mx-auto w-full max-w-sm">
+          <DrawerHeader>
+            <DrawerTitle>Move Goal</DrawerTitle>
+            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <Button>Submit</Button>
+            <DrawerClose asChild>
+              <Button variant="outline">Cancel</Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </div>
+      </DrawerContent>
+    </Drawer>
   );
 }
