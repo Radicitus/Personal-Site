@@ -3,7 +3,7 @@ import { LinkType } from "@/types/linkType";
 
 export default function Nav({ links }: { links: LinkType[] }) {
   return (
-    <div className="navbar sticky top-0 z-[1] w-full bg-base-100 px-8 pt-6">
+    <div className="navbar sticky top-0 z-[1] w-full bg-black px-8 pt-6 text-white">
       <div className="mx-2 flex-1 px-2">
         <Link href={"/"} className="font-mohave text-4xl font-bold">
           <span className="align-sub">CS</span>

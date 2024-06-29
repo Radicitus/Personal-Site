@@ -32,10 +32,10 @@ export default async function Footer() {
   )!.attributes;
 
   return (
-    <footer className="footer footer-center p-5 bg-primary text-primary-content mt-auto">
+    <footer className="footer footer-center mt-auto bg-black p-5 text-white">
       <div>
         <div className="avatar">
-          <div className="w-12 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+          <div className="w-12 rounded-full ring ring-blue-700 ring-offset-2 ring-offset-black">
             <Image
               src={footerAvatar.url}
               alt={footerAvatar.alternativeText}

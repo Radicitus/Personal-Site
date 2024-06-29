@@ -44,13 +44,6 @@ export default async function RootLayout({
       <body>
         <NavDrawer>
           {children}
-          {/* Contact Me Hero */}
-          <Hero
-            title={contactHero.title}
-            description={contactHero.description}
-            button={contactHero.button.data}
-            background={"bg-secondary"}
-          />
           <Footer />
         </NavDrawer>
         <Analytics />
