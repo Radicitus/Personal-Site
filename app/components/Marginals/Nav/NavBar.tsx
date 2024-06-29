@@ -13,14 +13,16 @@ export default function NavBar({ links }: { links: LinkType[] }) {
       {/* Navbar menu content here */}
       <div className="flex items-center space-x-8 font-quicksand text-gray-300">
         {links.map((link) => (
-          <Link
-            href={link.path}
-            target={"_" + link.target}
-            legacyBehavior
-            passHref
-          >
-            {link.title}
-          </Link>
+          <div className="transition ease-in-out hover:text-gray-400">
+            <Link
+              href={link.path}
+              target={"_" + link.target}
+              legacyBehavior
+              passHref
+            >
+              {link.title}
+            </Link>
+          </div>
         ))}
       </div>
     </div>
