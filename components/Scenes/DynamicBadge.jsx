@@ -17,6 +17,7 @@ import {
   BallCollider,
   CuboidCollider,
   Physics,
+  quat,
   RigidBody,
   useRopeJoint,
   useSphericalJoint,
@@ -26,7 +27,7 @@ import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export default function Badge() {
+export default function DynamicBadge() {
   // const { debug } = useControls({ debug: false });
   return (
     <Canvas camera={{ position: [0, 0, 13], fov: 25 }} className="bg-black">
@@ -123,6 +124,17 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         y: vec.y - dragged.y,
         z: vec.z - dragged.z,
       });
+    }
+    // Rotate badge in direction of cursor
+    if (!dragged && hovered) {
+      vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
+      rot.copy(card.current.rotation());
+      let quaternion = quat(card.current.rotation());
+
+      if (rot.y > -0.3 && rot.y < 0.3) {
+        quaternion.y += vec.x / 10;
+        card.current.setRotation(quaternion, true);
+      }
     }
     if (fixed.current) {
       // Fix most of the jitter when over pulling the card

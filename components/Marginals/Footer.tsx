@@ -31,14 +31,19 @@ export default async function Footer() {
 
   return (
     <footer className="mt-auto bg-black p-5 text-white">
-      <div className="mb-4 flex flex-col items-center">
-        <div className="w-12 overflow-hidden rounded-full ring-2 ring-violet-800 ring-offset-2 ring-offset-black">
-          <Image
-            src={footerAvatar.url}
-            alt={footerAvatar.alternativeText}
-            width={128}
-            height={128}
-          />
+      <div className="mb-4 flex flex-col items-center ">
+        <div className="w-12 overflow-hidden rounded-full ring-2 ring-violet-800 ring-offset-2 ring-offset-black transition duration-300 ease-in-out hover:-translate-y-0.5 hover:ring-4">
+          <Link
+            href={"https://www.instagram.com/wondercameron/"}
+            target={"_blank"}
+          >
+            <Image
+              src={footerAvatar.url}
+              alt={footerAvatar.alternativeText}
+              width={128}
+              height={128}
+            />
+          </Link>
         </div>
 
         <p className="mt-4 font-light">
