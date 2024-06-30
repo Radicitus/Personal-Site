@@ -17,6 +17,7 @@ import {
   BallCollider,
   CuboidCollider,
   Physics,
+  quat,
   RigidBody,
   useRopeJoint,
   useSphericalJoint,
@@ -124,11 +125,15 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         z: vec.z - dragged.z,
       });
     }
+    // Rotate badge in direction of cursor
     if (!dragged && hovered) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
-      ang.copy(card.current.angvel());
-      if (card.current.rotation().y > -0.3 && card.current.rotation().y < 0.3) {
-        card.current.setAngvel({ x: ang.x, y: vec.x * 30, z: ang.z }, true);
+      rot.copy(card.current.rotation());
+      let quaternion = quat(card.current.rotation());
+
+      if (rot.y > -0.3 && rot.y < 0.3) {
+        quaternion.y += vec.x / 10;
+        card.current.setRotation(quaternion, true);
       }
     }
     if (fixed.current) {
