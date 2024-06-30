@@ -4,7 +4,7 @@ export const revalidate = 60;
 
 export default async function StaticBadge() {
   return (
-    <div className="mb-4 max-w-xl">
+    <div className="mb-20 flex max-w-xl flex-col">
       <Image
         src={"/static-badge.png"}
         alt={"Static badge image"}
@@ -12,6 +12,9 @@ export default async function StaticBadge() {
         height={2000}
         priority
       />
+      <p className="w-80 place-self-center text-center font-quicksand text-sm opacity-80">
+        To see things <strong>really</strong> move, visit this site on desktop.
+      </p>
     </div>
   );
 }
