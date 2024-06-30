@@ -3,7 +3,6 @@ import { getClient } from "@/graphql/clients/serverSideClient";
 import { GET_VENTURE_BY_SLUG } from "@/graphql/queries/venture";
 import { VentureType } from "@/types/strapi/ventureType";
 import { VentureSearchResultType } from "@/types/strapi/ventureSearchResultType";
-import VentureView from "@/components/VentureView";
 
 export const revalidate = 60;
 
@@ -16,5 +15,5 @@ export default async function Experience({ params }: paramsType) {
   });
   const venture: VentureType = res.data.ventures.data[0];
 
-  return <VentureView venture={venture} />;
+  return <p>Experience</p>;
 }
