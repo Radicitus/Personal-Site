@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const revalidate = 60;
 
-export default async function BadgePlaceholder() {
+export default async function StaticBadge() {
   return (
     <div className="max-h-128 w-full max-w-xl">
       <Image
