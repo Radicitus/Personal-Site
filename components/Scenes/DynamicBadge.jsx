@@ -124,6 +124,13 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         z: vec.z - dragged.z,
       });
     }
+    if (!dragged && hovered) {
+      vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
+      ang.copy(card.current.angvel());
+      if (card.current.rotation().y > -0.3 && card.current.rotation().y < 0.3) {
+        card.current.setAngvel({ x: ang.x, y: vec.x * 30, z: ang.z }, true);
+      }
+    }
     if (fixed.current) {
       // Fix most of the jitter when over pulling the card
       [j1, j2].forEach((ref) => {
