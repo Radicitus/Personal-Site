@@ -4,7 +4,7 @@ export const revalidate = 60;
 
 export default async function StaticBadge() {
   return (
-    <div className="max-h-128 w-full max-w-xl">
+    <div className="mb-4 max-w-xl">
       <Image
         src={"/static-badge.png"}
         alt={"Static badge image"}
