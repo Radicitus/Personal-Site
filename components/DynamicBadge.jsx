@@ -132,7 +132,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       let quaternion = quat(card.current.rotation());
 
       if (rot.y > -0.3 && rot.y < 0.3) {
-        quaternion.y += vec.x / 10;
+        quaternion.y += vec.x / 7;
         card.current.setRotation(quaternion, true);
       }
     }

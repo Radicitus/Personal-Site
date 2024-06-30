@@ -10,6 +10,7 @@ export const revalidate = 60;
 
 export default async function NavContainer() {
   const navLinks: LinkType[] = [
+    { title: "Home", path: "/", target: "_self" },
     { title: "Experience", path: "/experience", target: "_self" },
     { title: "Projects", path: "/projects", target: "_self" },
     { title: "About", path: "/about", target: "_self" },
