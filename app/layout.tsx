@@ -26,7 +26,7 @@ export default async function RootLayout({
       ${quicksand.className} ${fontSans.className} ${fontSans.variable}
       `}
     >
-      <body className="bg-black">
+      <body className="bg-black text-white">
         <NavContainer />
         {children}
         <Footer />
