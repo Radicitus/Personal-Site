@@ -22,8 +22,9 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`
-      ${mohave.variable} ${quicksand.variable}
-      ${quicksand.className} ${fontSans.className} ${fontSans.variable}
+      ${mohave.variable} ${fontSans.variable}
+      ${quicksand.variable} ${quicksand.className} 
+      scroll-smooth
       `}
     >
       <body className="bg-black text-white">
