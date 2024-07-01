@@ -99,19 +99,11 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       ])
   );
   const [dragged, drag] = useState(false);
-  const [hovered, hover] = useState(false);
 
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]) // prettier-ignore
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]) // prettier-ignore
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]) // prettier-ignore
   useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.45, 0]]) // prettier-ignore
-
-  useEffect(() => {
-    if (hovered) {
-      document.body.style.cursor = dragged ? "grabbing" : "grab";
-      return () => void (document.body.style.cursor = "auto");
-    }
-  }, [hovered, dragged]);
 
   useFrame((state, delta) => {
     // Rotate badge in direction of cursor
@@ -234,8 +226,8 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           <group
             scale={2.25}
             position={[0, -1.2, -0.05]}
-            onPointerOver={() => hover(true)}
-            onPointerOut={() => hover(false)}
+            onPointerOver={() => (document.body.style.cursor = "grab")}
+            onPointerOut={() => (document.body.style.cursor = "auto")}
             onPointerUp={(e) => (
               e.target.releasePointerCapture(e.pointerId), drag(false)
             )}
