@@ -1,6 +1,6 @@
-import DynamicBadge from "@/components/DynamicBadge";
+import DynamicBadge from "@/components/Badge/DynamicBadge";
 import { isMobileDevice } from "@/utils/isMobileDevice";
-import StaticBadge from "@/components/StaticBadge";
+import StaticBadge from "@/components/Badge/StaticBadge";
 
 export const revalidate = 1200;
 
