@@ -8,12 +8,12 @@ import NavDrawer from "@/components/Marginals/Nav/NavDrawer";
 
 export const revalidate = 60;
 
-export default async function NavContainer() {
+export default function NavContainer() {
   const navLinks: LinkType[] = [
-    { title: "Home", path: "/", target: "_self" },
-    { title: "Experience", path: "/experience", target: "_self" },
-    { title: "Projects", path: "/projects", target: "_self" },
-    { title: "About", path: "/about", target: "_self" },
+    { title: "/", path: "#home", target: "_self" },
+    { title: "Experience", path: "#experience", target: "_self" },
+    { title: "Projects", path: "#projects", target: "_self" },
+    // { title: "About", path: "/about", target: "_self" },
   ];
 
   return isMobileDevice() ? (
