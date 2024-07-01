@@ -126,13 +126,13 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       });
     }
     // Rotate badge in direction of cursor
-    if (!dragged && hovered) {
+    if (!dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
       rot.copy(card.current.rotation());
       let quaternion = quat(card.current.rotation());
 
       if (rot.y > -0.3 && rot.y < 0.3) {
-        quaternion.y += vec.x / 7;
+        quaternion.y += vec.x / 20;
         card.current.setRotation(quaternion, true);
       }
     }
