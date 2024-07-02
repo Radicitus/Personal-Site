@@ -4,6 +4,7 @@ import { GET_ALL_PROJECTS } from "@/graphql/queries/venture";
 // TYPES
 import { VentureSearchResultType } from "@/types/strapi/ventureSearchResultType";
 import { PageSearchResultType } from "@/types/strapi/pageSearchResultType";
+import DynamicCarousel from "@/components/DynamicCarousel";
 
 export const revalidate = 60;
 
@@ -20,7 +21,11 @@ export default async function Projects() {
     query: GET_PAGE,
     variables: { slug: "projects" },
   });
-  const projectsPage = pageRes.data.pages.data[0];
+  // const projectsPage = pageRes.data.pages.data[0];
 
-  return <p>Projects</p>;
+  return (
+    <div className="h-screen w-full">
+      <DynamicCarousel />
+    </div>
+  );
 }
