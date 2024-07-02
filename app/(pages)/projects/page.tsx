@@ -26,6 +26,11 @@ export default async function Projects() {
   return (
     <div className="h-screen w-full">
       <DynamicCarousel />
+      <div
+        id="projectTitle"
+        className="auto absolute top-56 w-full text-center text-3xl"
+      ></div>
+      <div className="absolute bottom-16 right-16 text-sm">Try scrolling!</div>
     </div>
   );
 }

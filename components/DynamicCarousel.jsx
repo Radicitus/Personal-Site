@@ -67,6 +67,9 @@ function Card({ url, ...props }) {
   const [hovered, hover] = useState(false);
   const pointerOver = (e) => (e.stopPropagation(), hover(true));
   const pointerOut = () => hover(false);
+  const updateProjectTitle = (url) => {
+    document.getElementById("projectTitle").textContent = url;
+  };
   useFrame((state, delta) => {
     easing.damp3(ref.current.scale, hovered ? 1.15 : 1, 0.1, delta);
     easing.damp(
@@ -84,8 +87,14 @@ function Card({ url, ...props }) {
       url={url}
       transparent
       side={THREE.DoubleSide}
-      onPointerOver={pointerOver}
-      onPointerOut={pointerOut}
+      onPointerOver={(e) => {
+        pointerOver(e);
+        updateProjectTitle(url);
+      }}
+      onPointerOut={(e) => {
+        pointerOut(e);
+        updateProjectTitle();
+      }}
       {...props}
     >
       <bentPlaneGeometry args={[0.1, 1, 1, 20, 20]} />
