@@ -16,7 +16,7 @@ import "@/utils/carouselUtils.js";
 export default function DynamicCarousel() {
   return (
     <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
-      <fog attach="fog" args={["#a79", 8.5, 12]} />
+      <fog attach="fog" args={["#d5d4d4", 8.5, 12]} />
       <ScrollControls pages={4} infinite>
         <Rig rotation={[0, 0, 0.15]}>
           <Carousel />
@@ -95,7 +95,7 @@ function Card({ url, ...props }) {
 
 function Banner(props) {
   const ref = useRef();
-  const texture = useTexture("/cam-band-texture.png");
+  const texture = useTexture("/cam-projects-carousel-banner-texture.png");
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
   const scroll = useScroll();
   useFrame((state, delta) => {
