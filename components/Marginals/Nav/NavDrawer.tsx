@@ -90,12 +90,7 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
                   event.preventDefault();
                 }}
               >
-                <Link
-                  href={link.path}
-                  target={"_" + link.target}
-                  legacyBehavior
-                  passHref
-                >
+                <Link href={link.path} target={"_" + link.target}>
                   {link.title}
                 </Link>
               </div>

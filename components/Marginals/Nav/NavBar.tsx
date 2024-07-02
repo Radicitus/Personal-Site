@@ -20,12 +20,7 @@ export default function NavBar({ links }: { links: LinkType[] }) {
       <div className="flex items-center space-x-8 font-quicksand text-gray-300">
         {links.map((link) => (
           <div className="transition ease-in-out hover:text-gray-400">
-            <Link
-              href={link.path}
-              target={"_" + link.target}
-              legacyBehavior
-              passHref
-            >
+            <Link href={link.path} target={"_" + link.target}>
               {link.title}
             </Link>
           </div>
