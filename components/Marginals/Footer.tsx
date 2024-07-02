@@ -30,7 +30,7 @@ export default async function Footer() {
   )!.attributes;
 
   return (
-    <footer className="mt-auto bg-black p-5 text-white">
+    <footer className="mb-8 mt-auto bg-black p-5 text-white">
       <div className="mb-4 flex flex-col items-center ">
         <div className="w-12 overflow-hidden rounded-full ring-2 ring-violet-800 ring-offset-2 ring-offset-black transition duration-300 ease-in-out hover:-translate-y-0.5 hover:ring-4">
           <Link

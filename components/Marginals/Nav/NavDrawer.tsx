@@ -8,7 +8,7 @@ import {
   DrawerFooter,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { Menu, X } from "lucide-react";
+import { House, Menu, X } from "lucide-react";
 import { LinkType } from "@/types/linkType";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -19,17 +19,9 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
   const [lastScrollY, setLastScrollY] = useState(0);
   const wait = () => new Promise((resolve) => setTimeout(resolve, 400));
 
-  const validatedSetDrawerOpen = (open: boolean) => {
-    if (isVisible && open) {
-      setOpen(true);
-    } else {
-      setOpen(false);
-    }
-  };
-
   const controlDrawerIcon = () => {
     if (typeof window !== "undefined") {
-      if (window.scrollY != 0 && window.scrollY > lastScrollY) {
+      if (window.scrollY > 50 && window.scrollY > lastScrollY) {
         // if scrolling down, hide the navbar
         setIsVisible(false);
       } else {
@@ -68,13 +60,13 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
         </Link>
       </div>
 
-      <Drawer open={open} onOpenChange={validatedSetDrawerOpen}>
+      <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger asChild>
           <div
-            className={`fixed bottom-12 z-[1] flex w-full justify-center ${
+            className={`fixed bottom-12 z-[1] flex w-full justify-end pr-12 ${
               open ? "hidden" : "block"
             } transition-opacity duration-500 ease-in-out ${
-              isVisible ? "opacity-100" : "opacity-0"
+              isVisible ? "opacity-60" : "opacity-10"
             }`}
           >
             <Button
@@ -98,13 +90,12 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
                   event.preventDefault();
                 }}
               >
-                <Link
-                  href={link.path}
-                  target={"_" + link.target}
-                  legacyBehavior
-                  passHref
-                >
-                  {link.title}
+                <Link href={link.path} target={link.target}>
+                  {link.path === "/" ? (
+                    <House className="h-8 w-8" />
+                  ) : (
+                    link.title
+                  )}
                 </Link>
               </div>
             ))}
