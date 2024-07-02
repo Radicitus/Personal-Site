@@ -8,7 +8,7 @@ import {
   DrawerFooter,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { Menu, X } from "lucide-react";
+import { House, Menu, X } from "lucide-react";
 import { LinkType } from "@/types/linkType";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -90,8 +90,12 @@ export default function NavDrawer({ links }: { links: LinkType[] }) {
                   event.preventDefault();
                 }}
               >
-                <Link href={link.path} target={"_" + link.target}>
-                  {link.title}
+                <Link href={link.path} target={link.target}>
+                  {link.path === "/" ? (
+                    <House className="h-8 w-8" />
+                  ) : (
+                    link.title
+                  )}
                 </Link>
               </div>
             ))}
