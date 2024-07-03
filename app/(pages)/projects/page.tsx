@@ -30,7 +30,9 @@ export default async function Projects() {
         id="projectTitle"
         className="auto absolute top-56 w-full text-center text-3xl"
       ></div>
-      <div className="absolute bottom-16 right-16 text-sm">Try scrolling!</div>
+      <div className="absolute bottom-8 left-8 text-sm md:bottom-16 md:left-16">
+        Try scrolling!
+      </div>
     </div>
   );
 }
