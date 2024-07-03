@@ -17,7 +17,7 @@ export default function DynamicCarousel() {
   return (
     <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
       <fog attach="fog" args={["#d5d4d4", 8.5, 12]} />
-      <ScrollControls pages={4} infinite>
+      <ScrollControls pages={4} infinite style={{ scrollbarWidth: "none" }}>
         <Rig rotation={[0, 0, 0.15]}>
           <Carousel />
         </Rig>
