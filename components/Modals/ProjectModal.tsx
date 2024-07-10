@@ -1,5 +1,5 @@
 import { Modal, ModalContent } from "@/components/Modals/Modal";
-import VentureType from "@/types/strapi/ventureType";
+import { VentureType } from "@/types/strapi/ventureType";
 
 export default function ProjectModal({
   dialogOpen,

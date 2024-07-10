@@ -33,6 +33,10 @@ export default async function Projects() {
       <div className="absolute bottom-8 left-8 text-sm md:bottom-16 md:left-16">
         Try scrolling!
       </div>
+      <div className="absolute bottom-4 right-8 text-sm md:bottom-12 md:right-16">
+        See all my projects on <br />
+        Github & LinkedIn
+      </div>
     </div>
   );
 }
