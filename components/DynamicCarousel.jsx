@@ -13,13 +13,13 @@ import {
 import { easing } from "maath";
 import "@/utils/carouselUtils.js";
 
-export default function DynamicCarousel() {
+export default function DynamicCarousel({ projects }) {
   return (
     <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
       <fog attach="fog" args={["#d5d4d4", 8.5, 12]} />
       <ScrollControls pages={4} infinite style={{ scrollbarWidth: "none" }}>
         <Rig rotation={[0, 0, 0.15]}>
-          <Carousel />
+          <Carousel projects={projects} />
         </Rig>
         <Banner position={[0, -0.15, 0]} />
       </ScrollControls>
@@ -47,28 +47,29 @@ function Rig(props) {
   return <group ref={ref} {...props} />;
 }
 
-function Carousel({ radius = 1.4, count = 8 }) {
-  return Array.from({ length: count }, (_, i) => (
+function Carousel({ radius = 1.4, projects }) {
+  return Array.from({ length: projects.length }, (_, i) => (
     <Card
       key={i}
-      url={`/img1_.jpg`}
+      url={projects[i].attributes.cover.data.attributes.url}
+      title={projects[i].attributes.title}
       position={[
-        Math.sin((i / count) * Math.PI * 2) * radius,
+        Math.sin((i / projects.length) * Math.PI * 2) * radius,
         0,
-        Math.cos((i / count) * Math.PI * 2) * radius,
+        Math.cos((i / projects.length) * Math.PI * 2) * radius,
       ]}
-      rotation={[0, Math.PI + (i / count) * Math.PI * 2, 0]}
+      rotation={[0, Math.PI + (i / projects.length) * Math.PI * 2, 0]}
     />
   ));
 }
 
-function Card({ url, ...props }) {
+function Card({ url, title, ...props }) {
   const ref = useRef();
   const [hovered, hover] = useState(false);
   const pointerOver = (e) => (e.stopPropagation(), hover(true));
   const pointerOut = () => hover(false);
-  const updateProjectTitle = (url) => {
-    document.getElementById("projectTitle").textContent = url;
+  const updateProjectTitle = (title) => {
+    document.getElementById("projectTitle").textContent = title;
   };
   useFrame((state, delta) => {
     easing.damp3(ref.current.scale, hovered ? 1.15 : 1, 0.1, delta);
@@ -89,7 +90,7 @@ function Card({ url, ...props }) {
       side={THREE.DoubleSide}
       onPointerOver={(e) => {
         pointerOver(e);
-        updateProjectTitle(url);
+        updateProjectTitle(title);
       }}
       onPointerOut={(e) => {
         pointerOut(e);

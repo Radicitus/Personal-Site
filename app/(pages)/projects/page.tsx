@@ -17,15 +17,15 @@ export default async function Projects() {
   const projects = res.data.ventures.data;
 
   // Get the Projects page from Strapi
-  const pageRes: PageSearchResultType = await client.query({
-    query: GET_PAGE,
-    variables: { slug: "projects" },
-  });
+  // const pageRes: PageSearchResultType = await client.query({
+  //   query: GET_PAGE,
+  //   variables: { slug: "projects" },
+  // });
   // const projectsPage = pageRes.data.pages.data[0];
 
   return (
     <div className="h-screen w-full">
-      <DynamicCarousel />
+      <DynamicCarousel projects={projects} />
       <div
         id="projectTitle"
         className="auto absolute top-56 w-full text-center text-3xl"
