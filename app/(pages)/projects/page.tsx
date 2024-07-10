@@ -28,7 +28,7 @@ export default async function Projects() {
       <DynamicCarousel projects={projects} />
       <div
         id="projectTitle"
-        className="auto absolute top-56 w-full text-center text-3xl"
+        className="auto absolute top-48 w-full text-center text-3xl font-semibold"
       ></div>
       <div className="absolute bottom-8 left-8 text-sm md:bottom-16 md:left-16">
         Try scrolling!
