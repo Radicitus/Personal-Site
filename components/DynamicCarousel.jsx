@@ -13,7 +13,7 @@ import {
 } from "@react-three/drei";
 import { easing } from "maath";
 import "@/utils/carouselUtils.js";
-import Modal from "@/components/Modal";
+import ProjectModal from "@/components/Modals/ProjectModal";
 
 export default function DynamicCarousel({ projects }) {
   return (
@@ -53,9 +53,7 @@ function Carousel({ radius = 1.4, projects }) {
   return Array.from({ length: projects.length }, (_, i) => (
     <Card
       key={i}
-      coverUrl={projects[i].attributes.cover.data.attributes.url}
-      title={projects[i].attributes.title}
-      content={projects[i].attributes.content}
+      project={projects[i]}
       position={[
         Math.sin((i / projects.length) * Math.PI * 2) * radius,
         0,
@@ -66,7 +64,7 @@ function Carousel({ radius = 1.4, projects }) {
   ));
 }
 
-function Card({ coverUrl, title, content, ...props }) {
+function Card({ project, ...props }) {
   const ref = useRef();
   const [hovered, hover] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -90,12 +88,12 @@ function Card({ coverUrl, title, content, ...props }) {
     <>
       <Image
         ref={ref}
-        url={coverUrl}
+        url={project.attributes.cover.data.attributes.url}
         transparent
         side={THREE.DoubleSide}
         onPointerOver={(e) => {
           pointerOver(e);
-          updateProjectTitle(title);
+          updateProjectTitle(project.attributes.title);
         }}
         onPointerOut={(e) => {
           pointerOut(e);
@@ -107,11 +105,10 @@ function Card({ coverUrl, title, content, ...props }) {
         <bentPlaneGeometry args={[0.1, 1, 1, 20, 20]} />
       </Image>
       <Html>
-        <Modal
+        <ProjectModal
           dialogOpen={dialogOpen}
           setDialogOpen={setDialogOpen}
-          title={title}
-          content={content}
+          project={project}
         />
       </Html>
     </>
