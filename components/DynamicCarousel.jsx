@@ -9,9 +9,11 @@ import {
   ScrollControls,
   useScroll,
   useTexture,
+  Html,
 } from "@react-three/drei";
 import { easing } from "maath";
 import "@/utils/carouselUtils.js";
+import Modal from "@/components/Modal";
 
 export default function DynamicCarousel({ projects }) {
   return (
@@ -51,8 +53,9 @@ function Carousel({ radius = 1.4, projects }) {
   return Array.from({ length: projects.length }, (_, i) => (
     <Card
       key={i}
-      url={projects[i].attributes.cover.data.attributes.url}
+      coverUrl={projects[i].attributes.cover.data.attributes.url}
       title={projects[i].attributes.title}
+      content={projects[i].attributes.content}
       position={[
         Math.sin((i / projects.length) * Math.PI * 2) * radius,
         0,
@@ -63,9 +66,10 @@ function Carousel({ radius = 1.4, projects }) {
   ));
 }
 
-function Card({ url, title, ...props }) {
+function Card({ coverUrl, title, content, ...props }) {
   const ref = useRef();
   const [hovered, hover] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const pointerOver = (e) => (e.stopPropagation(), hover(true));
   const pointerOut = () => hover(false);
   const updateProjectTitle = (title) => {
@@ -83,23 +87,34 @@ function Card({ url, title, ...props }) {
     easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.5, 0.2, delta);
   });
   return (
-    <Image
-      ref={ref}
-      url={url}
-      transparent
-      side={THREE.DoubleSide}
-      onPointerOver={(e) => {
-        pointerOver(e);
-        updateProjectTitle(title);
-      }}
-      onPointerOut={(e) => {
-        pointerOut(e);
-        updateProjectTitle();
-      }}
-      {...props}
-    >
-      <bentPlaneGeometry args={[0.1, 1, 1, 20, 20]} />
-    </Image>
+    <>
+      <Image
+        ref={ref}
+        url={coverUrl}
+        transparent
+        side={THREE.DoubleSide}
+        onPointerOver={(e) => {
+          pointerOver(e);
+          updateProjectTitle(title);
+        }}
+        onPointerOut={(e) => {
+          pointerOut(e);
+          updateProjectTitle();
+        }}
+        onClick={setDialogOpen}
+        {...props}
+      >
+        <bentPlaneGeometry args={[0.1, 1, 1, 20, 20]} />
+      </Image>
+      <Html>
+        <Modal
+          dialogOpen={dialogOpen}
+          setDialogOpen={setDialogOpen}
+          title={title}
+          content={content}
+        />
+      </Html>
+    </>
   );
 }
 
