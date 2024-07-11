@@ -24,7 +24,7 @@ class BentPlaneGeometry extends THREE.PlaneGeometry {
     let pos = this.attributes.position;
     let mainV = new THREE.Vector2();
     for (let i = 0; i < uv.count; i++) {
-      let uvRatio = 1 - uv.getX(i);
+      let uvRatio = uv.getX(i);
       let y = pos.getY(i);
       mainV.copy(c).rotateAround(center, arc * uvRatio);
       pos.setXYZ(i, mainV.x, y, -mainV.y);
