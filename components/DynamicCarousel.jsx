@@ -99,7 +99,10 @@ function Card({ project, ...props }) {
           pointerOut(e);
           updateProjectTitle();
         }}
-        onClick={setDialogOpen}
+        onClick={(e) => {
+          setDialogOpen(true);
+          e.stopPropagation();
+        }}
         {...props}
       >
         <bentPlaneGeometry args={[0.1, 1, 1, 20, 20]} />
