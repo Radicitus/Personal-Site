@@ -34,7 +34,7 @@ export default function Home() {
             <div className="absolute top-0 z-100">
               <div className="relative">
                 {/* Repeat Rows */}
-                {adjectivesList.map((_key, index, _array) => (
+                {adjectivesList.slice(adjectivesList.length/2).map((_key, index, _array) => (
                   <>
                     {/* Left to Right Row */}
                     <div className="flex">
