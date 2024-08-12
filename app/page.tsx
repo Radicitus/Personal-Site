@@ -11,8 +11,9 @@ export default function Home() {
     "Surfer",
     "Singer",
     "Runner",
-    "Writer",
-    "Weight Lifter",
+    // "Writer",
+    // "Weight Lifter",
+    // "Dreamer"
   ];
 
   return (
@@ -25,12 +26,14 @@ export default function Home() {
         <main id="home" className="flex h-screen w-full justify-center">
           <div className="relative w-full">
             <DynamicBadge />
-
-            <div className="animate absolute top-20 animate-banner-scroll-left text-4xl">
-              {adjectivesList.map((item) => (
-                <span className="z-40">{item}</span>
-              ))}
+            <div className="">
+              <div className="flex-nowrap absolute overflow-hidden top-20 animate-banner-scroll-right text-4xl font-extralight text-white/50">
+                {adjectivesList.map((item) => (
+                  <span className="z-40">{item} • </span>
+                ))}
+              </div>
             </div>
+
           </div>
         </main>
       )}
