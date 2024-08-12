@@ -11,9 +11,9 @@ export default function Home() {
     "Surfer",
     "Singer",
     "Runner",
-    // "Writer",
-    // "Weight Lifter",
-    // "Dreamer"
+    "Writer",
+    "Weight Lifter",
+    "Dreamer"
   ];
 
   return (
@@ -26,11 +26,35 @@ export default function Home() {
         <main id="home" className="flex h-screen w-full justify-center">
           <div className="relative w-full">
             <DynamicBadge />
-            <div className="">
-              <div className="flex-nowrap absolute overflow-hidden top-20 animate-banner-scroll-right text-4xl font-extralight text-white/50">
-                {adjectivesList.map((item) => (
-                  <span className="z-40">{item} • </span>
-                ))}
+
+            <div className="absolute top-0 z-100">
+              <div className="relative">
+                {/* Left to Right Row */}
+                <div className="overflow-x-hidden flex">
+                  <div className="animate-banner-scroll-right whitespace-nowrap py-1">
+                    {adjectivesList.map((item) => (
+                      <span className="mx-2 text-7xl font-extralight text-white/30">{item} +</span>
+                    ))}
+                  </div>
+                  <div className="animate-banner-scroll-right whitespace-nowrap py-1">
+                    {adjectivesList.map((item) => (
+                      <span className="mx-2 text-7xl font-extralight text-white/30">{item} +</span>
+                    ))}
+                  </div>
+                </div>
+                {/* Right to Left Row */}
+                <div className="overflow-x-hidden flex">
+                  <div className="animate-banner-scroll-left whitespace-nowrap py-1">
+                    {adjectivesList.map((item) => (
+                      <span className="mx-2 text-7xl font-extralight text-white/30">{item} +</span>
+                    ))}
+                  </div>
+                  <div className="animate-banner-scroll-left whitespace-nowrap py-1">
+                    {adjectivesList.map((item) => (
+                      <span className="mx-2 text-7xl font-extralight text-white/30">{item} +</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 

@@ -32,7 +32,7 @@ export default function DynamicBadge() {
   return (
     <Canvas
       camera={{ position: [0, 0, 13], fov: 25 }}
-      className="absolute z-40"
+      className="absolute z-10"
     >
       <ambientLight intensity={Math.PI} />
       <Physics
