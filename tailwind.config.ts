@@ -87,15 +87,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        loop: {
+        "banner-scroll-left": {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
+        },
+        "banner-scroll-right": {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        loop: "loop 25s linear infinite",
+        "banner-scroll-left": "banner-scroll-left 25s linear infinite",
+        "banner-scroll-right": "banner-scroll-right 25s linear infinite",
       },
       fontFamily: {
         mohave: ["var(--font-mohave)"],

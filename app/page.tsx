@@ -5,6 +5,16 @@ import StaticBadge from "@/components/Badge/StaticBadge";
 export const revalidate = 1200;
 
 export default function Home() {
+
+  const adjectivesList = [
+    "Coder",
+    "Surfer",
+    "Singer",
+    "Runner",
+    "Writer",
+    "Weight Lifter",
+  ];
+
   return (
     <>
       {isMobileDevice() ? (
@@ -16,12 +26,10 @@ export default function Home() {
           <div className="relative w-full">
             <DynamicBadge />
 
-            <div className="absolute top-20 text-4xl">
-              <span className="z-40">Test1</span>
-              <span className="z-40">Test2</span>
-              <span className="z-40">Test3</span>
-              <span className="z-40">Test4</span>
-              <span className="z-40">Test5</span>
+            <div className="animate absolute top-20 animate-banner-scroll-left text-4xl">
+              {adjectivesList.map((item) => (
+                <span className="z-40">{item}</span>
+              ))}
             </div>
           </div>
         </main>
