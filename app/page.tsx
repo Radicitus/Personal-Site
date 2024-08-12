@@ -13,7 +13,11 @@ export default function Home() {
     "Runner",
     "Writer",
     "Lifter",
-    "Dreamer"
+    "Dreamer",
+    "Gamer",
+    "Raver",
+    "Foodie",
+    "Traveler"
   ];
 
   return (
@@ -30,31 +34,31 @@ export default function Home() {
             <div className="absolute top-0 z-100">
               <div className="relative">
                 {/* Repeat Rows */}
-                {adjectivesList.map(() => (
+                {adjectivesList.map((_key, index, _array) => (
                   <>
                     {/* Left to Right Row */}
                     <div className="flex">
                       <div className="animate-banner-scroll-right whitespace-nowrap py-1">
-                        {adjectivesList.map((item) => (
-                          <span className="mx-2 text-7xl font-extralight text-white/20">{item} +</span>
+                        {adjectivesList.slice(index).map((item) => (
+                          <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
                       <div className="animate-banner-scroll-right whitespace-nowrap py-1">
-                        {adjectivesList.map((item) => (
-                          <span className="mx-2 text-7xl font-extralight text-white/20">{item} +</span>
+                        {adjectivesList.slice(index).map((item) => (
+                          <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
                     </div>
                     {/* Right to Left Row */}
                     <div className="flex">
                       <div className="animate-banner-scroll-left whitespace-nowrap py-1">
-                        {adjectivesList.map((item) => (
-                          <span className="mx-2 text-7xl font-extralight text-white/20">{item} +</span>
+                        {adjectivesList.slice(index + 2).map((item) => (
+                          <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
                       <div className="animate-banner-scroll-left whitespace-nowrap py-1">
-                        {adjectivesList.map((item) => (
-                          <span className="mx-2 text-7xl font-extralight text-white/20">{item} +</span>
+                        {adjectivesList.slice(index + 2).map((item) => (
+                          <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
                     </div>
