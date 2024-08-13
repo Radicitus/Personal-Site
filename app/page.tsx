@@ -17,7 +17,9 @@ export default function Home() {
     "Gamer",
     "Raver",
     "Foodie",
-    "Traveler"
+    "Traveler",
+    "Designer",
+    "Brother"
   ];
 
   return (
@@ -40,12 +42,12 @@ export default function Home() {
                     {/* Left to Right Row */}
                     <div className="flex">
                       <div className="animate-banner-scroll-right whitespace-nowrap py-1">
-                        {adjectivesList.slice(index).map((item) => (
+                        {adjectivesList.slice(index * 2).map((item) => (
                           <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
                       <div className="animate-banner-scroll-right whitespace-nowrap py-1">
-                        {adjectivesList.slice(index).map((item) => (
+                        {adjectivesList.slice(index * 2).map((item) => (
                           <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
@@ -53,12 +55,12 @@ export default function Home() {
                     {/* Right to Left Row */}
                     <div className="flex">
                       <div className="animate-banner-scroll-left whitespace-nowrap py-1">
-                        {adjectivesList.toReversed().slice(index + 2).map((item) => (
+                        {adjectivesList.toReversed().slice(index * 2).map((item) => (
                           <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
                       <div className="animate-banner-scroll-left whitespace-nowrap py-1">
-                        {adjectivesList.toReversed().slice(index + 2).map((item) => (
+                        {adjectivesList.toReversed().slice(index * 2).map((item) => (
                           <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
