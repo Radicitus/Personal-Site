@@ -31,6 +31,7 @@ export default function Home() {
           <div className="relative w-full overflow-hidden">
             <DynamicBadge />
 
+            {/* Background Scrolling Text */}
             <div className="absolute top-0 z-100">
               <div className="relative">
                 {/* Repeat Rows */}
@@ -52,12 +53,12 @@ export default function Home() {
                     {/* Right to Left Row */}
                     <div className="flex">
                       <div className="animate-banner-scroll-left whitespace-nowrap py-1">
-                        {adjectivesList.slice(index + 2).map((item) => (
+                        {adjectivesList.toReversed().slice(index + 2).map((item) => (
                           <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
                       <div className="animate-banner-scroll-left whitespace-nowrap py-1">
-                        {adjectivesList.slice(index + 2).map((item) => (
+                        {adjectivesList.toReversed().slice(index + 2).map((item) => (
                           <span className="mx-2 text-9xl font-extralight text-white/10">{item} +</span>
                         ))}
                       </div>
