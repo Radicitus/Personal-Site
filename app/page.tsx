@@ -1,36 +1,20 @@
 import DynamicBadge from "@/components/Badge/DynamicBadge";
-import { isMobileDevice } from "@/utils/isMobileDevice";
+import ExperienceScroller from "@/components/ExperienceScroller"
 import StaticBadge from "@/components/Badge/StaticBadge";
-
-export const revalidate = 1200;
+import { isMobileDevice } from "@/utils/isMobileDevice";
 
 export default function Home() {
-
-  const adjectivesList = [
-    "Coder",
-    "Surfer",
-    "Singer",
-    "Runner",
-    "Writer",
-    "Lifter",
-    "Dreamer",
-    "Gamer",
-    "Raver",
-    "Foodie",
-    "Traveler",
-    "Designer",
-    "Brother"
-  ];
 
   return (
     <>
       {isMobileDevice() ? (
-        <main id="home" className="flex w-full justify-center">
+        <main id="home" className="flex justify-center">
           <StaticBadge />
         </main>
       ) : (
-        <main id="home" className="flex h-screen w-full justify-center">
-          <DynamicBadge />
+        <main id="home" className="flex flex-col justify-center">
+          <div className="h-screen"><DynamicBadge /></div>
+          <ExperienceScroller />
         </main>
       )}
     </>
