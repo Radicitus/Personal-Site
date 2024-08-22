@@ -13,7 +13,7 @@ export const metadata = {
 
 export const revalidate = 60;
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -23,8 +23,7 @@ export default async function RootLayout({
       lang="en"
       className={`
       ${mohave.variable} ${inter.variable} ${quicksand.variable} font-quicksand
-      scroll-smooth
-      `}
+      scroll-smooth`}
     >
       <body className="bg-black text-white">
         {/* <NavContainer /> */}
