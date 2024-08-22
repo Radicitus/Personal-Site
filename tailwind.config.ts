@@ -27,6 +27,11 @@ const config: Config = {
         182: "46rem",
         190: "48rem",
       },
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        mohave: ['var(--font-mohave)'],
+        quicksand: ['var(--font-quicksand)'],
+      },
     },
   },
   plugins: [],
