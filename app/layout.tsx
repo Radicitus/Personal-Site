@@ -3,7 +3,7 @@ import { mohave, quicksand, inter } from "@/app/fonts";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 // COMPONENTS
-// import Footer from "@/components/Marginals/Footer";
+import Footer from "@/components/Marginals/Footer";
 // import NavContainer from "@/components/Marginals/Nav/NavContainer";
 
 export const metadata = {
@@ -28,7 +28,7 @@ export default function RootLayout({
       <body className="bg-black text-white">
         {/* <NavContainer /> */}
         {children}
-        {/* <Footer /> */}
+        <Footer />
         <Analytics />
         <SpeedInsights />
       </body>
