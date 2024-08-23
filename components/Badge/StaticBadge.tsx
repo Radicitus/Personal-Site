@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export default async function StaticBadge() {
   return (

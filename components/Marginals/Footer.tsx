@@ -1,33 +1,25 @@
 import Image from "next/image";
-import { getClient } from "@/graphql/clients/serverSideClient";
-import { GET_FOOTER } from "@/graphql/queries/single";
 // TYPES
-import { FooterType } from "@/types/strapi/footerType";
+import { FooterType } from "@/types/footerType";
+import { IconType } from "@/types/IconType";
+import { ImageType } from "@/types/imageType";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export default async function Footer() {
   // Get the footer from Strapi
-  const client = getClient();
-  const footer: FooterType = await client.query({ query: GET_FOOTER });
+  const footerQueryUrl = "/footer?populate[icons][populate]=*&populate[avatar][populate]=*"
+  const footer: FooterType = await fetch(process.env.CMS_URL + footerQueryUrl).then((res) =>
+    res.json()
+  )
 
-  // Avatar
-  const footerAvatar =
-    footer.data.footer.data.attributes.avatar.data.attributes;
-
-  // Icons
-  const footerIcons = footer.data.footer.data.attributes.icons.data;
-  const gitHubIcon = footerIcons.find(
-    (icon) => icon.attributes.type === "github"
-  )!.attributes;
-  const linkedInIcon = footerIcons.find(
-    (icon) => icon.attributes.type === "linkedin"
-  )!.attributes;
-  const emailIcon = footerIcons.find(
-    (icon) => icon.attributes.type === "email"
-  )!.attributes;
+  // Destructure to fractionals
+  const footerAvatar: ImageType = footer.data.attributes.avatar.data
+  const gitHubIcon: IconType = footer.data.attributes.icons.data.find((icon) => icon.attributes.type === "github")!
+  const linkedInIcon: IconType = footer.data.attributes.icons.data.find((icon) => icon.attributes.type === "linkedin")!
+  const emailIcon: IconType = footer.data.attributes.icons.data.find((icon) => icon.attributes.type === "email")!
 
   return (
     <footer className="mb-8 mt-auto bg-black p-5 text-white">
@@ -38,8 +30,8 @@ export default async function Footer() {
             target={"_blank"}
           >
             <Image
-              src={footerAvatar.url}
-              alt={footerAvatar.alternativeText}
+              src={footerAvatar.attributes.url}
+              alt={footerAvatar.attributes.alternativeText}
               width={128}
               height={128}
             />
@@ -47,32 +39,32 @@ export default async function Footer() {
         </div>
 
         <p className="mt-4 font-light">
-          {footer.data.footer.data.attributes.tag}
+          {footer.data.attributes.tag}
         </p>
-        <p className="font-thin">{footer.data.footer.data.attributes.subtag}</p>
+        <p className="font-thin">{footer.data.attributes.subtag}</p>
       </div>
 
       <div className="flex flex-row place-content-center gap-4 text-gray-300">
         <div className="transition duration-300 ease-in-out hover:text-gray-400">
           <Link
-            href={gitHubIcon.link.data.attributes.path}
-            target={"_" + gitHubIcon.link.data.attributes.target}
+            href={gitHubIcon.attributes.link.data.attributes.path}
+            target={"_" + gitHubIcon.attributes.link.data.attributes.target}
           >
             <Github />
           </Link>
         </div>
         <div className="transition duration-300 ease-in-out hover:text-gray-400">
           <Link
-            href={linkedInIcon.link.data.attributes.path}
-            target={"_" + linkedInIcon.link.data.attributes.target}
+            href={linkedInIcon.attributes.link.data.attributes.path}
+            target={"_" + linkedInIcon.attributes.link.data.attributes.target}
           >
             <Linkedin />
           </Link>
         </div>
         <div className="transition duration-300 ease-in-out hover:text-gray-400">
           <Link
-            href={emailIcon.link.data.attributes.path}
-            target={"_" + emailIcon.link.data.attributes.target}
+            href={emailIcon.attributes.link.data.attributes.path}
+            target={"_" + emailIcon.attributes.link.data.attributes.target}
           >
             <Mail />
           </Link>

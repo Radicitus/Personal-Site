@@ -1,18 +1,16 @@
-import { Mohave, Quicksand, Inter as FontSans } from "next/font/google";
+import { Mohave, Quicksand, Inter } from "next/font/google";
 
 export const mohave = Mohave({
   subsets: ["latin"],
-  display: "swap",
   variable: "--font-mohave",
 });
 
 export const quicksand = Quicksand({
   subsets: ["latin"],
-  display: "swap",
   variable: "--font-quicksand",
 });
 
-export const fontSans = FontSans({
+export const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
 });
