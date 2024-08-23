@@ -11,11 +11,9 @@ export const revalidate = 3600;
 export default async function Footer() {
   // Get the footer from Strapi
   const footerQueryUrl = "/footer?populate[icons][populate]=*&populate[avatar][populate]=*"
-  const footer: FooterType = await fetch(process.env.CMS_URL + footerQueryUrl).then((res) => 
+  const footer: FooterType = await fetch(process.env.CMS_URL + footerQueryUrl).then((res) =>
     res.json()
   )
-
-  console.log(footer.data.attributes.icons.data)
 
   // Destructure to fractionals
   const footerAvatar: ImageType = footer.data.attributes.avatar.data
