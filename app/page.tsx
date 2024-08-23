@@ -16,7 +16,7 @@ export default function Home() {
       ) : (
         <main id="home" className="flex flex-col justify-center">
           <div className="h-screen"><DynamicBadge /></div>
-          <ExperienceScroller />
+          {/* <ExperienceScroller /> */}
         </main>
       )}
     </>
