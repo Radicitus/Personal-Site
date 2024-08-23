@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 // COMPONENTS
 import Footer from "@/components/Marginals/Footer";
-// import NavContainer from "@/components/Marginals/Nav/NavContainer";
+import NavContainer from "@/components/Marginals/Nav/NavContainer";
 
 export const metadata = {
   title: "Cam's Personal Site",
@@ -26,7 +26,7 @@ export default function RootLayout({
       scroll-smooth`}
     >
       <body className="bg-black text-white">
-        {/* <NavContainer /> */}
+        <NavContainer />
         {children}
         <Footer />
         <Analytics />

@@ -1,6 +1,6 @@
 // import DynamicBadge from "@/components/Badge/DynamicBadge";
 import ExperienceScroller from "@/components/ExperienceScroller"
-// import StaticBadge from "@/components/Badge/StaticBadge";
+import StaticBadge from "@/components/Badge/StaticBadge";
 import { isMobileDevice } from "@/utils/isMobileDevice";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <>
       {isMobileDevice() ? (
         <main id="home" className="flex justify-center">
-          {/* <StaticBadge /> */}
+          <StaticBadge />
         </main>
       ) : (
         <main id="home" className="flex flex-col justify-center">
