@@ -10,20 +10,20 @@ export default function ExperienceScroller() {
 
     return (
         <div className="pt-12 mb-32" id="experience">
-            <h2 className="text-6xl m-8 text-center font-mohave font-semibold h-26 animate-text
+            <h2 className="text-8xl mt-8 mb-16 text-center font-mohave font-semibold h-26 animate-text select-none uppercase tracking-[.35em]
             bg-gradient-to-r bg-clip-text text-transparent 
-            from-red-400 via-violet-500 to-indigo-500">Experience</h2>
+            from-red-600 via-violet-500 to-green-500">Experience</h2>
 
             {experience.map((exp) => (
-                <div className="collapse group min-h-20 cursor-pointer" key={exp.company} tabIndex={0}>
-                    <div className="collapse-title p-4 flex flex-col justify-center items-center hover:bg-neutral-950 transition ease-in-out duration-300">
+                <div className="collapse group min-h-20 cursor-pointer px-8" key={exp.company} tabIndex={0}>
+                    <div className="collapse-title p-4 flex flex-col justify-center items-center select-none">
                         <h2 className="text-2xl">{exp.company}</h2>
                         <h5 className="opacity-0 font-light group-hover:opacity-80 group-focus:opacity-80 text-md transition ease-in-out duration-300">{exp.dates}</h5>
                     </div>
                     <div className="collapse-content">
                         <div className="flex flex-col items-center">
                             <Image className="w-24 h-24" src={exp.company_logo} alt="NG Logo" width={225} height={225} />
-                            <h4 className="text-xl text-center">{exp.title}</h4>
+                            <h4 className="text-xl text-center select-none">{exp.title}</h4>
                             <p className="p-8 pt-10">
                                 Maecenas eget dui non mi maximus pellentesque at eget nisl. Sed vel sodales turpis, non sagittis lorem.
                                 Aenean id fringilla tortor. Praesent vulputate sit amet nunc malesuada accumsan.
