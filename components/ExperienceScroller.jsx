@@ -66,7 +66,7 @@ export default function ExperienceScroller() {
               return (
                 <div className="flex h-190 flex-row text-white">
                   <div className="basis-1/2 bg-black">Test</div>
-                  <div className="flex basis-1/2 items-center justify-center backdrop-blur-xl">
+                  <div className="flex basis-1/2 items-center justify-center backdrop-blur">
                     <Image
                       className="h-64 w-64"
                       src={exp.company_logo}
@@ -80,7 +80,7 @@ export default function ExperienceScroller() {
             } else {
               return (
                 <div className="flex h-190 flex-row text-white">
-                  <div className="flex basis-1/2 items-center justify-center backdrop-blur-xl">
+                  <div className="flex basis-1/2 items-center justify-center backdrop-blur">
                     <Image
                       className="h-64 w-64"
                       src={exp.company_logo}
