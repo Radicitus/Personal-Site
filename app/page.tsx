@@ -1,7 +1,7 @@
 // COMPONENTS
 import DynamicBadge from "@/components/Badge/DynamicBadge";
 import StaticBadge from "@/components/Badge/StaticBadge";
-import ExperienceScroller from "@/components/ExperienceScroller";
+import ExperienceContainer from "@/components/Experience/ExperienceContainer";
 // HELPERS
 import { isMobileDevice } from "@/utils/isMobileDevice";
 
@@ -17,7 +17,7 @@ export default function Home() {
           <div className="h-screen">
             <DynamicBadge />
           </div>
-          <ExperienceScroller />
+          <ExperienceContainer />
         </main>
       )}
     </>

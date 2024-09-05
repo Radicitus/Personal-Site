@@ -1,6 +1,8 @@
 import Image from "next/image";
+import ExperienceOverview from "@/components/Experience/ExperienceOverview";
+import { ExperienceType } from "@/types/experienceType";
 
-export default function ExperienceScroller() {
+export default function ExperienceContainer() {
   const descr =
     "Maecenas eget dui non mi maximus pellentesque at eget nisl. Sed\n" +
     "vel sodales turpis, non sagittis lorem. Aenean id fringilla\n" +
@@ -26,7 +28,7 @@ export default function ExperienceScroller() {
     "sapien dictum, eleifend orci sed, rhoncus augue. Praesent vel\n" +
     "quam diam.";
 
-  const experience = [
+  const experience: ExperienceType[] = [
     {
       company: "Northrop Grumman",
       company_logo: "/ng-logo-white-on-black.png",
@@ -43,7 +45,7 @@ export default function ExperienceScroller() {
     },
     {
       company: "Intelligent Education",
-      company_logo: "/ng-logo-white-on-black.png",
+      company_logo: "/ie-logo.png",
       dates: "Februrary 2021 - August 2021",
       title: "Fullstack SWE",
       description: descr,
@@ -65,7 +67,9 @@ export default function ExperienceScroller() {
             if (index % 2 !== 1) {
               return (
                 <div className="flex h-190 flex-row text-white">
-                  <div className="basis-1/2 bg-black">Test</div>
+                  <div className="basis-1/2 bg-black">
+                    <ExperienceOverview {...exp} />
+                  </div>
                   <div className="flex basis-1/2 items-center justify-center backdrop-blur">
                     <Image
                       className="h-64 w-64"
@@ -89,7 +93,9 @@ export default function ExperienceScroller() {
                       height={225}
                     />
                   </div>
-                  <div className="basis-1/2 bg-black">Test</div>
+                  <div className="basis-1/2 bg-black">
+                    <ExperienceOverview {...exp} />
+                  </div>
                 </div>
               );
             }
