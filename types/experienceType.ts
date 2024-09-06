@@ -4,5 +4,6 @@ export type ExperienceType = {
   dates: string;
   title: string;
   description: string;
-  overview: string;
+  key_contributions: string[];
+  summary: string;
 };

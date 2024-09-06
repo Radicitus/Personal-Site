@@ -28,6 +28,8 @@ export default function ExperienceContainer() {
     "sapien dictum, eleifend orci sed, rhoncus augue. Praesent vel\n" +
     "quam diam.";
 
+  const takeaways = ["I did some cool things like sing.", "I did some cool things like eat.", "I did some cool things like dance."]
+
   const experience: ExperienceType[] = [
     {
       company: "Northrop Grumman",
@@ -35,8 +37,8 @@ export default function ExperienceContainer() {
       dates: "September 2023 - Present",
       title: "Software Engineer",
       description: descr,
-      overview:
-        "I did some cool things like eat. I did some cool things like eat. I did some cool things like eat. ",
+      key_contributions: takeaways,
+      summary: "At Northrop, I did lots of things that were very cool and awesome. I was the best employee ever! Cool!"
     },
     {
       company: "Taco Bell",
@@ -44,7 +46,8 @@ export default function ExperienceContainer() {
       dates: "June 2022 - August 2022",
       title: "Fullstack Serverless SWE Intern",
       description: descr,
-      overview: "I did some cool things like sing.",
+      key_contributions: takeaways,
+      summary: "At Taco Bell, I did lots of things that were very cool and awesome. Cool!"
     },
     {
       company: "Intelligent Education",
@@ -52,7 +55,8 @@ export default function ExperienceContainer() {
       dates: "Februrary 2021 - August 2021",
       title: "Fullstack SWE",
       description: descr,
-      overview: "I did some cool things like dance.",
+      key_contributions: takeaways,
+      summary: "At IE, I did lots of things that were very cool and awesome. Cool!"
     },
   ];
 
