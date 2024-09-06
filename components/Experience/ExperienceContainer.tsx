@@ -35,6 +35,8 @@ export default function ExperienceContainer() {
       dates: "September 2023 - Present",
       title: "Software Engineer",
       description: descr,
+      overview:
+        "I did some cool things like eat. I did some cool things like eat. I did some cool things like eat. ",
     },
     {
       company: "Taco Bell",
@@ -42,6 +44,7 @@ export default function ExperienceContainer() {
       dates: "June 2022 - August 2022",
       title: "Fullstack Serverless SWE Intern",
       description: descr,
+      overview: "I did some cool things like sing.",
     },
     {
       company: "Intelligent Education",
@@ -49,6 +52,7 @@ export default function ExperienceContainer() {
       dates: "Februrary 2021 - August 2021",
       title: "Fullstack SWE",
       description: descr,
+      overview: "I did some cool things like dance.",
     },
   ];
 
@@ -66,7 +70,10 @@ export default function ExperienceContainer() {
           {experience.map((exp, index) => {
             if (index % 2 !== 1) {
               return (
-                <div className="flex h-190 flex-row text-white">
+                <div
+                  className="flex h-190 flex-row text-white"
+                  key={exp.company}
+                >
                   <div className="basis-1/2 bg-black">
                     <ExperienceOverview {...exp} />
                   </div>
@@ -83,7 +90,10 @@ export default function ExperienceContainer() {
               );
             } else {
               return (
-                <div className="flex h-190 flex-row text-white">
+                <div
+                  className="flex h-190 flex-row text-white"
+                  key={exp.company}
+                >
                   <div className="flex basis-1/2 items-center justify-center backdrop-blur">
                     <Image
                       className="h-64 w-64"
