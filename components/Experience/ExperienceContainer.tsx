@@ -28,7 +28,11 @@ export default function ExperienceContainer() {
     "sapien dictum, eleifend orci sed, rhoncus augue. Praesent vel\n" +
     "quam diam.";
 
-  const takeaways = ["I did some cool things like sing.", "I did some cool things like eat.", "I did some cool things like dance."]
+  const takeaways = [
+    "I did some cool things like sing.",
+    "I did some cool things like eat.",
+    "I did some cool things like dance.",
+  ];
 
   const experience: ExperienceType[] = [
     {
@@ -38,7 +42,8 @@ export default function ExperienceContainer() {
       title: "Software Engineer",
       description: descr,
       key_contributions: takeaways,
-      summary: "At Northrop, I did lots of things that were very cool and awesome. I was the best employee ever! Cool!"
+      summary:
+        "At Northrop, I did lots of things that were very cool and awesome. I was the best employee ever! Cool!",
     },
     {
       company: "Taco Bell",
@@ -47,7 +52,8 @@ export default function ExperienceContainer() {
       title: "Fullstack Serverless SWE Intern",
       description: descr,
       key_contributions: takeaways,
-      summary: "At Taco Bell, I did lots of things that were very cool and awesome. Cool!"
+      summary:
+        "At Taco Bell, I did lots of things that were very cool and awesome. Cool!",
     },
     {
       company: "Intelligent Education",
@@ -56,7 +62,8 @@ export default function ExperienceContainer() {
       title: "Fullstack SWE",
       description: descr,
       key_contributions: takeaways,
-      summary: "At IE, I did lots of things that were very cool and awesome. Cool!"
+      summary:
+        "At IE, I did lots of things that were very cool and awesome. Cool!",
     },
   ];
 
@@ -75,13 +82,13 @@ export default function ExperienceContainer() {
             if (index % 2 !== 1) {
               return (
                 <div
-                  className="flex h-190 flex-row text-white"
+                  className="flex h-150 flex-row text-white lg:h-166"
                   key={exp.company}
                 >
-                  <div className="basis-1/2 bg-black">
+                  <div className="min-w-96 basis-1/2 bg-black">
                     <ExperienceOverview {...exp} />
                   </div>
-                  <div className="flex basis-1/2 items-center justify-center backdrop-blur">
+                  <div className="flex min-w-96 basis-1/2 items-center justify-center backdrop-blur">
                     <Image
                       className="h-64 w-64"
                       src={exp.company_logo}
@@ -95,10 +102,10 @@ export default function ExperienceContainer() {
             } else {
               return (
                 <div
-                  className="flex h-190 flex-row text-white"
+                  className="flex h-150  flex-row text-white lg:h-166"
                   key={exp.company}
                 >
-                  <div className="flex basis-1/2 items-center justify-center backdrop-blur">
+                  <div className="flex min-w-96 basis-1/2 items-center justify-center backdrop-blur">
                     <Image
                       className="h-64 w-64"
                       src={exp.company_logo}

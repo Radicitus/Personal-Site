@@ -7,10 +7,10 @@ export default function ExperienceOverview(experience: ExperienceType) {
       <h4 className="text-3xl font-light">{experience.title}</h4>
       <h6 className="text-md font-light opacity-80">{experience.dates}</h6>
       <h5 className="mt-4">{experience.summary}</h5>
-      
+
       <div className="mt-6">
-        <h5 className="text-lg">Key Takeaways:</h5>
-        <ul className="pl-5 list-disc">
+        <h5 className="text-lg">Key Contributions:</h5>
+        <ul className="list-disc pl-5">
           {experience.key_contributions.map((bullet) => (
             <li key={bullet}>{bullet}</li>
           ))}
