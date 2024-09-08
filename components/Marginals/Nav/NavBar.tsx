@@ -22,13 +22,16 @@ export default function NavBar({ links }: { links: LinkType[] }) {
         {links.map((link) => (
           <div
             className="transition ease-in-out hover:text-gray-400"
-            key={link.title}
+            key={link.attributes.title}
           >
-            <Link href={link.path} target={link.target}>
-              {link.path === "/#home" ? (
+            <Link
+              href={link.attributes.path}
+              target={"_" + link.attributes.target}
+            >
+              {link.attributes.path === "/#home" ? (
                 <House className="h-5 w-5" />
               ) : (
-                link.title
+                link.attributes.title
               )}
             </Link>
           </div>

@@ -1,5 +1,7 @@
 export type LinkType = {
+  attributes: {
     title: string;
     path: string;
-    target: "_blank" | "_self";
+    target: "blank" | "self";
   };
+};
