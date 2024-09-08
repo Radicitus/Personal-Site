@@ -10,16 +10,23 @@ export const revalidate = 3600;
 
 export default async function Footer() {
   // Get the footer from Strapi
-  const footerQueryUrl = "/footer?populate[icons][populate]=*&populate[avatar][populate]=*"
-  const footer: FooterType = await fetch(process.env.CMS_URL + footerQueryUrl).then((res) =>
-    res.json()
-  )
+  const footerQueryUrl =
+    "/footer?populate[avatar]=*&populate[icons][populate]=*";
+  const footer: FooterType = await fetch(
+    process.env.CMS_URL + footerQueryUrl
+  ).then((res) => res.json());
 
   // Destructure to fractionals
-  const footerAvatar: ImageType = footer.data.attributes.avatar.data
-  const gitHubIcon: IconType = footer.data.attributes.icons.data.find((icon) => icon.attributes.type === "github")!
-  const linkedInIcon: IconType = footer.data.attributes.icons.data.find((icon) => icon.attributes.type === "linkedin")!
-  const emailIcon: IconType = footer.data.attributes.icons.data.find((icon) => icon.attributes.type === "email")!
+  const footerAvatar: ImageType = footer.data.attributes.avatar.data;
+  const gitHubIcon: IconType = footer.data.attributes.icons.data.find(
+    (icon) => icon.attributes.type === "github"
+  )!;
+  const linkedInIcon: IconType = footer.data.attributes.icons.data.find(
+    (icon) => icon.attributes.type === "linkedin"
+  )!;
+  const emailIcon: IconType = footer.data.attributes.icons.data.find(
+    (icon) => icon.attributes.type === "email"
+  )!;
 
   return (
     <footer className="mb-8 mt-auto bg-black p-5 text-white">
@@ -38,9 +45,7 @@ export default async function Footer() {
           </Link>
         </div>
 
-        <p className="mt-4 font-light">
-          {footer.data.attributes.tag}
-        </p>
+        <p className="mt-4 font-light">{footer.data.attributes.tag}</p>
         <p className="font-thin">{footer.data.attributes.subtag}</p>
       </div>
 
