@@ -6,7 +6,7 @@ export default async function StaticBadge() {
   return (
     <div className="mb-20 flex max-w-xl flex-col">
       <Image
-        src={"/static-badge.png"}
+        src={"/Badge Assets/static-badge.png"}
         alt={"Static badge image"}
         width={2000}
         height={2000}

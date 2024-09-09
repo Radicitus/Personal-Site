@@ -87,9 +87,9 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     angularDamping: 2,
     linearDamping: 2,
   };
-  const { nodes, materials } = useGLTF("badge.glb");
-  const badgeTexture = useTexture("cam-badge-texture.png");
-  const bandTexture = useTexture("cam-band-texture.png");
+  const { nodes, materials } = useGLTF("/Badge Assets/badge.glb");
+  const badgeTexture = useTexture("/Badge Assets/cam-badge-texture.png");
+  const bandTexture = useTexture("/Badge Assets/cam-band-texture.png");
   const { width, height } = useThree((state) => state.size);
   const [curve] = useState(
     () =>
@@ -183,7 +183,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           <Text3D
             bevelEnabled={false}
             bevelSize={0}
-            font="/Geist_Regular.json"
+            font="/Badge Assets/Geist_Regular.json"
             height={0}
             size={0.07}
             rotation={[0, Math.PI, Math.PI]}
@@ -193,7 +193,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           <Text3D
             bevelEnabled={false}
             bevelSize={0}
-            font="/Geist_Regular.json"
+            font="/Badge Assets/Geist_Regular.json"
             height={0}
             size={0.07}
             position={[0, 0.09, 0]}

@@ -20,9 +20,19 @@ export default function NavBar({ links }: { links: LinkType[] }) {
       {/* Navbar menu content here */}
       <div className="flex items-center space-x-8 font-quicksand text-gray-300">
         {links.map((link) => (
-          <div className="transition ease-in-out hover:text-gray-400">
-            <Link href={link.path} target={link.target}>
-              {link.path === "/" ? <House className="h-5 w-5" /> : link.title}
+          <div
+            className="transition ease-in-out hover:text-gray-400"
+            key={link.attributes.title}
+          >
+            <Link
+              href={link.attributes.path}
+              target={"_" + link.attributes.target}
+            >
+              {link.attributes.path === "/#home" ? (
+                <House className="h-5 w-5" />
+              ) : (
+                link.attributes.title
+              )}
             </Link>
           </div>
         ))}

@@ -1,6 +1,5 @@
 "use client";
 
-// import { House, Menu, X } from "lucide-react";
 import { LinkType } from "@/types/linkType";
 import Link from "next/link";
 
