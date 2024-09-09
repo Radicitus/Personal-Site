@@ -7,8 +7,8 @@ export type ExperienceType = {
     logo: {
       data: ImageType;
     };
-    start: Date;
-    end: Date;
+    start: string;
+    end: string;
     title: string;
     description: string;
     contributions: BlocksContent;

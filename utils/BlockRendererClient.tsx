@@ -17,7 +17,6 @@ export default function BlockRendererClient({
       content={content}
       blocks={{
         image: ({ image }) => {
-          console.log(image);
           return (
             <Image
               src={image.url}
@@ -26,14 +25,6 @@ export default function BlockRendererClient({
               alt={image.alternativeText || ""}
             />
           );
-        },
-        list: ({ children, format }) => {
-          switch (format) {
-            case "ordered":
-              return <ol className="list-disc pl-5">{children}</ol>;
-            case "unordered":
-              return <ul className="list-disc pl-5">{children}</ul>;
-          }
         },
       }}
     />
