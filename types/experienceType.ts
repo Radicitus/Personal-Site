@@ -1,9 +1,17 @@
+import { type BlocksContent } from "@strapi/blocks-react-renderer";
+import { ImageType } from "@/types/imageType";
+
 export type ExperienceType = {
-  company: string;
-  company_logo: string;
-  dates: string;
-  title: string;
-  description: string;
-  key_contributions: string[];
-  summary: string;
+  attributes: {
+    company: string;
+    logo: {
+      data: ImageType;
+    };
+    start: Date;
+    end: Date;
+    title: string;
+    description: string;
+    contributions: BlocksContent;
+    summary: string;
+  };
 };

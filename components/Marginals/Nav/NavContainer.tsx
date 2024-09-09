@@ -13,7 +13,6 @@ export default async function NavContainer() {
   const nav: NavType = await fetch(process.env.CMS_URL + navQueryUrl).then(
     (res) => res.json()
   );
-  console.log(nav.data.attributes.links.data);
 
   return isMobileDevice() ? (
     <NavDrawer links={nav.data.attributes.links.data} />
