@@ -27,7 +27,7 @@ export default async function ExperienceContainer() {
             if (index % 2 !== 1) {
               return (
                 <div
-                  className="flex h-150 flex-row overflow-hidden text-white lg:h-166"
+                  className="flex min-h-150 flex-row overflow-hidden text-white lg:min-h-166"
                   key={exp.attributes.company}
                 >
                   <div className="min-w-96 basis-1/2 bg-black">
@@ -47,7 +47,7 @@ export default async function ExperienceContainer() {
             } else {
               return (
                 <div
-                  className="flex h-150  flex-row overflow-hidden text-white lg:h-166"
+                  className="flex min-h-150 flex-row overflow-hidden text-white lg:min-h-166"
                   key={exp.attributes.company}
                 >
                   <div className="flex min-w-96 basis-1/2 items-center justify-center backdrop-blur">
