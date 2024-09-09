@@ -23,49 +23,51 @@ export default async function ExperienceContainer() {
           className="bg-cover bg-fixed bg-center bg-no-repeat"
           style={{ backgroundImage: `url("experience-bg.jpg")` }}
         >
-          {experiences.map((exp, index) => {
-            if (index % 2 !== 1) {
-              return (
-                <div
-                  className="flex min-h-150 flex-row overflow-hidden text-white lg:min-h-166"
-                  key={exp.attributes.company}
-                >
-                  <div className="min-w-96 basis-1/2 bg-black">
-                    <ExperienceOverview {...exp} />
+          {experiences.sort(
+            (a, b) => b.attributes.start.localeCompare(a.attributes.start))
+            .map((exp, index) => {
+              if (index % 2 !== 1) {
+                return (
+                  <div
+                    className="flex min-h-150 flex-row overflow-hidden text-white lg:min-h-166"
+                    key={exp.attributes.company}
+                  >
+                    <div className="min-w-96 basis-1/2 bg-black">
+                      <ExperienceOverview {...exp} />
+                    </div>
+                    <div className="flex min-w-96 basis-1/2 items-center justify-center backdrop-blur">
+                      <Image
+                        className="h-64 w-64"
+                        src={exp.attributes.logo.data.attributes.url}
+                        alt={exp.attributes.logo.data.attributes.alternativeText}
+                        width={225}
+                        height={225}
+                      />
+                    </div>
                   </div>
-                  <div className="flex min-w-96 basis-1/2 items-center justify-center backdrop-blur">
-                    <Image
-                      className="h-64 w-64"
-                      src={exp.attributes.logo.data.attributes.url}
-                      alt={exp.attributes.logo.data.attributes.alternativeText}
-                      width={225}
-                      height={225}
-                    />
+                );
+              } else {
+                return (
+                  <div
+                    className="flex min-h-150 flex-row overflow-hidden text-white lg:min-h-166"
+                    key={exp.attributes.company}
+                  >
+                    <div className="flex min-w-96 basis-1/2 items-center justify-center backdrop-blur">
+                      <Image
+                        className="h-64 w-64"
+                        src={exp.attributes.logo.data.attributes.url}
+                        alt={exp.attributes.logo.data.attributes.alternativeText}
+                        width={225}
+                        height={225}
+                      />
+                    </div>
+                    <div className="basis-1/2 bg-black">
+                      <ExperienceOverview {...exp} />
+                    </div>
                   </div>
-                </div>
-              );
-            } else {
-              return (
-                <div
-                  className="flex min-h-150 flex-row overflow-hidden text-white lg:min-h-166"
-                  key={exp.attributes.company}
-                >
-                  <div className="flex min-w-96 basis-1/2 items-center justify-center backdrop-blur">
-                    <Image
-                      className="h-64 w-64"
-                      src={exp.attributes.logo.data.attributes.url}
-                      alt={exp.attributes.logo.data.attributes.alternativeText}
-                      width={225}
-                      height={225}
-                    />
-                  </div>
-                  <div className="basis-1/2 bg-black">
-                    <ExperienceOverview {...exp} />
-                  </div>
-                </div>
-              );
-            }
-          })}
+                );
+              }
+            })}
         </div>
       </div>
     </div>
