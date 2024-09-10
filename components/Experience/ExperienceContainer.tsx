@@ -23,8 +23,10 @@ export default async function ExperienceContainer() {
           className="bg-cover bg-fixed bg-center bg-no-repeat"
           style={{ backgroundImage: `url("experience-bg.jpg")` }}
         >
-          {experiences.sort(
-            (a, b) => b.attributes.start.localeCompare(a.attributes.start))
+          {experiences
+            .sort((a, b) =>
+              b.attributes.start.localeCompare(a.attributes.start)
+            )
             .map((exp, index) => {
               if (index % 2 !== 1) {
                 return (
@@ -39,7 +41,9 @@ export default async function ExperienceContainer() {
                       <Image
                         className="h-64 w-64"
                         src={exp.attributes.logo.data.attributes.url}
-                        alt={exp.attributes.logo.data.attributes.alternativeText}
+                        alt={
+                          exp.attributes.logo.data.attributes.alternativeText
+                        }
                         width={225}
                         height={225}
                       />
@@ -56,7 +60,9 @@ export default async function ExperienceContainer() {
                       <Image
                         className="h-64 w-64"
                         src={exp.attributes.logo.data.attributes.url}
-                        alt={exp.attributes.logo.data.attributes.alternativeText}
+                        alt={
+                          exp.attributes.logo.data.attributes.alternativeText
+                        }
                         width={225}
                         height={225}
                       />
