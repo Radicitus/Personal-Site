@@ -32,7 +32,7 @@ export default function ExperienceOverview(experience: ExperienceType) {
           className="transition-all duration-300 ease-in-out hover:font-bold"
           href={"/experience/" + experience.attributes.slug}
         >
-          Read More >>
+          {"Read More >>"}
         </Link>
       </div>
     </div>
