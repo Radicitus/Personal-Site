@@ -39,7 +39,7 @@ export default async function ExperienceContainer() {
                     </div>
                     <div className="flex min-w-96 basis-1/2 items-center justify-center backdrop-blur">
                       <Image
-                        className="h-64 w-64"
+                        className="h-80 w-80"
                         src={exp.attributes.logo.data.attributes.url}
                         alt={
                           exp.attributes.logo.data.attributes.alternativeText
@@ -58,7 +58,7 @@ export default async function ExperienceContainer() {
                   >
                     <div className="flex min-w-96 basis-1/2 items-center justify-center backdrop-blur">
                       <Image
-                        className="h-64 w-64"
+                        className="h-80 w-80"
                         src={exp.attributes.logo.data.attributes.url}
                         alt={
                           exp.attributes.logo.data.attributes.alternativeText
