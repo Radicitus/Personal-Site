@@ -10,8 +10,9 @@ export type ExperienceType = {
     start: string;
     end: string;
     title: string;
-    description: string;
-    contributions: BlocksContent;
     summary: string;
+    contributions: BlocksContent;
+    content: BlocksContent;
+    slug: string;
   };
 };

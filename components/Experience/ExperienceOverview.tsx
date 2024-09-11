@@ -1,5 +1,6 @@
 import { ExperienceType } from "@/types/experienceType";
 import BlockRendererClient from "@/utils/BlockRendererClient";
+import Link from "next/link";
 
 export default function ExperienceOverview(experience: ExperienceType) {
   return (
@@ -21,9 +22,18 @@ export default function ExperienceOverview(experience: ExperienceType) {
       </h6>
       <h5 className="mt-4">{experience.attributes.summary}</h5>
 
-      <div className="mt-6">
+      <div className="mt-6 text-justify">
         <h5 className="text-lg">Key Contributions:</h5>
         <BlockRendererClient content={experience.attributes.contributions} />
+      </div>
+
+      <div className="mt-6 flex justify-end pr-4">
+        <Link
+          className="transition-all duration-300 ease-in-out hover:font-bold"
+          href={"/experience/" + experience.attributes.slug}
+        >
+          {"Read More >>"}
+        </Link>
       </div>
     </div>
   );
