@@ -21,7 +21,9 @@ export default async function ExperienceContainer() {
 
         <div
           className="bg-cover bg-fixed bg-center bg-no-repeat"
-          style={{ backgroundImage: `url("experience-bg.jpg")` }}
+          style={{
+            backgroundImage: `url("https://res.cloudinary.com/strapi-cms/image/upload/v1726021944/small_experience_bg_5df9383d9a.jpg")`,
+          }}
         >
           {experiences
             .sort((a, b) =>
