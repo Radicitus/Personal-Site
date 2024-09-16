@@ -23,13 +23,13 @@ export default function ExperienceOverview(experience: ExperienceType) {
       <h5 className="mt-4">{experience.attributes.summary}</h5>
 
       <div className="mt-6 text-justify">
-        <h5 className="text-lg">Key Contributions:</h5>
+        <h5 className="text-lg pb-2 font-bold">Key Contributions:</h5>
         <BlockRendererClient content={experience.attributes.contributions} />
       </div>
 
       <div className="mt-6 flex justify-end pr-4">
         <Link
-          className="transition-all duration-300 ease-in-out hover:font-bold"
+          className="italic hover:font-bold transition-all duration-300 ease-in-out bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text hover:text-transparent hover:animate-text"
           href={"/experience/" + experience.attributes.slug}
         >
           {"Read More >>"}
