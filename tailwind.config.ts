@@ -33,7 +33,7 @@ const config: Config = {
         quicksand: ['var(--font-quicksand)'],
       },
       animation: {
-        'text': 'text 10s ease infinite',
+        'text': 'text 5s ease infinite',
       },
       keyframes: {
         'text': {
