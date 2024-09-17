@@ -18,7 +18,7 @@ export default function ImageCarousel(media: { data: ImageType[] }) {
               width={225}
               height={225}
               key={media.attributes.url}
-              className="h-32 w-32 rounded object-cover md:h-60 md:w-60"
+              className="pointer-events-none h-32 w-32 select-none rounded object-cover md:h-60 md:w-60"
             />
           ))}
         </div>
@@ -30,7 +30,7 @@ export default function ImageCarousel(media: { data: ImageType[] }) {
               width={225}
               height={225}
               key={media.attributes.url}
-              className="h-32 w-32 rounded object-cover md:h-60 md:w-60"
+              className="pointer-events-none h-32 w-32 select-none rounded object-cover md:h-60 md:w-60"
             />
           ))}
         </div>
@@ -46,7 +46,8 @@ export default function ImageCarousel(media: { data: ImageType[] }) {
             width={225}
             height={225}
             key={media.attributes.url}
-            className="z-0 h-32 w-32 rounded object-cover transition-all delay-100 duration-200 ease-in-out
+            className="z-0 h-32 w-32 select-none rounded object-cover transition-all delay-100
+            duration-200 ease-in-out [-webkit-user-drag:none]
             hover:z-10 hover:-translate-y-12 hover:scale-150 md:h-60 md:w-60 hover:md:-translate-y-24 hover:md:scale-125"
           />
         ))}
