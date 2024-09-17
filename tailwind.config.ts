@@ -34,7 +34,7 @@ const config = {
       },
       animation: {
         text: "text 5s ease infinite",
-        "loop-scroll": "loop-scroll 50s linear infinite",
+        "loop-scroll": "loop-scroll 25s linear infinite",
       },
       keyframes: {
         text: {
