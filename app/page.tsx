@@ -9,8 +9,9 @@ export default function Home() {
   return (
     <>
       {isMobileDevice() ? (
-        <main id="home" className="flex justify-center">
+        <main id="home" className="flex flex-col justify-center">
           <StaticBadge />
+          <ExperienceContainer />
         </main>
       ) : (
         <main id="home" className="flex flex-col">
