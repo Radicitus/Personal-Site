@@ -98,30 +98,34 @@ export default async function ExperiencePage({
         </div>
 
         {/* Technologies */}
-        <div className="mx-28 mb-16">
-          <div className="text-center font-mohave text-2xl uppercase">
-            Technologies
+        {experience.attributes.technologies.data.length ? (
+          <div className="mx-28 mb-16">
+            <div className="text-center font-mohave text-2xl uppercase">
+              Technologies
+            </div>
+            <div className="mt-4 flex flex-row justify-center gap-3">
+              {experience.attributes.technologies.data.map((tech, index) => {
+                if (index == 0) {
+                  return (
+                    <div key={tech.attributes.title}>
+                      {tech.attributes.title}
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      className="flex flex-row gap-3"
+                      key={tech.attributes.title}
+                    >
+                      <div>•</div>
+                      <div>{tech.attributes.title}</div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
           </div>
-          <div className="mt-4 flex flex-row justify-center gap-3">
-            {experience.attributes.technologies.data.map((tech, index) => {
-              if (index == 0) {
-                return (
-                  <div key={tech.attributes.title}>{tech.attributes.title}</div>
-                );
-              } else {
-                return (
-                  <div
-                    className="flex flex-row gap-3"
-                    key={tech.attributes.title}
-                  >
-                    <div>•</div>
-                    <div>{tech.attributes.title}</div>
-                  </div>
-                );
-              }
-            })}
-          </div>
-        </div>
+        ) : null}
 
         {/* Media */}
         {experience.attributes.media.data ? (
