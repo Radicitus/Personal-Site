@@ -17,8 +17,6 @@ export default async function ExperiencePage({
 
   const experience: ExperienceType = res.data[0];
 
-  console.log(experience.attributes.technologies.data);
-
   if (!experience) {
     notFound();
   }
