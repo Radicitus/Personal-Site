@@ -1,6 +1,6 @@
-import type { Config } from "tailwindcss";
+// import type { Config } from "tailwindcss";
 
-const config: Config = {
+const config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -28,25 +28,30 @@ const config: Config = {
         190: "48rem",
       },
       fontFamily: {
-        inter: ['var(--font-inter)'],
-        mohave: ['var(--font-mohave)'],
-        quicksand: ['var(--font-quicksand)'],
+        inter: ["var(--font-inter)"],
+        mohave: ["var(--font-mohave)"],
+        quicksand: ["var(--font-quicksand)"],
       },
       animation: {
-        'text': 'text 5s ease infinite',
+        text: "text 5s ease infinite",
+        "loop-scroll": "loop-scroll 50s linear infinite",
       },
       keyframes: {
-        'text': {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center'
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
           },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center'
-          }
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
         },
-      }
+        "loop-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+      },
     },
   },
   plugins: [],
