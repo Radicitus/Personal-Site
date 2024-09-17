@@ -22,8 +22,8 @@ export default function RootLayout({
     <html
       lang="en"
       className={`
-      ${mohave.variable} ${inter.variable} ${quicksand.variable} font-quicksand
-      scroll-smooth`}
+      ${mohave.variable} ${inter.variable} ${quicksand.variable} overscroll-none
+      scroll-smooth font-quicksand`}
     >
       <body className="bg-black text-white">
         <NavContainer />
