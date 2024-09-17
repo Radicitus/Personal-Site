@@ -2,6 +2,18 @@ import { ExperienceType } from "@/types/experienceType";
 import { notFound } from "next/navigation";
 import BlockRendererClient from "@/utils/BlockRendererClient";
 
+// Return a list of params to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  const res = await fetch(process.env.CMS_URL + "/experiences").then((res) =>
+    res.json()
+  );
+  const experiences: ExperienceType[] = res.data;
+
+  return experiences.map((experience) => ({
+    slug: experience.attributes.slug,
+  }));
+}
+
 export default async function ExperiencePage({
   params,
 }: {
@@ -9,7 +21,7 @@ export default async function ExperiencePage({
 }) {
   // Get the experience data from Strapi
   const experienceQueryUrl =
-    "/experiences/?populate[technologies][populate]=*&populate[media][populate]=*&populate[logo]=*&filters[slug][$eq]=" +
+    "/experiences?populate[technologies][populate]=*&populate[media][populate]=*&populate[logo]=*&filters[slug][$eq]=" +
     params.slug;
   const res = await fetch(process.env.CMS_URL + experienceQueryUrl).then(
     (res) => res.json()
