@@ -29,7 +29,7 @@ export default async function ExperienceContainer() {
           alt={"background"}
           height={1000}
           width={600}
-          className="fixed top-20 z-[-10] h-full w-full"
+          className="fixed top-20 z-[-10] h-full"
         />
         {experiences
           .sort((a, b) => b.attributes.start.localeCompare(a.attributes.start))
