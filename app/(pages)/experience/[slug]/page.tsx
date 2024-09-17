@@ -25,7 +25,7 @@ export default async function ExperiencePage({
 
   return (
     <div className="text-white">
-      <div className="mx-56 mt-16">
+      <div className="mx-10 mt-16 md:mx-24 lg:mx-40 xl:mx-56 2xl:mx-80">
         <h5
           className="animate-text bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text uppercase text-transparent
           transition-all duration-300 ease-in-out"
@@ -36,10 +36,12 @@ export default async function ExperiencePage({
           {experience.attributes.company}
         </h1>
 
-        <div className="mb-5 flex flex-row">
+        <div className="mb-5 flex flex-col sm:flex-row">
           <h4 className="text-2xl font-light">{experience.attributes.title}</h4>
-          <div className="self-center px-2.5 pt-1 font-light opacity-70">•</div>
-          <h6 className="text-md self-center pt-1 font-light opacity-70">
+          <div className="hidden self-center px-2.5 pt-1 font-light opacity-70 sm:block">
+            •
+          </div>
+          <h6 className="text-md pt-1 font-light opacity-70 md:self-center">
             {new Date(experience.attributes.start).toLocaleDateString(
               "default",
               {
@@ -66,7 +68,7 @@ export default async function ExperiencePage({
           <BlockRendererClient content={experience.attributes.content} />
         </div>
 
-        <div className="mx-28 mb-16">
+        <div className="mx-5 mb-16 md:mx-14 lg:mx-24 xl:mx-36 2xl:mx-52">
           <div className="text-center font-mohave text-2xl uppercase">
             Key Contributions
           </div>
