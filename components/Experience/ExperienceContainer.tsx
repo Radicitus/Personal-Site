@@ -15,45 +15,45 @@ export default async function ExperienceContainer() {
 
   if (isMobileDevice()) {
     return (
-      <div className="pt-12" id="experience">
+      <div id="experience">
         {/* Experience Header */}
-        <h2 className="h-26 mb-24 mt-8 select-none text-center font-mohave text-5xl font-semibold uppercase tracking-[.35em]">
+        <h2 className="h-26 select-none bg-black pb-24 pt-8 text-center font-mohave text-5xl font-semibold uppercase tracking-[.35em]">
           Experience
         </h2>
 
         {/* Experience Scroller */}
-        <div
-          className="bg-cover bg-fixed bg-center"
-          style={{
-            backgroundImage: `url("https://res.cloudinary.com/strapi-cms/image/upload/v1726021944/small_experience_bg_5df9383d9a.jpg")`,
-          }}
-        >
-          {experiences
-            .sort((a, b) =>
-              b.attributes.start.localeCompare(a.attributes.start)
-            )
-            .map((exp) => {
-              return (
-                <div
-                  className="flex flex-col overflow-hidden"
-                  key={exp.attributes.company}
-                >
-                  <div className="flex h-64 items-center justify-center backdrop-blur">
-                    <Image
-                      className="h-48 w-48"
-                      src={exp.attributes.logo.data.attributes.url}
-                      alt={exp.attributes.logo.data.attributes.alternativeText}
-                      width={225}
-                      height={225}
-                    />
-                  </div>
-                  <div className="bg-black">
-                    <ExperienceOverview {...exp} />
-                  </div>
+        <Image
+          src={
+            "https://res.cloudinary.com/strapi-cms/image/upload/v1726021944/small_experience_bg_5df9383d9a.jpg"
+          }
+          alt={"background"}
+          height={1000}
+          width={600}
+          className="fixed top-20 z-[-10] h-full w-full"
+        />
+        {experiences
+          .sort((a, b) => b.attributes.start.localeCompare(a.attributes.start))
+          .map((exp) => {
+            return (
+              <div
+                className="flex flex-col overflow-hidden"
+                key={exp.attributes.company}
+              >
+                <div className="flex h-64 items-center justify-center backdrop-blur">
+                  <Image
+                    className="h-48 w-48"
+                    src={exp.attributes.logo.data.attributes.url}
+                    alt={exp.attributes.logo.data.attributes.alternativeText}
+                    width={225}
+                    height={225}
+                  />
                 </div>
-              );
-            })}
-        </div>
+                <div className="bg-black">
+                  <ExperienceOverview {...exp} />
+                </div>
+              </div>
+            );
+          })}
       </div>
     );
   } else {
