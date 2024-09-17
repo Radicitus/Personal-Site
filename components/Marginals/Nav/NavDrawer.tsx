@@ -1,5 +1,3 @@
-"use client";
-
 import { LinkType } from "@/types/linkType";
 import Link from "next/link";
 
