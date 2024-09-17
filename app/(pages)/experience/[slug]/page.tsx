@@ -1,6 +1,7 @@
 import { ExperienceType } from "@/types/experienceType";
 import { notFound } from "next/navigation";
 import BlockRendererClient from "@/utils/BlockRendererClient";
+import ImageCarousel from "@/components/ImageCarousel";
 
 // Return a list of params to populate the [slug] dynamic segment
 export async function generateStaticParams() {
@@ -121,6 +122,13 @@ export default async function ExperiencePage({
             })}
           </div>
         </div>
+
+        {/* Media */}
+        {experience.attributes.media.data ? (
+          <div className="mb-10 flex justify-center md:pt-12">
+            <ImageCarousel {...experience.attributes.media} />
+          </div>
+        ) : null}
       </div>
     </div>
   );
