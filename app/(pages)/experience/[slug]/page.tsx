@@ -99,11 +99,11 @@ export default async function ExperiencePage({
 
         {/* Technologies */}
         {experience.attributes.technologies.data.length ? (
-          <div className="mx-28 mb-16">
+          <div className="mb-16 md:mx-28">
             <div className="text-center font-mohave text-2xl uppercase">
               Technologies
             </div>
-            <div className="mt-4 flex flex-row justify-center gap-3">
+            <div className="mt-4 flex flex-row flex-wrap justify-center gap-3">
               {experience.attributes.technologies.data.map((tech, index) => {
                 if (index == 0) {
                   return (
