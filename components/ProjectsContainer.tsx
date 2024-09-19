@@ -18,34 +18,20 @@ export default async function ProjectsContainer() {
           Projects
         </h2>
 
-        <div className="flex flex-row flex-wrap justify-center gap-6 md:gap-4">
+        <div className="flex flex-col justify-center gap-6 md:gap-4">
           {projects
             .sort((a, b) => {
               return a.attributes.rank - b.attributes.rank;
             })
             .map((project) => (
               <div
-                className="group relative overflow-hidden rounded transition-all duration-500 ease-in-out"
+                className="h-24 w-150 border-b-2 first:border-t-2"
                 key={project.attributes.slug}
               >
                 <Link href={"/project/" + project.attributes.slug}>
-                  <div
-                    className="absolute top-0 z-50 h-full w-full animate-text select-none place-content-center bg-gradient-to-r from-amber-500 to-pink-500
-              bg-clip-text text-center font-inter text-3xl font-bold text-transparent transition-all duration-500 ease-in-out md:translate-y-5
-              md:text-4xl md:font-normal md:opacity-0 md:group-hover:-translate-y-5 md:group-hover:font-bold md:group-hover:opacity-100"
-                  >
-                    {project.attributes.title}
+                  <div className="">
+                    <div>{project.attributes.title}</div>
                   </div>
-                  <Image
-                    src={project.attributes.cover.data.attributes.url}
-                    alt={
-                      project.attributes.cover.data.attributes.alternativeText
-                    }
-                    width={500}
-                    height={500}
-                    className="pointer-events-none z-10 h-64 w-64 select-none object-cover object-center brightness-75 grayscale
-                    transition-all duration-500 ease-in-out group-hover:brightness-75 group-hover:grayscale-0 md:h-96 md:w-96 md:brightness-50"
-                  />
                 </Link>
               </div>
             ))}
