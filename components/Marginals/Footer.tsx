@@ -1,10 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
+import Icon from "@/components/Icon";
 // TYPES
 import { FooterType } from "@/types/footerType";
 import { IconType } from "@/types/IconType";
 import { ImageType } from "@/types/imageType";
-import { Github, Linkedin, Mail } from "lucide-react";
-import Link from "next/link";
 
 export const revalidate = 3600;
 
@@ -51,28 +51,13 @@ export default async function Footer() {
 
       <div className="flex flex-row place-content-center gap-4 text-gray-300">
         <div className="transition duration-300 ease-in-out hover:text-gray-400">
-          <Link
-            href={gitHubIcon.attributes.link.data.attributes.path}
-            target={"_" + gitHubIcon.attributes.link.data.attributes.target}
-          >
-            <Github />
-          </Link>
+          <Icon icon={gitHubIcon} />
         </div>
         <div className="transition duration-300 ease-in-out hover:text-gray-400">
-          <Link
-            href={linkedInIcon.attributes.link.data.attributes.path}
-            target={"_" + linkedInIcon.attributes.link.data.attributes.target}
-          >
-            <Linkedin />
-          </Link>
+          <Icon icon={linkedInIcon} />
         </div>
         <div className="transition duration-300 ease-in-out hover:text-gray-400">
-          <Link
-            href={emailIcon.attributes.link.data.attributes.path}
-            target={"_" + emailIcon.attributes.link.data.attributes.target}
-          >
-            <Mail />
-          </Link>
+          <Icon icon={emailIcon} />
         </div>
       </div>
     </footer>

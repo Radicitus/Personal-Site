@@ -17,7 +17,10 @@ export default async function ExperienceContainer() {
     return (
       <div id="experience">
         {/* Experience Header */}
-        <h2 className="h-26 select-none bg-black pb-24 pt-8 text-center font-mohave text-4xl font-semibold uppercase tracking-[.35em] sm:text-5xl">
+        <h2
+          className="h-26 select-none bg-black pb-24 pt-8 text-center font-mohave text-4xl font-semibold
+          uppercase tracking-[.35em] sm:text-5xl"
+        >
           Experience
         </h2>
 

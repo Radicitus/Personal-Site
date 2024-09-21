@@ -3,23 +3,22 @@ import { ImageType } from "@/types/imageType";
 import { TechnologyType } from "@/types/technologyType";
 import { IconType } from "@/types/IconType";
 
-export type ExperienceType = {
+export type ProjectType = {
   attributes: {
-    company: string;
-    logo: {
-      data: ImageType;
-    };
-    start: string;
-    end?: string;
     title: string;
-    summary: string;
-    contributions: BlocksContent;
-    content: BlocksContent;
-    technologies: {
-      data: TechnologyType[];
+    description: string;
+    rank: number;
+    cover: {
+      data: ImageType;
     };
     media: {
       data: ImageType[];
+    };
+    content: BlocksContent;
+    start: string;
+    end?: string;
+    technologies: {
+      data: TechnologyType[];
     };
     icons: {
       data: IconType[];
