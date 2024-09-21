@@ -17,7 +17,7 @@ export type ExperienceType = {
     technologies: {
       data: TechnologyType[];
     };
-    media?: {
+    media: {
       data: ImageType[];
     };
     slug: string;

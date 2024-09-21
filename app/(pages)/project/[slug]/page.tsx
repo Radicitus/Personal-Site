@@ -1,113 +1,95 @@
-import { ExperienceType } from "@/types/experienceType";
+import { ProjectType } from "@/types/projectType";
 import { notFound } from "next/navigation";
 import BlockRendererClient from "@/utils/BlockRendererClient";
 import ImageCarousel from "@/components/ImageCarousel";
 
 // Return a list of params to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const res = await fetch(process.env.CMS_URL + "/experiences").then((res) =>
+  const res = await fetch(process.env.CMS_URL + "/projects").then((res) =>
     res.json()
   );
-  const experiences: ExperienceType[] = res.data;
+  const projects: ProjectType[] = res.data;
 
-  return experiences.map((experience) => ({
-    slug: experience.attributes.slug,
+  return projects.map((project) => ({
+    slug: project.attributes.slug,
   }));
 }
 
-export default async function ExperiencePage({
+export default async function ProjectPage({
   params,
 }: {
   params: { slug: string };
 }) {
   // Get the experience data from Strapi
-  const experienceQueryUrl =
-    "/experiences?populate[technologies][populate]=*&populate[media][populate]=*&populate[logo]=*&filters[slug][$eq]=" +
+  const projectQueryUrl =
+    "/projects?populate[technologies][populate]=*&populate[media][populate]=*&populate[logo]=*&filters[slug][$eq]=" +
     params.slug;
-  const res = await fetch(process.env.CMS_URL + experienceQueryUrl).then(
-    (res) => res.json()
+  const res = await fetch(process.env.CMS_URL + projectQueryUrl).then((res) =>
+    res.json()
   );
 
-  const experience: ExperienceType = res.data[0];
+  const project: ProjectType = res.data[0];
 
-  if (!experience) {
+  if (!project) {
     notFound();
   }
 
   return (
     <div className="text-white">
       <div className="mx-10 mt-16 md:mx-24 lg:mx-40 xl:mx-56 2xl:mx-80">
-        {/* Experience Header */}
+        {/* Project Header */}
         <h5
           className="animate-text bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text uppercase text-transparent
           transition-all duration-300 ease-in-out"
         >
-          Experience
+          Project
         </h5>
 
-        {/* Company Name*/}
+        {/* Project Name*/}
         <h1 className="mt-5 font-mohave text-6xl font-bold">
-          {experience.attributes.company}
+          {project.attributes.title}
         </h1>
 
-        {/* Title and Dates */}
+        {/* Creator and Dates */}
         <div className="mb-5 flex flex-col sm:flex-row">
-          <h4 className="text-2xl font-light">{experience.attributes.title}</h4>
+          <h4 className="text-xl font-light">{"Made by Cam"}</h4>
           <div className="hidden self-center px-2.5 pt-1 font-light opacity-70 sm:block">
             •
           </div>
-          <h6 className="text-md pt-1 font-light opacity-70 md:self-center">
-            {new Date(experience.attributes.start).toLocaleDateString(
-              "default",
-              {
-                month: "long",
-                year: "numeric",
-              }
-            )}{" "}
+          <h6 className="text-md pt-1 font-light opacity-70">
+            {new Date(project.attributes.start).toLocaleDateString("default", {
+              month: "long",
+              year: "numeric",
+            })}{" "}
             -{" "}
-            {experience.attributes.end
-              ? new Date(experience.attributes.end).toLocaleDateString(
-                  "default",
-                  {
-                    month: "long",
-                    year: "numeric",
-                  }
-                )
+            {project.attributes.end
+              ? new Date(project.attributes.end).toLocaleDateString("default", {
+                  month: "long",
+                  year: "numeric",
+                })
               : "Present"}
           </h6>
         </div>
 
-        {/* Summary */}
-        <h4 className="italic">{experience.attributes.summary}</h4>
+        {/* Description */}
+        <h4 className="italic">{project.attributes.description}</h4>
 
         {/* Main Content */}
         <div
           className="my-12 text-justify first-letter:float-left first-letter:mr-3 first-letter:text-7xl
           first-letter:text-white first-line:uppercase first-line:tracking-widest"
         >
-          <BlockRendererClient content={experience.attributes.content} />
-        </div>
-
-        {/* Key Contributions */}
-        <div className="mx-5 mb-16 md:mx-14 lg:mx-24 xl:mx-36 2xl:mx-52">
-          <div className="text-center font-mohave text-2xl uppercase">
-            Key Contributions
-          </div>
-          <div className="mt-4 text-justify">
-            <BlockRendererClient
-              content={experience.attributes.contributions}
-            />
-          </div>
+          <BlockRendererClient content={project.attributes.content} />
         </div>
 
         {/* Technologies */}
-        {experience.attributes.technologies.data.length ? (
+        {project.attributes.technologies.data.length ? (
           <div className="mb-16 md:mx-28">
             <div className="text-center font-mohave text-2xl uppercase">
               Technologies
             </div>
             <div className="mt-4 flex flex-row flex-wrap justify-center gap-3">
-              {experience.attributes.technologies.data.map((tech, index) => {
+              {project.attributes.technologies.data.map((tech, index) => {
                 if (index == 0) {
                   return (
                     <div key={tech.attributes.title}>
@@ -131,9 +113,9 @@ export default async function ExperiencePage({
         ) : null}
 
         {/* Media */}
-        {experience.attributes.media.data ? (
+        {project.attributes.media.data ? (
           <div className="mb-10 flex justify-center md:pt-12">
-            <ImageCarousel {...experience.attributes.media} />
+            <ImageCarousel {...project.attributes.media} />
           </div>
         ) : null}
       </div>
