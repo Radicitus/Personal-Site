@@ -22,7 +22,7 @@ export default function ExperienceOverview(experience: ExperienceType) {
       </h6>
       <h5 className="mt-4">{experience.attributes.summary}</h5>
 
-      <div className="mt-6 text-justify">
+      <div className="mt-6">
         <h5 className="pb-2 text-lg font-bold">Key Contributions:</h5>
         <BlockRendererClient content={experience.attributes.contributions} />
       </div>

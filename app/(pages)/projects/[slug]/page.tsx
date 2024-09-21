@@ -94,7 +94,7 @@ export default async function ProjectPage({
 
         {/* Main Content */}
         <div
-          className="my-10 text-justify first-letter:float-left first-letter:mr-3 first-letter:text-7xl
+          className="my-10 first-letter:float-left first-letter:mr-3 first-letter:text-7xl
           first-letter:text-white first-line:uppercase first-line:tracking-widest"
         >
           <BlockRendererClient content={project.attributes.content} />
