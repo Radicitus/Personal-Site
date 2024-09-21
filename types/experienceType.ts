@@ -1,6 +1,7 @@
 import { type BlocksContent } from "@strapi/blocks-react-renderer";
 import { ImageType } from "@/types/imageType";
 import { TechnologyType } from "@/types/technologyType";
+import { IconType } from "@/types/IconType";
 
 export type ExperienceType = {
   attributes: {
@@ -19,6 +20,9 @@ export type ExperienceType = {
     };
     media: {
       data: ImageType[];
+    };
+    icons: {
+      data: IconType[];
     };
     slug: string;
   };

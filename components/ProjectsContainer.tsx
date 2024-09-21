@@ -28,7 +28,7 @@ export default async function ProjectsContainer() {
               })
               .map((project) => (
                 <Link
-                  href={"/project/" + project.attributes.slug}
+                  href={"/projects/" + project.attributes.slug}
                   className="group/item mx-6 flex min-h-32 flex-row justify-between border-t-[.5px] border-white border-opacity-30
                 px-6 py-4 transition-all duration-300 ease-in-out last:border-b-[.5px]
                 hover:scale-[1.02] hover:!opacity-100 group-hover:opacity-50 sm:mx-14"

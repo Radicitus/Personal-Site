@@ -2,6 +2,8 @@ import { ExperienceType } from "@/types/experienceType";
 import { notFound } from "next/navigation";
 import BlockRendererClient from "@/utils/BlockRendererClient";
 import ImageCarousel from "@/components/ImageCarousel";
+import Link from "next/link";
+import Icon from "@/components/Icon";
 
 // Return a list of params to populate the [slug] dynamic segment
 export async function generateStaticParams() {
@@ -22,7 +24,7 @@ export default async function ExperiencePage({
 }) {
   // Get the experience data from Strapi
   const experienceQueryUrl =
-    "/experiences?populate[technologies][populate]=*&populate[media][populate]=*&populate[logo]=*&filters[slug][$eq]=" +
+    "/experiences?populate[technologies][populate]=*&populate[media][populate]=*&populate[logo]=*&populate[icons][populate]=*&filters[slug][$eq]=" +
     params.slug;
   const res = await fetch(process.env.CMS_URL + experienceQueryUrl).then(
     (res) => res.json()
@@ -38,12 +40,14 @@ export default async function ExperiencePage({
     <div className="text-white">
       <div className="mx-10 mt-16 md:mx-24 lg:mx-40 xl:mx-56 2xl:mx-80">
         {/* Experience Header */}
-        <h5
-          className="animate-text bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text uppercase text-transparent
+        <Link href={"/#experience"}>
+          <h5
+            className="animate-text bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text uppercase text-transparent
           transition-all duration-300 ease-in-out"
-        >
-          Experience
-        </h5>
+          >
+            Experience
+          </h5>
+        </Link>
 
         {/* Company Name*/}
         <h1 className="mt-5 font-mohave text-6xl font-bold">
@@ -80,9 +84,23 @@ export default async function ExperiencePage({
         {/* Summary */}
         <h4 className="italic">{experience.attributes.summary}</h4>
 
+        {/* Project Links */}
+        {experience.attributes.icons.data ? (
+          <div className="flex flex-row gap-4 pt-3">
+            {experience.attributes.icons.data.map((icon) => (
+              <div
+                className="transition-all duration-300 hover:opacity-70"
+                key={icon.attributes.title}
+              >
+                <Icon icon={icon}></Icon>
+              </div>
+            ))}
+          </div>
+        ) : null}
+
         {/* Main Content */}
         <div
-          className="my-12 text-justify first-letter:float-left first-letter:mr-3 first-letter:text-7xl
+          className="my-10 text-justify first-letter:float-left first-letter:mr-3 first-letter:text-7xl
           first-letter:text-white first-line:uppercase first-line:tracking-widest"
         >
           <BlockRendererClient content={experience.attributes.content} />
