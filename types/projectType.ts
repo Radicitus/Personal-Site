@@ -6,6 +6,7 @@ import { IconType } from "@/types/IconType";
 export type ProjectType = {
   attributes: {
     title: string;
+    subtitle: string;
     description: string;
     rank: number;
     cover: {

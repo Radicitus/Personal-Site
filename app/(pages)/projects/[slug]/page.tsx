@@ -56,7 +56,7 @@ export default async function ProjectPage({
 
         {/* Creator and Dates */}
         <div className="mb-5 flex flex-col sm:flex-row">
-          <h4 className="text-xl font-light">{"Made by Cam"}</h4>
+          <h4 className="text-xl font-light">{project.attributes.subtitle}</h4>
           <div className="hidden self-center px-2.5 pt-1 font-light opacity-70 sm:block">
             •
           </div>
