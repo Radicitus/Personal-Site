@@ -56,7 +56,7 @@ export default async function ProjectPage({
 
         {/* Creator and Dates */}
         <div className="mb-5 flex flex-col sm:flex-row">
-          <h4 className="text-xl font-light">{"Made by Cam"}</h4>
+          <h4 className="text-xl font-light">{project.attributes.subtitle}</h4>
           <div className="hidden self-center px-2.5 pt-1 font-light opacity-70 sm:block">
             •
           </div>
@@ -94,7 +94,7 @@ export default async function ProjectPage({
 
         {/* Main Content */}
         <div
-          className="my-10 text-justify first-letter:float-left first-letter:mr-3 first-letter:text-7xl
+          className="my-10 first-letter:float-left first-letter:mr-3 first-letter:text-7xl
           first-letter:text-white first-line:uppercase first-line:tracking-widest"
         >
           <BlockRendererClient content={project.attributes.content} />

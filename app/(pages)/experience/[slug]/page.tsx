@@ -100,7 +100,7 @@ export default async function ExperiencePage({
 
         {/* Main Content */}
         <div
-          className="my-10 text-justify first-letter:float-left first-letter:mr-3 first-letter:text-7xl
+          className="my-10 first-letter:float-left first-letter:mr-3 first-letter:text-7xl
           first-letter:text-white first-line:uppercase first-line:tracking-widest"
         >
           <BlockRendererClient content={experience.attributes.content} />
@@ -111,7 +111,7 @@ export default async function ExperiencePage({
           <div className="text-center font-mohave text-2xl uppercase">
             Key Contributions
           </div>
-          <div className="mt-4 text-justify">
+          <div className="mt-4">
             <BlockRendererClient
               content={experience.attributes.contributions}
             />
