@@ -1,5 +1,5 @@
 import "./globals.css";
-import { mohave, quicksand, fontSans } from "@/app/fonts";
+import { mohave, quicksand, inter } from "@/app/fonts";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 // COMPONENTS
@@ -13,7 +13,7 @@ export const metadata = {
 
 export const revalidate = 60;
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -22,10 +22,8 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`
-      ${mohave.variable} ${fontSans.variable}
-      ${quicksand.variable} ${quicksand.className} 
-      scroll-smooth
-      `}
+      ${mohave.variable} ${inter.variable} ${quicksand.variable} overscroll-none
+      scroll-smooth font-quicksand`}
     >
       <body className="bg-black text-white">
         <NavContainer />

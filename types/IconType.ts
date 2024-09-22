@@ -5,9 +5,7 @@ export type IconType = {
     title: string;
     type: string;
     link: {
-      data: {
-        attributes: LinkType;
-      };
+      data: LinkType;
     };
   };
 };

@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export default async function StaticBadge() {
   return (
-    <div className="mb-20 flex max-w-xl flex-col">
+    <div className="flex max-w-xl flex-col bg-black pb-32">
       <Image
-        src={"/static-badge.png"}
+        src={"/Badge Assets/static-badge.png"}
         alt={"Static badge image"}
         width={2000}
         height={2000}

@@ -1,24 +1,22 @@
-// TYPES
-import { LinkType } from "@/types/linkType";
 // HELPERS
 import { isMobileDevice } from "@/utils/isMobileDevice";
 // COMPONENTS
 import NavBar from "@/components/Marginals/Nav/NavBar";
 import NavDrawer from "@/components/Marginals/Nav/NavDrawer";
+import { NavType } from "@/types/navType";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
-export default function NavContainer() {
-  const navLinks: LinkType[] = [
-    // { title: "/", path: "/", target: "_self" },
-    // { title: "Experience", path: "/experience", target: "_self" },
-    // { title: "Projects", path: "/projects", target: "_self" },
-    // { title: "About", path: "/about", target: "_self" },
-  ];
+export default async function NavContainer() {
+  // Get nav data from Strapi
+  const navQueryUrl = "/nav?populate=*";
+  const nav: NavType = await fetch(process.env.CMS_URL + navQueryUrl).then(
+    (res) => res.json()
+  );
 
   return isMobileDevice() ? (
-    <NavDrawer links={navLinks} />
+    <NavDrawer links={nav.data.attributes.links.data} />
   ) : (
-    <NavBar links={navLinks} />
+    <NavBar links={nav.data.attributes.links.data} />
   );
 }

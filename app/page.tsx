@@ -1,19 +1,27 @@
+// COMPONENTS
 import DynamicBadge from "@/components/Badge/DynamicBadge";
-import { isMobileDevice } from "@/utils/isMobileDevice";
 import StaticBadge from "@/components/Badge/StaticBadge";
-
-export const revalidate = 1200;
+import ExperienceContainer from "@/components/Experience/ExperienceContainer";
+import ProjectsContainer from "@/components/ProjectsContainer";
+// HELPERS
+import { isMobileDevice } from "@/utils/isMobileDevice";
 
 export default function Home() {
   return (
     <>
       {isMobileDevice() ? (
-        <main id="home" className="flex w-full justify-center">
+        <main id="home" className="flex flex-col justify-center">
           <StaticBadge />
+          <ExperienceContainer />
+          <ProjectsContainer />
         </main>
       ) : (
-        <main id="home" className="flex h-screen w-full justify-center">
-          <DynamicBadge />
+        <main id="home" className="flex flex-col">
+          <div className="h-screen">
+            <DynamicBadge />
+          </div>
+          <ExperienceContainer />
+          <ProjectsContainer />
         </main>
       )}
     </>
